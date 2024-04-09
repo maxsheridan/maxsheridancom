@@ -1,0 +1,174 @@
+@font-face {
+    font-family: 'ABC Diatype';
+    src: url('/assets/type/ABC_Diatype.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: optional;
+}
+
+@font-face {
+    font-family: 'ABC Diatype Medium';
+    src: url('/assets/type/ABC_Diatype_Medium.woff2') format('woff2');
+    font-style: 500;
+    font-display: optional;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overscroll-behavior: none;
+}
+
+html {
+    font-size: 16px;
+    cursor: url('/assets/graphics/smiley_point.svg'), auto;
+}    
+
+html a:hover {
+    cursor: url('/assets/graphics/smiley_hover.svg'), auto;
+}
+
+body {
+    background: #0E000E url('/assets/covers/background.webp') no-repeat 15% center/cover;
+    height: 100vh; 
+    height: 100dvh;
+    overflow-y: hidden;
+    margin: 0;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+main {
+    height: 100vh;
+    height: 100dvh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.page {
+    height: 100%;
+}
+
+.content {
+    padding: 1.5rem;
+}
+
+p {
+    font-family: 'ABC Diatype', Arial, Helvetica, sans-serif;
+    font-size: clamp(1.15rem,3vw,1.3rem);
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.5;
+    color: #FFFEFC;
+    max-width: 45rem;
+    margin: 1rem 0 0 0;
+}
+
+h2 {
+    font-family: 'ABC Diatype', Arial, Helvetica, sans-serif;
+    font-size: clamp(1.7rem,3.5vw,2.5rem);
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.3;
+}
+
+h1 {
+    font-family: 'ABC Diatype Medium', Arial, Helvetica, sans-serif;
+    font-size: clamp(2.75rem,6vw,3.75rem); 
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1.2;
+    color: #FFFEFC;
+    margin: 3rem 0 1.5rem 0;
+}
+
+a {
+    color: #FFFEFC;
+    text-decoration: none;
+}
+
+.no-link a {
+    pointer-events: none;
+}
+
+h2 a {
+    color: #39FF14;
+}
+
+@media only screen and (min-width: 840px) {
+	#copyright {
+        position: fixed;
+        right: 1.625rem;
+        bottom: 1.656rem;
+        transform-origin: bottom right;
+        transform: rotate(90deg) translateY(50%);
+    }
+}    
+
+/*Mobile*/
+
+@media only screen and (max-width: 768px) {
+    .content {
+        padding: 1.5rem 1rem;
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    #home p {
+        max-width: 360px;
+    }
+}
+
+/*Classes*/
+
+svg.arrow-upper-right-light {
+    width: clamp(12px,1.75vw,13.5px);
+    height: auto;
+    margin: 0 0 .1rem -.1rem;
+}
+
+#home a:not(:last-of-type) svg.arrow-upper-right-light {
+    margin-right: .5rem; /*menu*/
+}
+
+svg.arrow-upper-left {
+    width: clamp(16px,2vw,24px);
+    height: auto;
+    margin: 0 .25rem .3rem 0; 
+}
+
+@media only screen and (max-width: 480px) {
+    svg.arrow-upper-left {
+        margin-bottom: .2rem;
+    }
+}
+
+.blink {
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    -webkit-animation-name: blink;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+}
+
+@keyframes blink {
+    0%, 15% {
+        opacity: 0;
+    }
+    16%, 100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes blink {
+    0%, 15% {
+        opacity: 0;
+    }
+    16%, 100% {
+        opacity: 1;
+    }
+}
