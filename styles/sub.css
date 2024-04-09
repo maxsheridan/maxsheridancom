@@ -270,7 +270,7 @@ svg.arrow-upper-right-dark {
 .hover-title {
     display: inline;
     pointer-events: auto;
-    cursor: pointer;
+    cursor: unset;
 }
 
 .hover-image {
