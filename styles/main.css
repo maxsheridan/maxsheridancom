@@ -90,6 +90,11 @@ a {
     text-decoration: none;
 }
 
+#home a:nth-child(2) {
+    margin-left: clamp(.1rem,1vw,.25rem);
+    margin-right: clamp(.1rem,1vw,.25rem);
+}
+
 .no-link a {
     pointer-events: none;
 }
