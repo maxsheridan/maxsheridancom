@@ -129,6 +129,10 @@ h2 a {
 
 /*Classes*/
 
+svg.logo {
+    margin-top: .25rem;
+}
+
 svg.arrow-upper-right-light {
     width: clamp(12px,1.75vw,13.5px);
     height: auto;
