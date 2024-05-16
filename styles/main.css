@@ -155,7 +155,8 @@ svg.arrow-upper-left {
     }
 }
 
-#phraseContainer {
+#phraseContainer,
+#clock {
     font-family: 'ABC Diatype', Arial, Helvetica, sans-serif;
     font-size: 1.15rem;
     font-weight: 400;
