@@ -111,7 +111,22 @@ h2 a {
         transform-origin: bottom right;
         transform: rotate(90deg) translateY(50%);
     }
-}    
+} 
+
+#tagline {
+    position: fixed;
+    left: 1.5rem;
+}     
+
+#socials {
+    position: fixed;
+    right: 1.5rem;
+}
+
+#tagline p,
+#socials p {
+    margin-top: 0;
+}
 
 /*Mobile*/
 
@@ -128,10 +143,6 @@ h2 a {
 }
 
 /*Classes*/
-
-svg.logo {
-    margin-top: .25rem;
-}
 
 svg.arrow-upper-right-light {
     width: clamp(12px,1.75vw,13.5px);
@@ -154,18 +165,6 @@ svg.arrow-upper-left {
         margin-bottom: .2rem;
     }
 }
-
-#phraseContainer,
-#clock {
-    font-family: 'ABC Diatype', Arial, Helvetica, sans-serif;
-    font-size: 1.15rem;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 1.5;
-    color: #FFFEFC;
-    padding-top: .25rem;
-}
-
 .blink {
     animation-name: blink;
     animation-duration: 1s;
