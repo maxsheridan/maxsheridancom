@@ -102,6 +102,10 @@ p {
     margin: 0;
 }
 
+#ncmg p {
+	margin: 1rem 0 0 0;
+}
+
 h2 {
     font-family: 'ABC Diatype', Arial, Helvetica, sans-serif;
     font-size: clamp(1.04rem,2.7vw,1.17rem);
