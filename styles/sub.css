@@ -99,7 +99,11 @@ p {
     font-style: normal;
     color: #111;
     line-height: 1.5;
-    margin: 1rem 0 0 0;
+    margin: 0;
+}
+
+#ncmg p {
+	margin: 1rem 0 0 0;
 }
 
 h2 {
@@ -198,7 +202,7 @@ hr {
 
 .finger {
     text-align: center;
-    padding: 3rem 0;
+    padding: 3.75rem 0;
 }
 
 .coda {
