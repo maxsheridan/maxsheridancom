@@ -3,7 +3,7 @@
     src: url('/assets/type/ABC_Diatype.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
-    font-display: optional;
+    font-display: swap;
 }
 
 @font-face {
@@ -11,7 +11,7 @@
     src: url('/assets/type/ABC_Diatype_Medium.woff2') format('woff2');
     font-weight: 500;
     font-style: normal;
-    font-display: optional;
+    font-display: swap;
 }
 
 @keyframes fadeIn {
