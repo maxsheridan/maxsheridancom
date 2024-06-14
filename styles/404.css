@@ -9,7 +9,8 @@
 @font-face {
     font-family: 'ABC Diatype Medium';
     src: url('/assets/type/ABC_Diatype_Medium.woff2') format('woff2');
-    font-style: 500;
+    font-weight: 500;
+    font-style: normal;
     font-display: swap;
 }
 
