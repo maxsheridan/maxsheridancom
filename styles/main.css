@@ -32,9 +32,6 @@ html a:hover {
 
 body {
     background: #0E000E url('/assets/covers/background.webp') no-repeat 15% center/cover;
-    height: 100vh; 
-    height: 100dvh;
-    overflow-y: hidden;
     margin: 0;
     -webkit-text-size-adjust: none;
     -moz-text-size-adjust: none;
@@ -42,15 +39,9 @@ body {
     text-size-adjust: none;
 }
 
-main {
-    height: 100vh;
-    height: 100dvh;
-    margin: 0;
-    overflow: hidden;
-}
-
 .page {
-    height: 100%;
+    height: 100vh; 
+    height: 100dvh;
 }
 
 .content {
@@ -104,15 +95,7 @@ h2 a {
     color: #39FF14;
 }
 
-@media only screen and (min-width: 840px) {
-	#copyright {
-        position: fixed;
-        right: 1.625rem;
-        bottom: 1.656rem;
-        transform-origin: bottom right;
-        transform: rotate(90deg) translateY(50%);
-    }
-} 
+/*Classes*/
 
 #tagline {
     position: fixed;
@@ -129,21 +112,15 @@ h2 a {
     margin-top: 0;
 }
 
-/*Mobile*/
-
-@media only screen and (max-width: 768px) {
-    .content {
-        padding: 1.5rem 1rem;
+@media only screen and (min-width: 840px) {
+	#copyright {
+        position: fixed;
+        right: 1.625rem;
+        bottom: 1.656rem;
+        transform-origin: bottom right;
+        transform: rotate(90deg) translateY(50%);
     }
-}
-
-@media only screen and (max-width: 430px) {
-    #home p {
-        max-width: 360px;
-    }
-}
-
-/*Classes*/
+} 
 
 svg.arrow-upper-right-light {
     width: clamp(12px,1.75vw,13.5px);
@@ -166,6 +143,7 @@ svg.arrow-upper-left {
         margin-bottom: .2rem;
     }
 }
+
 .blink {
     animation-name: blink;
     animation-duration: 1s;
@@ -193,28 +171,16 @@ svg.arrow-upper-left {
     }
 }
 
-.rotate {
-    display: flex;
-    animation: rotate 20s linear infinite;
-    -o-animation: rotate 20s linear infinite;
-    -moz-animation: rotate 20s linear infinite;
-    -webkit-animation: rotate 20s linear infinite;   
-}
+/*Mobile*/
 
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
+@media only screen and (max-width: 768px) {
+    .content {
+        padding: 1.5rem 1rem;
     }
 }
 
-@-webkit-keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
+@media only screen and (max-width: 430px) {
+    #home p {
+        max-width: 360px;
     }
 }
