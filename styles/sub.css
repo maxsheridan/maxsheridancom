@@ -59,7 +59,6 @@ body {
 
 .page {
     display: flex;
-    width: 100%;
     height: 100%;
     background: #19199D;
 }
@@ -160,30 +159,6 @@ hr {
     display: block;
 }
 
-/*Mobile*/
-
-@media (max-width: 768px) {
-    .page {
-        display: block;
-        height: 100%;
-    }
-
-    .cover {
-        position: relative;
-        height: 50vh;
-        border-right: none;
-        border-bottom: 5px solid #111;
-    }
-
-    .text-inner {
-        padding: 3rem 1rem;
-    }
-
-    #ncmg .text-inner {
-        max-width: 42rem;
-    }
-}
-
 /*——Classes*/
 
 .dropcap {
@@ -205,13 +180,6 @@ hr {
     text-align: center;
     color: #111;
     padding: 4rem 0 6rem 0;
-}
-
-@media screen and (max-width: 768px) {
-    .coda img {
-        height: 36px;
-        width: 25px;
-    }
 }
 
 .links {
@@ -316,4 +284,33 @@ h2.ncmg {
     width: auto;
     height: auto;
     margin-bottom: 0;
+}
+
+/*Mobile*/
+
+@media (max-width: 768px) {
+    .page {
+        display: block;
+        height: 100%;
+    }
+
+    .cover {
+        position: relative;
+        height: 50vh;
+        border-right: none;
+        border-bottom: 5px solid #111;
+    }
+
+    .text-inner {
+        padding: 3rem 1rem;
+    }
+
+    #ncmg .text-inner {
+        max-width: 42rem;
+    }
+
+    .coda img {
+        height: 36px;
+        width: 25px;
+    }
 }
