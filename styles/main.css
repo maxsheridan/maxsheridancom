@@ -32,16 +32,15 @@ html a:hover {
 
 body {
     background: #0E000E url('/assets/covers/background.webp') no-repeat 15% center/cover;
-    margin: 0;
-    -webkit-text-size-adjust: none;
-    -moz-text-size-adjust: none;
     -ms-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
     text-size-adjust: none;
 }
 
 .page {
-    height: 100vh; 
     height: 100dvh;
+    height: 100vh; 
 }
 
 .content {
@@ -145,12 +144,12 @@ svg.arrow-upper-left {
 }
 
 .blink {
-    animation-name: blink;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
     -webkit-animation-name: blink;
     -webkit-animation-duration: 1s;
     -webkit-animation-iteration-count: infinite;
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
 }
 
 @keyframes blink {

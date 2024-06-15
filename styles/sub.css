@@ -50,16 +50,16 @@ html a:hover {
 
 body { 
     background: transparent;
-    margin: 0;
-    -webkit-text-size-adjust: none;
-    -moz-text-size-adjust: none;
     -ms-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
     text-size-adjust: none;
 } 
 
 .page {
     display: flex;
-    height: 100%;
+    min-height: 100dvh;
+    min-height: 100vh;
     background: #19199D;
 }
 
@@ -217,12 +217,12 @@ h2.ncmg {
 /*——Blink*/
 
 .blink {
-    animation-name: blink;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
     -webkit-animation-name: blink;
     -webkit-animation-duration: 1s;
     -webkit-animation-iteration-count: infinite;
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
 }
 
 @keyframes blink {
