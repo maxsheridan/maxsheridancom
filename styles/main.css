@@ -82,9 +82,10 @@ a {
 }
 
 #home a:nth-child(2) {
-    margin-left: clamp(.1rem,1vw,.25rem);
-    margin-right: clamp(.1rem,1vw,.25rem);
+    margin-left: clamp(.5rem,1.5vw,1rem);
+    margin-right: clamp(.5rem,1.5vw,1rem);
 }
+
 
 .no-link a {
     pointer-events: none;
@@ -112,7 +113,7 @@ h2 a {
 }
 
 @media only screen and (min-width: 840px) {
-	#copyright {
+	.copyright {
         position: fixed;
         right: 1.625rem;
         bottom: 1.656rem;
@@ -125,10 +126,6 @@ svg.arrow-upper-right-light {
     width: clamp(12px,1.75vw,13.5px);
     height: auto;
     margin: 0 0 .1rem -.1rem;
-}
-
-#home a:not(:last-of-type) svg.arrow-upper-right-light {
-    margin-right: .5rem; /*menu*/
 }
 
 svg.arrow-upper-left {
