@@ -98,7 +98,6 @@ p {
     font-style: normal;
     color: #111;
     line-height: 1.5;
-    margin: 0;
 }
 
 h2 {
@@ -291,7 +290,6 @@ h2.ncmg {
 @media (max-width: 768px) {
     .page {
         display: block;
-        height: 100%;
     }
 
     .cover {
