@@ -33,7 +33,6 @@ html a:hover {
 body {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     min-height: 100dvh;
     min-height: 100vh;
     background: #0E000E url('/assets/covers/background.webp') no-repeat 15% center/cover;
@@ -59,8 +58,6 @@ main {
 }
 
 .content {
-    position: absolute;
-    width: 100%;
     padding-left: 1.5rem;
 }
 
