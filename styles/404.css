@@ -82,5 +82,5 @@ a {
 svg.arrow-upper-right-light {
     width: clamp(12px,1.75vw,13.5px);
     height: auto;
-    margin: 0 .5rem .1rem -.1rem;
+    margin-left: .25rem;
 }
