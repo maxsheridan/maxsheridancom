@@ -99,8 +99,8 @@ nav a {
 }
 
 nav a:nth-child(2) {
-    margin-left: clamp(.5rem,1.75vw,1rem);
-    margin-right: clamp(.5rem,1.75vw,1rem);
+    margin-left: clamp(.5rem,3vw,.9rem);
+    margin-right: clamp(.5rem,3vw,.9rem);
 }
 
 /*Classes*/
