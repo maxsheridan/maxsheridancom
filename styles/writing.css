@@ -31,28 +31,27 @@ html a:hover {
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
     min-height: 100dvh;
     min-height: 100vh;
     background: #0E000E url('/assets/covers/background.webp') no-repeat 15% center/cover;
+    background-attachment: fixed;
     -ms-text-size-adjust: none;
     -moz-text-size-adjust: none;
     -webkit-text-size-adjust: none;
     text-size-adjust: none;
 }
 
-.page {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
+header {
+    padding: 1.5rem 1.5rem;
+} 
 
 .content {
-    position: absolute;
-    width: 100%;
+    display: block;
     padding-left: 1.5rem;
+}
+
+footer {
+    padding: 0 1.5rem 1.5rem;
 }
 
 p {
@@ -63,15 +62,16 @@ p {
     line-height: 1.5;
     color: #FFFEFC;
     max-width: 45rem;
-    margin: 1rem 0;
+    margin: 1rem 0 0 0;
 }
 
-h2 {
+h2, h2 a {
     font-family: 'ABC Diatype', Arial, Helvetica, sans-serif;
     font-size: clamp(1.7rem,3.5vw,2.5rem);
     font-weight: 400;
     font-style: normal;
     line-height: 1.3;
+    color: #39FF14;
 }
 
 h1 {
@@ -84,30 +84,20 @@ h1 {
     margin: 3rem 0 1.5rem 0;
 }
 
+#novels h1 {
+    margin-top: 1.5rem;
+}
+
 a {
     color: #FFFEFC;
     text-decoration: none;
 }
 
-footer {
-    padding: 0 1.5rem 1.5rem;
-}
-
-nav a {
-    font-family: 'ABC Diatype', Arial, Helvetica, sans-serif;
-    font-size: clamp(1.15rem,3vw,1.3rem);
-    font-weight: 400;
-    font-style: normal;
-    line-height: 1.5;
-    color: #FFFEFC;
-}
-
-nav a:nth-child(2) {
-    margin-left: clamp(.5rem,1.75vw,1rem);
-    margin-right: clamp(.5rem,1.75vw,1rem);
-}
-
 /*Classes*/
+
+.no-link {
+    pointer-events: none;
+}
 
 @media only screen and (min-width: 840px) {
 	.copyright {
@@ -125,13 +115,40 @@ svg.arrow-upper-right-light {
     margin: 0 0 .1rem .25rem;
 }
 
-/*Mobile*/
+svg.arrow-upper-left {
+    width: clamp(15px,2vw,24px);
+    height: auto;
+    margin: 0 .25rem .3rem 0; 
+}
 
-@media only screen and (max-width: 430px) {
-    #about p {
-        max-width: 360px;
+.blink {
+    -webkit-animation-name: blink;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes blink {
+    0%, 15% {
+        opacity: 0;
+    }
+    16%, 100% {
+        opacity: 1;
     }
 }
+
+@-webkit-keyframes blink {
+    0%, 15% {
+        opacity: 0;
+    }
+    16%, 100% {
+        opacity: 1;
+    }
+}
+
+/*Mobile*/
 
 @media only screen and (max-width: 768px) {
     .content {
@@ -140,5 +157,9 @@ svg.arrow-upper-right-light {
 
     footer {
         padding: 0 1rem 1.5rem; 
+    }
+
+    header {
+        padding: 1.5rem 1rem;
     }
 }
