@@ -103,7 +103,7 @@ a {
 	.copyright {
         position: fixed;
         right: 1.625rem;
-        bottom: 1.656rem;
+        bottom: 1.9rem;
         transform-origin: bottom right;
         transform: rotate(90deg) translateY(50%);
     }
