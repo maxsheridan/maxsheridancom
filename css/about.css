@@ -44,12 +44,6 @@ body {
     text-size-adjust: none;
 }
 
-.page {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
-
 .content {
     padding: 0 1.5rem 0;
 }
