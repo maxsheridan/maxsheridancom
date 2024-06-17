@@ -43,15 +43,7 @@ body {
     text-size-adjust: none;
 }
 
-.page {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
-
 .content {
-    position: absolute;
-    width: 100%;
     padding-left: 1.5rem;
 }
 
