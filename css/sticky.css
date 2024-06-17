@@ -172,7 +172,13 @@ hr {
 
 .finger {
     text-align: center;
-    padding: 3.75rem 0;
+    padding-top: clamp(2rem,2.25vw,2.5rem);
+    padding-bottom: clamp(2rem,2.25vw,2.5rem);
+}
+
+svg.finger {
+    width: clamp(21px,2.25vw,23px);
+    height: auto;
 }
 
 .skull {
