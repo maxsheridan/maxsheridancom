@@ -177,8 +177,12 @@ hr {
 
 .coda {
     text-align: center;
-    color: #111;
-    padding: 4rem 0 6rem 0;
+    padding: 2rem 0 2rem;
+}
+
+svg.coda {
+    width: clamp(24px,2.25vw,26px);
+    height: auto;
 }
 
 .links {
@@ -198,9 +202,9 @@ hr {
 }
 
 svg.arrow-upper-right-dark {
-    width: clamp(15px,3vw,22px);
+    width: clamp(15px,2.25vw,22px);
     height: auto;
-    margin: 0 0 .1rem -.1rem;
+    margin: 0 0 .1rem .3rem;
 }
 
 h2.ncmg {
