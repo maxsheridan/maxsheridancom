@@ -63,6 +63,7 @@ p {
     line-height: 1.5;
     color: #FFFEFC;
     max-width: 45rem;
+    margin: 1rem 0 0;
 }
 
 h2 {
@@ -93,7 +94,7 @@ footer {
 }
 
 nav {
-    padding: 1rem 0;
+    padding: 1rem 0 0;
 }
 
 nav a {
