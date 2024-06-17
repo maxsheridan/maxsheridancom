@@ -183,8 +183,12 @@ svg.finger {
 
 .skull {
     text-align: center;
-    padding-top: clamp(1rem, 3vw, 1.5rem);
-    padding-bottom: 1rem;
+    padding: 1rem 0;
+}
+
+svg.skull {
+    width: clamp(40.5px,2.25vw,44px);
+    height: auto;
 }
 
 .coda {
@@ -202,17 +206,6 @@ svg.coda {
 	flex-direction: row; 
 	justify-content: space-between;
 }	
-
-.skull {
-    text-align: center;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-}
-
-svg.skull {
-    width: clamp(40.5px,2.25vw,44px);
-    height: auto;
-}
 
 .part:not(.fin) {
     padding-bottom: clamp(3rem,5vw,4rem);
