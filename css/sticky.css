@@ -175,6 +175,12 @@ hr {
     padding: 3.75rem 0;
 }
 
+.skull {
+    text-align: center;
+    padding-top: clamp(1rem, 3vw, 1.5rem);
+    padding-bottom: 1rem;
+}
+
 .coda {
     text-align: center;
     padding: 2rem 0 2rem;
@@ -193,8 +199,13 @@ svg.coda {
 
 .skull {
     text-align: center;
-    padding-top: clamp(1rem, 3vw, 1.5rem);
+    padding-top: 1rem;
     padding-bottom: 1rem;
+}
+
+svg.skull {
+    width: clamp(40.5px,2.25vw,44px);
+    height: auto;
 }
 
 .part:not(.fin) {
