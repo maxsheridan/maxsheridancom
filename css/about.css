@@ -36,6 +36,7 @@ body {
     justify-content: flex-end;
     height: 100vh;
     height: 100dvh;
+    overflow-y: hidden;
     background: #0E000E url('/assets/covers/background.webp') no-repeat 15% center/cover;
     -ms-text-size-adjust: none;
     -moz-text-size-adjust: none;
@@ -47,8 +48,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    height: 100vh;
-    height: 100dvh;
 }
 
 .content {
