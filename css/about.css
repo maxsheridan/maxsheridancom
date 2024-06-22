@@ -83,6 +83,7 @@ a {
 }
 
 footer {
+    width: 100%;
     padding: 0 1.5rem 1.5rem;
 }
 
@@ -104,15 +105,25 @@ nav a:nth-child(2) {
     margin-right: clamp(.5rem,3vw,.9rem);
 }
 
+nav.links {
+    width: 100%;
+}
+
 /*Classes*/
 
-@media only screen and (min-width: 840px) {
+@media only screen and (min-width: 800px) {
 	.copyright {
-        position: fixed;
-        right: 1.625rem;
-        bottom: 1.9rem;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
         transform-origin: bottom right;
-        transform: rotate(90deg) translateY(50%);
+        transform: rotate(90deg) translateY(50%) translateX(-2%);
+        width: 100%;
+    }
+
+    footer {
+        display: flex;
+        align-items: flex-end;
     }
 } 
 
