@@ -120,7 +120,7 @@ nav.links {
         justify-content: flex-end;
         align-items: flex-end;
         transform-origin: bottom right;
-        transform: rotate(90deg) translateY(50%) translateX(-2%);
+        transform: rotate(90deg) translateY(50%) translateX(-.5rem);
         width: 100%;
     }
 
