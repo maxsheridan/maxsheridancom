@@ -37,22 +37,12 @@ body {
     justify-content: flex-end;
     min-height: 100vh;
     min-height: 100dvh;
+    background: #0E000E url('/assets/covers/background.webp') no-repeat 15% center/cover;
+    background-attachment: fixed;
     -ms-text-size-adjust: none;
     -moz-text-size-adjust: none;
     -webkit-text-size-adjust: none;
     text-size-adjust: none;
-}
-
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 100vh;
-    min-height: 100dvh;
-    background: #0E000E url('/assets/covers/background.webp') no-repeat 15% center/cover;
-    z-index: -1;
 }
 
 header {
