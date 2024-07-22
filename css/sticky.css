@@ -217,7 +217,7 @@ svg.coda {
 }	
 
 .part:not(.fin) {
-    padding-bottom: clamp(3rem,5vw,5rem);
+    padding-bottom: 5rem;
 }
 
 svg.arrow-upper-right-dark {
