@@ -1,0 +1,328 @@
+@font-face {
+    font-family: 'ABC Diatype';
+    src: url('/assets/type/ABC_Diatype.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ABC Diatype Medium';
+    src: url('/assets/type/ABC_Diatype_Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: .1;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: .1;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overscroll-behavior: none;
+}
+
+html {
+    font-size: 16px;
+    cursor: url('/assets/graphics/smiley_point.svg'), auto;
+}
+
+html a:hover {
+    cursor: url('/assets/graphics/smiley_hover.svg'), auto;
+}
+
+body { 
+    background: transparent;
+    -ms-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+} 
+
+.page {
+    display: flex;
+    min-height: 100dvh;
+    min-height: 100vh;
+    background: #19199D;
+}
+
+.cover {
+    flex: 1;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    border-right: 5px solid #111;
+    animation: fadeIn 1.5s ease forwards;
+    -webkit-animation: fadeIn 1.5s ease forwards; 
+}
+
+.text {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    background: #FFFEFC;
+}
+
+.text-inner {
+    max-width: 45rem;
+    padding: 3rem 2rem;
+}
+
+#ncmg .text-inner {
+    max-width: 44rem;
+}
+
+p {
+    font-family: 'ABC Diatype', Helvetica, Arial, sans-serif;
+    font-size: clamp(1.15rem,3vw,1.3rem);
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.5;
+    color: #111;
+    margin: 0 0 1rem;
+}
+
+h2 {
+    font-family: 'ABC Diatype', Helvetica, Arial, sans-serif;
+    font-size: clamp(1.04rem,2.7vw,1.17rem);
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.45;
+    color: #111;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-family: 'ABC Diatype', Helvetica, Arial, sans-serif;
+    font-size: clamp(1.53rem,3.6vw,2.16rem);
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.2;
+    color: #111;
+    margin: 0 0 .75rem;
+}
+
+h1 {
+    font-family: 'ABC Diatype Medium', Helvetica, Arial, sans-serif;
+    font-size: clamp(1.7rem,4vw,2.4rem);
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1.2;
+    color: #111;
+    margin: 0 0 1.5rem 0;
+}
+
+i,
+em {
+    font-style: italic;
+}
+
+b,
+strong {
+    font-family: 'ABC Diatype Medium', Helvetica, Arial, sans-serif;
+    font-weight: 500;
+}
+
+a {
+    color: #111;
+    text-decoration: none;
+}
+
+blockquote {
+    margin: 3rem auto;
+    padding: 0 .5rem 0 .5rem;
+}
+
+hr {
+    display: block;
+    height: 5px;
+    border: 0;
+    background: #111;
+}
+
+/*——Classes*/
+
+.dropcap {
+    float: left;
+    padding: .75rem .5rem .75rem 0rem;
+    font-family: "ABC Diatype", Helvetica, Arial, sans-serif;
+    font-size: 7rem;
+    font-weight: 800;
+    line-height: 4.5rem;
+    color: #111;
+}
+
+.finger {
+    text-align: center;
+    padding-top: clamp(2rem,2.25vw,2.5rem);
+    padding-bottom: clamp(2rem,2.25vw,2.5rem);
+}
+
+svg.finger {
+    width: clamp(21px,2.25vw,23px);
+    height: auto;
+}
+
+.skull {
+    text-align: center;
+    padding: 0 0 .75rem;
+}
+
+#one .skull {
+    padding-top: 1.5rem;
+}
+
+svg.skull {
+    width: clamp(40.5px,2.25vw,44px);
+    height: auto;
+}
+
+.part h3 {
+    margin: 0 0 3rem;
+}
+
+.coda {
+    text-align: center;
+    padding: 2rem 0 2rem;
+}
+
+svg.coda {
+    width: clamp(24px,2.25vw,26px);
+    height: auto;
+}
+
+.links {
+	display: flex; 
+	flex-direction: row; 
+	justify-content: space-between;
+}	
+
+.part:not(.fin) {
+    padding-bottom: clamp(3rem,5vw,5rem);
+}
+
+svg.arrow-upper-right-dark {
+    width: clamp(15px,2.25vw,22px);
+    height: auto;
+    margin: 0 0 .1rem .3rem;
+}
+
+h2.ncmg {
+    font-family: 'ABC Diatype', Helvetica, Arial, sans-serif;
+    font-size: clamp(1.53rem,3.6vw,2.16rem);
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.2;
+    color: #111;
+    margin: 0 0 .75rem 0;
+}
+
+/*——Blink*/
+
+.blink {
+    -webkit-animation-name: blink;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes blink {
+    0%, 15% {
+        opacity: 0;
+    }
+    16%, 100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes blink {
+    0%, 15% {
+        opacity: 0;
+    }
+    16%, 100% {
+        opacity: 1;
+    }
+}
+
+/*Hover image*/
+
+.hover-title {
+    display: inline;
+    pointer-events: auto;
+    cursor: unset;
+}
+
+.hover-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    position: fixed;
+    top: 90%;
+    left: 75%;
+    z-index: 9999;
+    width: 90vw;
+    height: 90vh;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.hover-image img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    margin-bottom: 0;
+}
+
+@media only screen and (min-width: 769px) {
+    .hover-title:hover + .hover-image {
+        visibility: visible;
+        pointer-events: none;
+    }
+}
+
+/*Mobile*/
+
+@media (max-width: 768px) {
+    .page {
+        display: block;
+    }
+
+    .cover {
+        position: relative;
+        height: 50vh;
+        border-right: none;
+        border-bottom: 5px solid #111;
+    }
+
+    .text-inner {
+        padding: 3rem 1rem;
+    }
+
+    #ncmg .text-inner {
+        max-width: 42rem;
+    }
+}
