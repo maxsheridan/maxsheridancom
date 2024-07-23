@@ -74,8 +74,8 @@ body {
 }
 
 .text {
-    flex: 1;
     display: flex;
+    flex: 1;
     align-items: center;
     justify-content: center;
     overflow-y: auto;
