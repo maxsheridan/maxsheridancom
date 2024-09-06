@@ -329,7 +329,7 @@ hr {
 }
 
 .heading:first-of-type .graphic {
-    margin-top: 2rem; /* Matches page top padding */
+    margin-top: 5rem; /* Matches page top padding */
 }
 
 .heading h2 {
