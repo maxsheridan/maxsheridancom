@@ -1,0 +1,30 @@
+<svg width="22px" height="29px" viewBox="0 0 22 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(0.761905,0,0,0.761905,-0.261997,3.52e-07)">
+        <g transform="matrix(1.4,0,0,1.4,0.481541,-7.392e-06)">
+            <path d="M3.614,12.42L3.614,13.62L4.814,13.62L4.814,16.02L6.014,16.02L6.014,1.62L8.415,1.62L8.415,12.42L9.615,12.42L9.615,7.619L12.015,7.62L12.014,8.82L12.014,12.42L13.214,12.42L13.214,8.82L15.614,8.82L15.615,10.02L15.615,13.618L16.814,13.618L16.814,10.02L18.014,10.02L18.014,11.22L19.214,11.22L19.214,19.62L18.014,19.62L18.014,23.22L16.814,23.22L16.814,25.62L7.214,25.62L7.214,23.22L6.014,23.22L6.014,20.819L4.814,20.819L4.814,18.42L3.614,18.42L3.614,16.02L2.415,16.02L2.415,14.82L1.214,14.82L1.214,12.42L3.614,12.42Z" style="fill:rgb(245,245,245);"/>
+        </g>
+        <g transform="matrix(1,0,0,1,0.481365,-7.392e-06)">
+            <rect x="6.74" y="2.1" width="1.68" height="20.16" style="fill:rgb(17,17,17);"/>
+            <rect x="8.42" y="0.42" width="3.36" height="1.68" style="fill:rgb(17,17,17);"/>
+            <rect x="11.781" y="2.1" width="1.68" height="15.12" style="fill:rgb(17,17,17);"/>
+            <rect x="13.46" y="8.82" width="3.36" height="1.68" style="fill:rgb(17,17,17);"/>
+            <rect x="16.819" y="12.18" width="1.68" height="5.04" style="fill:rgb(17,17,17);"/>
+            <rect x="16.819" y="10.5" width="5.04" height="1.68" style="fill:rgb(17,17,17);"/>
+            <rect x="21.86" y="13.86" width="1.68" height="5.037" style="fill:rgb(17,17,17);"/>
+            <rect x="21.86" y="12.18" width="3.36" height="1.68" style="fill:rgb(17,17,17);"/>
+            <rect x="25.22" y="13.86" width="1.68" height="1.68" style="fill:rgb(17,17,17);"/>
+            <rect x="26.9" y="15.54" width="1.68" height="11.76" style="fill:rgb(17,17,17);"/>
+            <rect x="25.22" y="27.3" width="1.68" height="5.04" style="fill:rgb(17,17,17);"/>
+            <rect x="23.54" y="32.34" width="1.68" height="5.04" style="fill:rgb(17,17,17);"/>
+            <rect x="8.42" y="35.7" width="15.12" height="1.68" style="fill:rgb(17,17,17);"/>
+            <rect x="5.06" y="17.22" width="1.68" height="1.68" style="fill:rgb(17,17,17);"/>
+            <rect x="0.02" y="15.54" width="5.04" height="1.68" style="fill:rgb(17,17,17);"/>
+            <rect x="0.02" y="17.22" width="1.68" height="3.36" style="fill:rgb(17,17,17);"/>
+            <rect x="1.7" y="20.58" width="1.68" height="1.68" style="fill:rgb(17,17,17);"/>
+            <rect x="3.38" y="22.26" width="1.68" height="3.359" style="fill:rgb(17,17,17);"/>
+            <rect x="5.06" y="25.62" width="1.68" height="3.36" style="fill:rgb(17,17,17);"/>
+            <rect x="6.74" y="28.98" width="1.68" height="3.36" style="fill:rgb(17,17,17);"/>
+            <rect x="8.42" y="32.34" width="1.68" height="3.36" style="fill:rgb(17,17,17);"/>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,67 @@
+#info p {
+    margin: 0;
+}
+
+form {
+    width: 100%;
+    max-width: 32rem;
+    padding: 2rem 0;
+}
+
+label {
+    font-family: var(--body-font);
+    color: var(--primary-color);
+    
+}
+
+input {
+    width: 100%;
+    margin: .5rem 0 2rem;
+    padding: 1rem .5rem 1rem .5rem;
+    border: none;
+    border-radius: .15rem .15rem .15rem .15rem;
+    font-family: var(--body-font);
+    font-size: .95rem;
+    background-color: white;
+}
+
+textarea {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 100px;
+    max-height: 600px;
+    margin: .5rem 0 1rem;   
+    padding: 1rem .5rem 1rem .5rem;
+    border: none;
+    border-radius: .15rem .15rem .15rem .15rem;
+    font-family: var(--body-font);
+    font-size: .95rem;
+    background-color: white;
+}
+
+button {
+    border: none;
+    background: none;
+    font-family: var(--body-font);
+    font-size: var(--body-font-size);
+    color: var(--primary-color);
+}
+
+button:hover {
+    text-shadow: 0 0 10px var(--quaternary-color), 0 0 15px var(--quaternary-color), 0 0 20px var(--quaternary-color);
+}
+
+::placeholder {
+    color: #808080;
+    text-decoration: line-through;
+    opacity: .4;
+}
+
+/*Thanks message*/
+
+form p {
+    font-family: var(--body-font);
+    font-size: clamp(1.063rem,3vw,1.125rem);
+    text-align: center;
+    color: var(--primary-color);
+}
