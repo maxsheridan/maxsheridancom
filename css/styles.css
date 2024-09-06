@@ -282,6 +282,7 @@ h1 {
 hr {
     display: block;
     height: 5px;
+    margin: 2rem 0;
     border: 0;
     background: var(--primary-color);
 }
@@ -321,16 +322,27 @@ hr {
 
 /* TDC */
 
+.intro {
+    margin: 2rem 0;
+}
+
+.intro hr {
+    margin: 0;
+}
+
+p.intro-text {
+    font-size: clamp(1rem,3vw,1.05rem);
+    line-height: 1.45;
+    margin: 1rem 0;
+}
+
 .heading {
     text-align: center;
+    padding-top: 2rem;
 }
 
 .heading .graphic {
     margin-bottom: 1rem;
-}
-
-.heading:first-of-type .graphic {
-    margin-top: 5rem; /* Matches page top padding */
 }
 
 .heading h2 {

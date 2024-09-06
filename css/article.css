@@ -103,7 +103,7 @@ p.intro-text {
     font-size: clamp(1rem,3vw,1.05rem);
     line-height: 1.45;
     margin: 1rem 0;
-    }
+}
     
 h2 {
     font-size: clamp(1.53rem,3.6vw,2.16rem);
