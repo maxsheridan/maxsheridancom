@@ -48,7 +48,7 @@ button {
 }
 
 button:hover {
-    text-shadow: 0 0 10px var(--quaternary-color), 0 0 15px var(--quaternary-color), 0 0 20px var(--quaternary-color);
+    text-shadow: 0 0 10px var(--highlight-color), 0 0 15px var(--highlight-color), 0 0 20px var(--highlight-color);
 }
 
 ::placeholder {
@@ -63,5 +63,5 @@ form p {
     font-family: var(--body-font);
     font-size: clamp(1.063rem,3vw,1.125rem);
     text-align: center;
-    color: var(--primary-color);
+    color: var(--overlay-accent);
 }
