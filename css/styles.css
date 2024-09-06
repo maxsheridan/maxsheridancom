@@ -225,10 +225,7 @@ a {
     color: var(--primary-color);
 }
 
-/* Pseudo-element for the curved underline */
-a:not(header a):not(footer a):not(li a),
-.link a, 
-button[type="submit"] {
+a:not(header a):not(footer a):not(li a), .link a, button[type="submit"] {
     background-image: linear-gradient(transparent 80%, var(--overlay-accent) 80%);
     background-size: 100% 10px;
     background-repeat: repeat-x;
@@ -271,16 +268,7 @@ h1 {
     font-size: clamp(2rem,3vw,2.5rem);
     font-weight: 500;
     font-style: normal;
-    margin: 0 0 1rem;
-}
-
-.page-content-inner h1 {
-    display: inline-block;
     margin: 0 0 2rem;
-}
-
-.article h1 {
-    margin: 0;
 }
 
 hr {
@@ -324,7 +312,7 @@ hr {
     width: auto;
 }
 
-/* TDC */
+/* Articles */
 
 .intro {
     margin: 2rem 0;
@@ -339,6 +327,12 @@ p.intro-text {
     line-height: 1.45;
     margin: 1rem 0;
 }
+
+.article h1 {
+    margin: 0;
+}
+
+/* TDC */
 
 .heading {
     text-align: center;
