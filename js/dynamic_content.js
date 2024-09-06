@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.documentElement;
     const themeLocalStorageKey = 'preferredTheme';
+    let submitted = false; // Used for form submission handling
 
     // SVG icons for light and dark mode
     const darkModeSVG = `
@@ -65,6 +66,36 @@ document.addEventListener('DOMContentLoaded', () => {
         initializeDarkModeToggle(); // Attach event listeners to the toggles
     }
 
+    // Function to handle form submission
+    function attachFormSubmitListener() {
+        const contactForm = document.getElementById("contactForm");
+        if (contactForm) {
+            contactForm.addEventListener("submit", function(e) {
+                if (!submitted) {
+                    e.preventDefault(); // Prevent the form from submitting normally
+                    const formElements = contactForm.querySelectorAll("*");
+                    formElements.forEach(element => element.style.display = "none"); // Hide all elements inside the form
+                    
+                    const thanksMessage = document.createElement("p");
+                    thanksMessage.textContent = "Message received.";
+                    contactForm.insertBefore(thanksMessage, contactForm.firstChild); // Prepend the message
+                    
+                    submitted = true;
+                    setTimeout(() => contactForm.submit(), 1000); // Submit the form after a delay
+                }
+            });
+
+            document.getElementById("hidden_iframe").onload = function() {
+                if (submitted) {
+                    console.log('Form submitted and iframe loaded.');
+                    submitted = false; // Reset the variable if needed
+                } else {
+                    console.error('Iframe loaded without form submission.');
+                }
+            };
+        }
+    }
+
     // Initialize dark mode on page load
     initializeDarkMode();
 
@@ -77,22 +108,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to hide the overlay or nested page, stop media, and hide the close button
     function hidePage(pageElement) {
-        // Force pause all audio and video elements in the page
         const audioElements = pageElement.querySelectorAll('audio');
         const videoElements = pageElement.querySelectorAll('video');
 
+        // Stop audio
         if (typeof Essential_Audio !== 'undefined' && Essential_Audio.active()) {
-            Essential_Audio.Stop(Essential_Audio.active()); // Stop active audio player
+            Essential_Audio.Stop(Essential_Audio.active());
         }
 
-        // Pause all video elements
+        // Pause videos
         videoElements.forEach(video => {
             video.pause();
             video.currentTime = 0; // Reset to the start
         });
 
         pageElement.classList.remove('active'); // Remove active class
-
         if (!document.querySelector('.overlay.active') && !document.querySelector('.nested.active')) {
             document.querySelector('.close-btn').style.display = 'none'; // Hide close button
             document.querySelector('.dark-mode-toggle').style.display = 'none'; // Hide dark mode toggle
@@ -104,7 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => {
             const overlay = document.getElementById('overlay-page');
             const nested = document.getElementById('nested-page');
-
             if (nested.classList.contains('active')) {
                 hidePage(nested);
             } else if (overlay.classList.contains('active')) {
@@ -123,6 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 initializePage(); // Reinitialize content after loading
                 contentDiv.scrollTop = 0; // Reset scroll position to the top of the content container
                 showPage(document.getElementById('overlay-page'));
+                attachFormSubmitListener(); // Attach form listener after content is loaded
             });
     }
 
@@ -164,6 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function initializePage() {
         initializeAudioPlayers();
         initializeVideoPlayers();
+        attachFormSubmitListener(); // Re-attach the form listener on dynamic content load
     }
 
     // Function to initialize audio players
