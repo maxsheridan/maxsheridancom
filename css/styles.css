@@ -279,6 +279,10 @@ h1 {
     margin: 0 0 2rem;
 }
 
+.article h1 {
+    margin: 0;
+}
+
 hr {
     display: block;
     height: 5px;
