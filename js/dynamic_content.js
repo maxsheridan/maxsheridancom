@@ -213,85 +213,76 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Function to initialize video players
-function initializeVideoPlayers() {
-    const videos = document.querySelectorAll('video');
-    
-    if (videos.length) {
-        videos.forEach(video => {
-            // Check if there are controls available next to the video element
-            const controls = video.nextElementSibling;
-            if (controls) {
-                const playPauseButton = controls.querySelector('.play-pause');
-                const progressBar = controls.querySelector('.progress input');
-                const progressFilled = controls.querySelector('.progress-filled');
-                
-                if (playPauseButton) {
-                    playPauseButton.addEventListener('click', () => togglePlayPause(video, playPauseButton));
-                } else {
-                    console.error('Play/Pause button not found for video');
+    function initializeVideoPlayers() {
+        const videos = document.querySelectorAll('video');
+        
+        if (videos.length) {
+            videos.forEach(video => {
+                // Check if there are controls available next to the video element
+                const controls = video.nextElementSibling;
+                if (controls) {
+                    const playPauseButton = controls.querySelector('.play-pause');
+                    const progressBar = controls.querySelector('.progress input');
+                    const progressFilled = controls.querySelector('.progress-filled');
+                    
+                    if (playPauseButton) {
+                        playPauseButton.addEventListener('click', () => togglePlayPause(video, playPauseButton));
+                    }
+
+                    video.addEventListener('play', () => updatePlayPauseButton(video, playPauseButton));
+                    video.addEventListener('pause', () => updatePlayPauseButton(video, playPauseButton));
+
+                    video.addEventListener('timeupdate', () => updateProgress(video, progressBar, progressFilled));
+
+                    if (progressBar) {
+                        progressBar.addEventListener('input', () => seekVideo(video, progressBar));
+                    }
                 }
-
-                video.addEventListener('play', () => updatePlayPauseButton(video, playPauseButton));
-                video.addEventListener('pause', () => updatePlayPauseButton(video, playPauseButton));
-
-                video.addEventListener('timeupdate', () => updateProgress(video, progressBar, progressFilled));
-
-                if (progressBar) {
-                    progressBar.addEventListener('input', () => seekVideo(video, progressBar));
-                } else {
-                    console.error('Progress bar not found for video');
-                }
-            } else {
-                console.error('No controls found next to video element');
-            }
-        });
-    } else {
-        console.warn('No video elements found on the page');
+            });
+        }
     }
-}
 
-// Toggle play and pause functionality for media players
-function togglePlayPause(media, button) {
-    if (media.paused) {
-        media.play();
-    } else {
-        media.pause();
+    // Toggle play and pause functionality for media players
+    function togglePlayPause(media, button) {
+        if (media.paused) {
+            media.play();
+        } else {
+            media.pause();
+        }
+        updatePlayPauseButton(media, button);
     }
-    updatePlayPauseButton(media, button);
-}
 
-// Update the play/pause button based on media state
-function updatePlayPauseButton(media, button) {
-    if (media.paused) {
-        button.classList.remove('pause');
-        button.classList.add('play');
-        button.setAttribute('aria-label', 'Play');
-    } else {
-        button.classList.add('pause');
-        button.classList.remove('play');
-        button.setAttribute('aria-label', 'Pause');
+    // Update the play/pause button based on media state
+    function updatePlayPauseButton(media, button) {
+        if (media.paused) {
+            button.classList.remove('pause');
+            button.classList.add('play');
+            button.setAttribute('aria-label', 'Play');
+        } else {
+            button.classList.add('pause');
+            button.classList.remove('play');
+            button.setAttribute('aria-label', 'Pause');
+        }
     }
-}
 
-// Update progress bar based on media time
-function updateProgress(media, progressBar, progressFilled) {
-    const percent = (media.currentTime / media.duration) * 100;
-    if (progressFilled) {
-        progressFilled.style.width = `${percent}%`;
+    // Update progress bar based on media time
+    function updateProgress(media, progressBar, progressFilled) {
+        const percent = (media.currentTime / media.duration) * 100;
+        if (progressFilled) {
+            progressFilled.style.width = `${percent}%`;
+        }
+        if (progressBar) {
+            progressBar.value = percent;
+        }
     }
-    if (progressBar) {
-        progressBar.value = percent;
+
+    // Seek to a specific time in the media
+    function seekVideo(media, progressBar) {
+        const seekTime = (progressBar.value / 100) * media.duration;
+        media.currentTime = seekTime;
+        const progressFilled = progressBar.closest('.progress').querySelector('.progress-filled');
+        updateProgress(media, progressBar, progressFilled);
     }
-}
-
-// Seek to a specific time in the media
-function seekVideo(media, progressBar) {
-    const seekTime = (progressBar.value / 100) * media.duration;
-    media.currentTime = seekTime;
-    const progressFilled = progressBar.closest('.progress').querySelector('.progress-filled');
-    updateProgress(media, progressBar, progressFilled);
-}
-
 
     setupNavigation();
     initializePage();
