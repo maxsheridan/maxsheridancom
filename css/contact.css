@@ -1,11 +1,7 @@
-#info p {
-    margin: 0;
-}
-
 form {
     width: 100%;
     max-width: 32rem;
-    padding: 2rem 0;
+    padding: 2rem 0 3rem;
 }
 
 label {
