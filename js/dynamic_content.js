@@ -3,7 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeLocalStorageKey = 'preferredTheme';
     let submitted = false; // Used for form submission handling
     const contentCache = {}; // Cache object to store HTML content
-    const pagesToPreload = ['/posts/ptbk', '/content/tdc']; // List of specific pages to preload
+    const pagesToPreload = ['/content/writing', '/content/info', '/content/ncmg', '/content/tdc']; // List of specific pages to preload
+    const imagesToPreload = [
+        '/images/i_knew.webp',
+        '/images/press_the_button_kim.webp',
+        'images/why.webp',
+        '/images/gods_speedboat_is_here.webp' // Add more image paths as needed
+    ];
 
         // Preload function to fetch and cache HTML content
     function preloadPages(pages) {
@@ -18,8 +24,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Call preloadPages after index page loads
+    // Preload images function
+    function preloadImages(images) {
+        images.forEach(imageSrc => {
+            const img = new Image();
+            img.src = imageSrc;
+            console.log(`Preloading image: ${imageSrc}`);
+        });
+    }
+
+    // Call preloadPages and preloadImages after index page loads
     preloadPages(pagesToPreload);
+    preloadImages(imagesToPreload);
 
     // Modify your loadContent function to use cached content
     function loadContent(pageId, pagePath) {
