@@ -204,24 +204,6 @@ footer .contact-link a {
 
 /* Behavior */
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-img:not(.graphic):first-of-type {
-    opacity: 0;
-    animation: fadeIn 0.35s ease-in forwards;
-}
-
-img:not(.graphic):first-of-type {
-    animation: fadeIn 0.35s ease-in forwards;
-}
-
 /* Type */
 
 p, li {
