@@ -202,6 +202,20 @@ footer .contact-link a {
     color: var(--home-color);
 }
 
+/* Behavior */
+
+.fade-out {
+    opacity: 1;
+    transition: opacity 0.05s ease-out;
+    opacity: 0;
+}
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+    opacity: 1;
+}
+
 /* Type */
 
 p, li {

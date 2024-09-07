@@ -2,67 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const root = document.documentElement;
     const themeLocalStorageKey = 'preferredTheme';
     let submitted = false; // Used for form submission handling
-    const contentCache = {}; // Cache object to store HTML content
-    const pagesToPreload = ['/content/writing', '/content/info', '/content/ncmg', '/content/tdc']; // List of specific pages to preload
-
-        // Preload function to fetch and cache HTML content
-    function preloadPages(pages) {
-        pages.forEach(page => {
-            fetch(page)
-                .then(response => response.text())
-                .then(html => {
-                    contentCache[page] = html; // Cache the content
-                    console.log(`Preloaded: ${page}`); // Log preloading success
-                })
-                .catch(error => console.error(`Failed to preload ${page}:`, error));
-        });
-    }
-
-    // Call preloadPages after index page loads
-    preloadPages(pagesToPreload);
-
-    // Modify your loadContent function to use cached content
-    function loadContent(pageId, pagePath) {
-        const contentDiv = document.getElementById(pageId);
-
-        // Check if the page content is in the cache
-        if (contentCache[pagePath]) {
-            contentDiv.innerHTML = contentCache[pagePath]; // Load from cache
-            initializePage(); // Reinitialize content
-            contentDiv.scrollTop = 0; // Reset scroll position to the top
-            showPage(document.getElementById('overlay-page'));
-        } else {
-            // Fallback: fetch content if not already cached
-            fetch(pagePath)
-                .then(response => response.text())
-                .then(html => {
-                    contentCache[pagePath] = html; // Cache the content
-                    contentDiv.innerHTML = html;
-                    initializePage();
-                    contentDiv.scrollTop = 0;
-                    showPage(document.getElementById('overlay-page'));
-                });
-        }
-    }
-
-    // Handle data-page links (navigation)
-    document.querySelectorAll('nav a[data-page]').forEach(link => {
-        link.addEventListener('click', event => {
-            event.preventDefault();
-            const page = event.target.getAttribute('data-page'); // Fetch the page path from the link's attribute
-            loadContent('dynamic-content1', `/${page}`); // Load into the main dynamic content container
-        });
-    });
-
-    // Handle data-inside-page links (inside pages)
-    document.addEventListener('click', event => {
-        const insideLink = event.target.closest('.inside-link[data-inside-page]');
-        if (insideLink) {
-            event.preventDefault();
-            const insidePage = insideLink.getAttribute('data-inside-page'); // Fetch the page path from the inside link's attribute
-            loadContent('dynamic-content2', `/${insidePage}`); // Load into a second dynamic content container
-        }
-    });
 
     // SVG icons for light and dark mode
     const darkModeSVG = `
