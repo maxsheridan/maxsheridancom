@@ -206,14 +206,18 @@ footer .contact-link a {
 
 .fade-out {
     opacity: 1;
-    transition: opacity 0.05s ease-out;
+    transition: opacity .1s ease-out;
     opacity: 0;
 }
 
 .fade-in {
     opacity: 0;
-    transition: opacity 0.3s ease-in;
+    transition: opacity .2s ease-in;
     opacity: 1;
+}
+
+.hidden {
+    display: none;
 }
 
 /* Type */
