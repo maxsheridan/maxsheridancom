@@ -204,20 +204,22 @@ footer .contact-link a {
 
 /* Behavior */
 
-.fade-out {
-    opacity: 1;
-    transition: opacity .1s ease-out;
-    opacity: 0;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-.fade-in {
+img:not(.graphic):first-of-type {
     opacity: 0;
-    transition: opacity .1s ease-in;
-    opacity: 1;
+    animation: fadeIn 0.4s ease-in forwards;
 }
 
-.hidden {
-    display: none;
+img:not(.graphic):first-of-type {
+    animation: fadeIn 0.4s ease-in forwards;
 }
 
 /* Type */

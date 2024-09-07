@@ -2,12 +2,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const root = document.documentElement;
     const themeLocalStorageKey = 'preferredTheme';
     let submitted = false; // Used for form submission handling
-    const pageLoadStatus = {}; // Object to track which pages have been loaded
 
     // SVG icons for light and dark mode
-    const darkModeSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"/></svg>`;
+    const darkModeSVG = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"/></svg>`;
 
-    const lightModeSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm8,24a64,64,0,1,0,64,64A64.07,64.07,0,0,0,128,64ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"/></svg>`;
+    const lightModeSVG = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm8,24a64,64,0,1,0,64,64A64.07,64.07,0,0,0,128,64ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"/></svg>`;
 
     // Function to toggle dark mode
     function toggleDarkMode() {
@@ -98,80 +99,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize dark mode on page load
     initializeDarkMode();
 
-    // Utility function to toggle fade transitions
-    function toggleFade(contentDiv, action) {
-        if (action === 'in') {
-            contentDiv.classList.remove('fade-out');
-            contentDiv.classList.add('fade-in');
-        } else {
-            contentDiv.classList.remove('fade-in');
-            contentDiv.classList.add('fade-out');
-        }
-    }
-
-    // Function to dynamically load content into pages with conditional fade transitions
-    function loadContent(pageId, url) {
-        const contentDiv = document.getElementById(pageId);
-
-        // Apply fade-out effect only if the page hasn't been loaded before
-        if (!pageLoadStatus[url]) {
-            toggleFade(contentDiv, 'out');
-        }
-
-        // Wait for the fade-out transition (if applied) before loading content
-        setTimeout(() => {
-            fetch(url)
-                .then(response => response.text())
-                .then(html => {
-                    contentDiv.innerHTML = html;
-                    initializePage(); // Reinitialize content after loading
-                    contentDiv.scrollTop = 0; // Reset scroll position to the top of the content container
-                    showPage(document.getElementById('overlay-page'));
-                    attachFormSubmitListener(); // Attach form listener after content is loaded
-
-                    // Apply fade-in effect only on first load
-                    if (!pageLoadStatus[url]) {
-                        toggleFade(contentDiv, 'in');
-                        pageLoadStatus[url] = true; // Mark the page as loaded
-                    }
-                })
-                .catch(error => {
-                    console.error('Error loading page content:', error);
-                });
-        }, !pageLoadStatus[url] ? 200 : 0); // Delay only if fading out
-    }
-
     // Function to show the overlay or nested page and the close button
     function showPage(pageElement) {
         pageElement.classList.add('active'); // Add the active class to the page
         document.querySelector('.close-btn').style.display = 'flex'; // Show the close button
         document.querySelector('.dark-mode-toggle').style.display = 'flex'; // Show the dark mode toggle
-    }
-
-    // Handle data-page links (navigation)
-    document.querySelectorAll('nav a[data-page]').forEach(link => {
-        link.addEventListener('click', event => {
-            event.preventDefault();
-            const page = event.target.getAttribute('data-page');
-            loadContent('dynamic-content1', `/${page}.html`);
-        });
-    });
-
-    // Handle data-inside-page links (inside pages)
-    document.addEventListener('click', event => {
-        const insideLink = event.target.closest('.inside-link[data-inside-page]');
-        if (insideLink) {
-            event.preventDefault();
-            const insidePage = insideLink.getAttribute('data-inside-page');
-            loadContent('dynamic-content2', `/${insidePage}.html`);
-        }
-    });
-
-    // Show or hide pages with smooth transitions
-    function showPage(pageElement) {
-        pageElement.classList.add('active');
-        document.querySelector('.close-btn').style.display = 'flex';
-        document.querySelector('.dark-mode-toggle').style.display = 'flex';
     }
 
     // Function to hide the overlay or nested page, stop media, and hide the close button
@@ -209,6 +141,27 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Function to dynamically load content into pages and show the close button
+    function loadContent(pageId, url) {
+        const contentDiv = document.getElementById(pageId);
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+                contentDiv.innerHTML = html;
+                initializePage(); // Reinitialize content after loading
+                contentDiv.scrollTop = 0; // Reset scroll position to the top of the content container
+                showPage(document.getElementById('overlay-page'));
+                attachFormSubmitListener(); // Attach form listener after content is loaded
+            });
+    }
+
+    // Show or hide pages with smooth transitions
+    function showPage(pageElement) {
+        pageElement.classList.add('active');
+        document.querySelector('.close-btn').style.display = 'flex';
+        document.querySelector('.dark-mode-toggle').style.display = 'flex';
+    }
 
     // Handle overlay and nested page interactions
     function setupNavigation() {
@@ -260,76 +213,76 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Function to initialize video players
-    function initializeVideoPlayers() {
-        const videos = document.querySelectorAll('video');
-        
-        if (videos.length) {
-            videos.forEach(video => {
-                // Check if there are controls available next to the video element
-                const controls = video.nextElementSibling;
-                if (controls) {
-                    const playPauseButton = controls.querySelector('.play-pause');
-                    const progressBar = controls.querySelector('.progress input');
-                    const progressFilled = controls.querySelector('.progress-filled');
-                    
-                    if (playPauseButton) {
-                        playPauseButton.addEventListener('click', () => togglePlayPause(video, playPauseButton));
-                    }
-
-                    video.addEventListener('play', () => updatePlayPauseButton(video, playPauseButton));
-                    video.addEventListener('pause', () => updatePlayPauseButton(video, playPauseButton));
-
-                    video.addEventListener('timeupdate', () => updateProgress(video, progressBar, progressFilled));
-
-                    if (progressBar) {
-                        progressBar.addEventListener('input', () => seekVideo(video, progressBar));
-                    }
+function initializeVideoPlayers() {
+    const videos = document.querySelectorAll('video');
+    
+    if (videos.length) {
+        videos.forEach(video => {
+            // Check if there are controls available next to the video element
+            const controls = video.nextElementSibling;
+            if (controls) {
+                const playPauseButton = controls.querySelector('.play-pause');
+                const progressBar = controls.querySelector('.progress input');
+                const progressFilled = controls.querySelector('.progress-filled');
+                
+                if (playPauseButton) {
+                    playPauseButton.addEventListener('click', () => togglePlayPause(video, playPauseButton));
                 }
-            });
-        }
-    }
 
-    // Toggle play and pause functionality for media players
-    function togglePlayPause(media, button) {
-        if (media.paused) {
-            media.play();
-        } else {
-            media.pause();
-        }
-        updatePlayPauseButton(media, button);
-    }
+                video.addEventListener('play', () => updatePlayPauseButton(video, playPauseButton));
+                video.addEventListener('pause', () => updatePlayPauseButton(video, playPauseButton));
 
-    // Update the play/pause button based on media state
-    function updatePlayPauseButton(media, button) {
-        if (media.paused) {
-            button.classList.remove('pause');
-            button.classList.add('play');
-            button.setAttribute('aria-label', 'Play');
-        } else {
-            button.classList.add('pause');
-            button.classList.remove('play');
-            button.setAttribute('aria-label', 'Pause');
-        }
-    }
+                video.addEventListener('timeupdate', () => updateProgress(video, progressBar, progressFilled));
 
-    // Update progress bar based on media time
-    function updateProgress(media, progressBar, progressFilled) {
-        const percent = (media.currentTime / media.duration) * 100;
-        if (progressFilled) {
-            progressFilled.style.width = `${percent}%`;
-        }
-        if (progressBar) {
-            progressBar.value = percent;
-        }
+                if (progressBar) {
+                    progressBar.addEventListener('input', () => seekVideo(video, progressBar));
+                }
+            }
+        });
     }
+}
 
-    // Seek to a specific time in the media
-    function seekVideo(media, progressBar) {
-        const seekTime = (progressBar.value / 100) * media.duration;
-        media.currentTime = seekTime;
-        const progressFilled = progressBar.closest('.progress').querySelector('.progress-filled');
-        updateProgress(media, progressBar, progressFilled);
+// Toggle play and pause functionality for media players
+function togglePlayPause(media, button) {
+    if (media.paused) {
+        media.play();
+    } else {
+        media.pause();
     }
+    updatePlayPauseButton(media, button);
+}
+
+// Update the play/pause button based on media state
+function updatePlayPauseButton(media, button) {
+    if (media.paused) {
+        button.classList.remove('pause');
+        button.classList.add('play');
+        button.setAttribute('aria-label', 'Play');
+    } else {
+        button.classList.add('pause');
+        button.classList.remove('play');
+        button.setAttribute('aria-label', 'Pause');
+    }
+}
+
+// Update progress bar based on media time
+function updateProgress(media, progressBar, progressFilled) {
+    const percent = (media.currentTime / media.duration) * 100;
+    if (progressFilled) {
+        progressFilled.style.width = `${percent}%`;
+    }
+    if (progressBar) {
+        progressBar.value = percent;
+    }
+}
+
+// Seek to a specific time in the media
+function seekVideo(media, progressBar) {
+    const seekTime = (progressBar.value / 100) * media.duration;
+    media.currentTime = seekTime;
+    const progressFilled = progressBar.closest('.progress').querySelector('.progress-filled');
+    updateProgress(media, progressBar, progressFilled);
+}
 
     setupNavigation();
     initializePage();
