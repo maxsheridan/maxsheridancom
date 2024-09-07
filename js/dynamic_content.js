@@ -4,12 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let submitted = false; // Used for form submission handling
     const contentCache = {}; // Cache object to store HTML content
     const pagesToPreload = ['/content/writing', '/content/info', '/content/ncmg', '/content/tdc']; // List of specific pages to preload
-    const imagesToPreload = [
-        '/images/i_knew.webp',
-        '/images/press_the_button_kim.webp',
-        'images/why.webp',
-        '/images/gods_speedboat_is_here.webp' // Add more image paths as needed
-    ];
 
         // Preload function to fetch and cache HTML content
     function preloadPages(pages) {
@@ -24,18 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Preload images function
-    function preloadImages(images) {
-        images.forEach(imageSrc => {
-            const img = new Image();
-            img.src = imageSrc;
-            console.log(`Preloading image: ${imageSrc}`);
-        });
-    }
-
-    // Call preloadPages and preloadImages after index page loads
+    // Call preloadPages after index page loads
     preloadPages(pagesToPreload);
-    preloadImages(imagesToPreload);
 
     // Modify your loadContent function to use cached content
     function loadContent(pageId, pagePath) {
