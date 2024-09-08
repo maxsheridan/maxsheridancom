@@ -3,21 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeLocalStorageKey = 'preferredTheme';
     let submitted = false; // Used for form submission handling
     const pageLoadStatus = {}; // Object to track which pages have been loaded
-    const imageCache = {}; // Object to cache loaded images
-
-    // Function to cache and reuse images
-    function cacheImage(imageUrl) {
-        // Check if the image is already cached
-        if (imageCache[imageUrl]) {
-            return imageCache[imageUrl]; // Return cached image
-        } else {
-            // Create a new image object and cache it
-            const img = new Image();
-            img.src = imageUrl;
-            imageCache[imageUrl] = img;
-            return img;
-        }
-    }
 
     // SVG icons for light and dark mode
     const darkModeSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"/></svg>`;
@@ -124,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Function to dynamically load content into pages with conditional fade transitions and cache images
+    // Function to dynamically load content into pages with conditional fade transitions
     function loadContent(pageId, url) {
         const contentDiv = document.getElementById(pageId);
     
@@ -137,14 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => response.text())
             .then(html => {
                 contentDiv.innerHTML = html;
-
-                // Cache and reuse images
-                const images = contentDiv.querySelectorAll('img');
-                images.forEach((img) => {
-                    const cachedImg = cacheImage(img.src); // Use cached image
-                    img.src = cachedImg.src; // Reassign the cached image source
-                });
-
                 initializePage(); // Reinitialize content after loading
                 contentDiv.scrollTop = 0; // Reset scroll position to the top of the content container
                 showPage(document.getElementById('overlay-page'));
