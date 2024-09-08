@@ -112,35 +112,34 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to dynamically load content into pages with conditional fade transitions
     function loadContent(pageId, url) {
         const contentDiv = document.getElementById(pageId);
-
+    
         // Apply fade-out effect only if the page hasn't been loaded before
         if (!pageLoadStatus[url]) {
             toggleFade(contentDiv, 'out');
         }
-
-        // Wait for the fade-out transition (if applied) before loading content
-        setTimeout(() => {
-            fetch(url)
-                .then(response => response.text())
-                .then(html => {
-                    contentDiv.innerHTML = html;
-                    initializePage(); // Reinitialize content after loading
-                    contentDiv.scrollTop = 0; // Reset scroll position to the top of the content container
-                    showPage(document.getElementById('overlay-page'));
-                    attachFormSubmitListener(); // Attach form listener after content is loaded
-
-                    // Apply fade-in effect only on first load
-                    if (!pageLoadStatus[url]) {
+    
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+                contentDiv.innerHTML = html;
+                initializePage(); // Reinitialize content after loading
+                contentDiv.scrollTop = 0; // Reset scroll position to the top of the content container
+                showPage(document.getElementById('overlay-page'));
+                attachFormSubmitListener(); // Attach form listener after content is loaded
+    
+                // Apply fade-in effect only on first load
+                if (!pageLoadStatus[url]) {
+                    setTimeout(() => {
                         toggleFade(contentDiv, 'in');
-                        pageLoadStatus[url] = true; // Mark the page as loaded
-                    }
-                })
-                .catch(error => {
-                    console.error('Error loading page content:', error);
-                });
-        }, !pageLoadStatus[url] ? 200 : 0); // Delay only if fading out
+                    }, 100); // Short timeout to allow fade-in transition
+                    pageLoadStatus[url] = true; // Mark the page as loaded
+                }
+            })
+            .catch(error => {
+                console.error('Error loading page content:', error);
+            });
     }
-
+    
     // Function to show the overlay or nested page and the close button
     function showPage(pageElement) {
         pageElement.classList.add('active'); // Add the active class to the page
