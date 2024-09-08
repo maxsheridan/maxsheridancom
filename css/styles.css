@@ -207,13 +207,13 @@ footer .contact-link a {
 
 .fade-in {
     opacity: 0;
-    transition: opacity .05s ease-in;
+    transition: opacity .2s ease-in;
     opacity: 1;
 }
 
 .fade-out {
     opacity: 1;
-    transition: opacity .005s ease-out;
+    transition: opacity .2s ease-out;
     opacity: 0;
 }
 
