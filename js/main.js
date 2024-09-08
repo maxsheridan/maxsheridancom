@@ -67,6 +67,17 @@ document.addEventListener('DOMContentLoaded', () => {
         initializeDarkModeToggle(); // Attach event listeners to the toggles
     }
 
+    // Function to handle fade in/out transitions for content
+    function toggleFadeContent(contentElement, action) {
+        if (action === 'in') {
+            contentElement.classList.remove('fade-out');
+            contentElement.classList.add('fade-in');
+        } else {
+            contentElement.classList.remove('fade-in');
+            contentElement.classList.add('fade-out');
+        }
+    }
+
     // Function to handle form submission
     function attachFormSubmitListener() {
         const contactForm = document.getElementById("contactForm");
@@ -102,9 +113,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to show the overlay or nested page and the close button
     function showPage(pageElement) {
-        pageElement.classList.add('active'); // Add the active class to the page
+        pageElement.classList.add('active'); // Slide in the page smoothly (unchanged)
         document.querySelector('.close-btn').style.display = 'flex'; // Show the close button
-        document.querySelector('.dark-mode-toggle').style.display = 'flex'; // Show the dark mode toggle
+        document.querySelector('.dark-mode-toggle').style.display = 'flex'; // Show dark mode toggle
+
+        // Fade in the content after sliding in the page
+        const contentElement = pageElement.querySelector('.content');
+        if (contentElement) {
+            toggleFadeContent(contentElement, 'in');
+        }
     }
 
     // Function to hide the overlay or nested page, stop media, and hide the close button
@@ -123,11 +140,20 @@ document.addEventListener('DOMContentLoaded', () => {
             video.currentTime = 0; // Reset to the start
         });
 
-        pageElement.classList.remove('active'); // Remove active class
-        if (!document.querySelector('.overlay.active') && !document.querySelector('.nested.active')) {
-            document.querySelector('.close-btn').style.display = 'none'; // Hide close button
-            document.querySelector('.dark-mode-toggle').style.display = 'none'; // Hide dark mode toggle
+        // Fade out the content before hiding the page
+        const contentElement = pageElement.querySelector('.content');
+        if (contentElement) {
+            toggleFadeContent(contentElement, 'out');
         }
+
+        // Use the CSS transition duration from your CSS and remove the active class
+        contentElement.addEventListener('transitionend', () => {
+            pageElement.classList.remove('active'); // Slide out the page
+            if (!document.querySelector('.overlay.active') && !document.querySelector('.nested.active')) {
+                document.querySelector('.close-btn').style.display = 'none'; // Hide close button
+                document.querySelector('.dark-mode-toggle').style.display = 'none'; // Hide dark mode toggle
+            }
+        }, { once: true });
     }
 
     // Event listener for the close button click
@@ -146,22 +172,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to dynamically load content into pages and show the close button
     function loadContent(pageId, url) {
         const contentDiv = document.getElementById(pageId);
-        fetch(url)
-            .then(response => response.text())
-            .then(html => {
-                contentDiv.innerHTML = html;
-                initializePage(); // Reinitialize content after loading
-                contentDiv.scrollTop = 0; // Reset scroll position to the top of the content container
-                showPage(document.getElementById('overlay-page'));
-                attachFormSubmitListener(); // Attach form listener after content is loaded
-            });
-    }
 
-    // Show or hide pages with smooth transitions
-    function showPage(pageElement) {
-        pageElement.classList.add('active');
-        document.querySelector('.close-btn').style.display = 'flex';
-        document.querySelector('.dark-mode-toggle').style.display = 'flex';
+        // First fade out the existing content
+        toggleFadeContent(contentDiv, 'out');
+
+        // Once fade-out finishes, load new content
+        contentDiv.addEventListener('transitionend', () => {
+            fetch(url)
+                .then(response => response.text())
+                .then(html => {
+                    contentDiv.innerHTML = html;
+                    initializePage(); // Reinitialize content after loading
+                    contentDiv.scrollTop = 0; // Reset scroll position to the top
+                    toggleFadeContent(contentDiv, 'in'); // Fade in the new content
+                    showPage(document.getElementById('overlay-page')); // Show the overlay page
+                    attachFormSubmitListener(); // Attach form listener after content is loaded
+                });
+        }, { once: true });
     }
 
     // Handle overlay and nested page interactions

@@ -205,27 +205,17 @@ footer .contact-link a {
 
 /* Behavior */
 
-/* Keyframes for fade-in effect */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+.fade-in {
+    opacity: 0;
+    transition: opacity .35s ease-in;
+    opacity: 1;
 }
 
-
-/* Initially set opacity for all images except those in the .graphic class */
-img:not(.graphic):first-of-type {
+.fade-out {
+    opacity: 1;
+    transition: opacity .1s ease-out;
     opacity: 0;
 }
-
-/* When the image has loaded, the animation triggers */
-img:not(.graphic):first-of-type {
-    animation: fadeIn 0.35s ease-in forwards;
-}
-
 
 p, li {
     font-family: var(--body-font);
