@@ -148,12 +148,10 @@ header {
     background-color: var(--background-color);
     transition: transform 0.3s ease-in-out;
     transform: translateX(0);
-    visibility: hidden;
 }
 
 .overlay.active {
     transform: translateX(-100%);
-    visibility: visible;
 }
 
 .nested {
@@ -170,12 +168,10 @@ header {
     border-left: 7px solid var(--nested-accent);
     background: var(--background-color);
     transition: transform 0.3s ease-in-out;
-    visibility: hidden;
 }
 
 .nested.active {
     transform: translateX(0);
-    visibility: visible;
 }
 
 .page-content {
