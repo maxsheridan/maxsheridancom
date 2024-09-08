@@ -151,10 +151,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
    // Modify the `showPage` function to handle visibility and smooth transitions
     function showPage(pageElement) {
+        // Make the new page visible and start the transition
         pageElement.classList.add('active');
-        document.querySelector('.close-btn').style.display = 'flex'; // Show the close button
-        document.querySelector('.dark-mode-toggle').style.display = 'flex'; // Show dark mode toggle
-        pageElement.style.visibility = 'visible'; // Ensure page is visible after it's active
+        pageElement.style.visibility = 'visible';
+        
+        // After transition completes, keep the page visible
+        setTimeout(() => {
+            pageElement.style.visibility = 'visible'; // Ensure the new page is fully visible
+        }, 300); // Time in ms matching your CSS transition duration
+    }
+    
+    function hidePage(pageElement) {
+        // Start hiding the page by removing active class
+        pageElement.classList.remove('active');
+        
+        // After the transition ends, hide the page from view
+        setTimeout(() => {
+            pageElement.style.visibility = 'hidden';
+        }, 300); // Time in ms matching your CSS transition duration
     }
 
     // Handle overlay and nested page interactions
