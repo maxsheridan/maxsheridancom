@@ -1,8 +1,6 @@
-
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.documentElement;
     const themeLocalStorageKey = 'preferredTheme';
-    let submitted = false; // Used for form submission handling
 
     // SVG icons for light and dark mode
     const darkModeSVG = `
@@ -67,102 +65,64 @@ document.addEventListener('DOMContentLoaded', () => {
         initializeDarkModeToggle(); // Attach event listeners to the toggles
     }
 
-    // Function to handle form submission
-    function attachFormSubmitListener() {
-        const contactForm = document.getElementById("contactForm");
-        if (contactForm) {
-            contactForm.addEventListener("submit", function(e) {
-                if (!submitted) {
-                    e.preventDefault(); // Prevent the form from submitting normally
-                    const formElements = contactForm.querySelectorAll("*");
-                    formElements.forEach(element => element.style.display = "none"); // Hide all elements inside the form
-                    
-                    const thanksMessage = document.createElement("p");
-                    thanksMessage.textContent = "Message received.";
-                    contactForm.insertBefore(thanksMessage, contactForm.firstChild); // Prepend the message
-                    
-                    submitted = true;
-                    setTimeout(() => contactForm.submit(), 1000); // Submit the form after a delay
-                }
-            });
-
-            document.getElementById("hidden_iframe").onload = function() {
-                if (submitted) {
-                    console.log('Form submitted and iframe loaded.');
-                    submitted = false; // Reset the variable if needed
-                } else {
-                    console.error('Iframe loaded without form submission.');
-                }
-            };
-        }
-    }
-
     // Initialize dark mode on page load
     initializeDarkMode();
 
-    // Function to show the overlay or nested page and the close button
-    function showPage(pageElement) {
-        pageElement.classList.add('active'); // Add the active class to the page
-        document.querySelector('.close-btn').style.display = 'flex'; // Show the close button
-        document.querySelector('.dark-mode-toggle').style.display = 'flex'; // Show the dark mode toggle
-    }
+   // Function to show the overlay or nested page and the close button
+function showPage(pageElement) {
+    // Make the new page visible and start the sliding transition
+    pageElement.style.visibility = 'visible'; // Ensure the new page is visible
+    pageElement.classList.add('active'); // Start the slide-in transition
+}
 
-    // Function to hide the overlay or nested page, stop media, and hide the close button
+    // Function to hide the overlay or nested page and hide the close button after the transition
     function hidePage(pageElement) {
-        const audioElements = pageElement.querySelectorAll('audio');
-        const videoElements = pageElement.querySelectorAll('video');
+        // Start hiding the page by removing the active class (triggers slide-out)
+        pageElement.classList.remove('active');
 
-        // Stop audio
-        if (typeof Essential_Audio !== 'undefined' && Essential_Audio.active()) {
-            Essential_Audio.Stop(Essential_Audio.active());
-        }
+        // After the sliding transition ends, hide the page from view
+        setTimeout(() => {
+            pageElement.style.visibility = 'hidden'; // Hide the page after it's fully slid out
+        }, 300); // Match the transition duration
 
-        // Pause videos
-        videoElements.forEach(video => {
-            video.pause();
-            video.currentTime = 0; // Reset to the start
-        });
-
-        pageElement.classList.remove('active'); // Remove active class
-        if (!document.querySelector('.overlay.active') && !document.querySelector('.nested.active')) {
-            document.querySelector('.close-btn').style.display = 'none'; // Hide close button
-            document.querySelector('.dark-mode-toggle').style.display = 'none'; // Hide dark mode toggle
-        }
-    }
-
-    // Event listener for the close button click
-    document.querySelectorAll('.close-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const overlay = document.getElementById('overlay-page');
-            const nested = document.getElementById('nested-page');
-            if (nested.classList.contains('active')) {
-                hidePage(nested);
-            } else if (overlay.classList.contains('active')) {
-                hidePage(overlay);
+        // Hide the close button if no pages are active
+        setTimeout(() => {
+            if (!document.querySelector('.overlay.active') && !document.querySelector('.nested.active')) {
+                document.querySelector('.close-btn').style.display = 'none'; // Hide the close button
             }
-        });
-    });
+        }, 300); // Also match the transition duration
+    }
 
     // Function to dynamically load content into pages and show the close button
     function loadContent(pageId, url) {
         const contentDiv = document.getElementById(pageId);
+        const previousPage = document.querySelector('.overlay.active, .nested.active'); // Get the currently active page
+
         fetch(url)
             .then(response => response.text())
             .then(html => {
                 contentDiv.innerHTML = html;
                 initializePage(); // Reinitialize content after loading
-                contentDiv.scrollTop = 0; // Reset scroll position to the top of the content container
-                showPage(document.getElementById('overlay-page'));
-                attachFormSubmitListener(); // Attach form listener after content is loaded
+                showPage(document.getElementById('overlay-page'), previousPage); // Show the new page over the previous one
             });
     }
 
-    // Show or hide pages with smooth transitions
-    function showPage(pageElement) {
-        pageElement.classList.add('active');
-        document.querySelector('.close-btn').style.display = 'flex';
-        document.querySelector('.dark-mode-toggle').style.display = 'flex';
-    }
+    // Event listener for the close button click
+document.querySelectorAll('.close-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const overlay = document.getElementById('overlay-page');
+        const nested = document.getElementById('nested-page');
+
+        // Close the nested page first (if active)
+        if (nested.classList.contains('active')) {
+            hidePage(nested);
+        } 
+        // Only close the overlay page if no nested page is active
+        else if (overlay.classList.contains('active')) {
+            hidePage(overlay);
+        }
+    });
+});
 
     // Handle overlay and nested page interactions
     function setupNavigation() {
@@ -174,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 event.preventDefault();
                 const page = event.target.getAttribute('data-page');
                 loadContent('dynamic-content1', `/${page}.html`);
-                showPage(overlayPage);
+                showPage(overlayPage, document.querySelector('.active')); // Pass in the currently active page
             });
         });
 
@@ -184,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 event.preventDefault();
                 const insidePage = insideLink.getAttribute('data-inside-page');
                 loadContent('dynamic-content2', `/${insidePage}.html`);
-                showPage(nestedPage);
+                showPage(nestedPage, overlayPage); // Pass in the current overlay page
             }
         });
     }
@@ -193,12 +153,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Reinitialize the page content after dynamic loading
     function initializePage() {
-        initializeAudioPlayers();
-        initializeVideoPlayers();
-        attachFormSubmitListener(); // Re-attach the form listener on dynamic content load
+        initializeAudioPlayers(); // Initialize audio players
+        initializeVideoPlayers(); // Initialize video players
     }
 
-    // Function to initialize audio players
+    // Function to initialize audio players if needed
     function initializeAudioPlayers() {
         const audioPlayers = document.querySelectorAll('audio');
         if (audioPlayers.length) {
@@ -207,84 +166,69 @@ document.addEventListener('DOMContentLoaded', () => {
                 playButton.addEventListener('click', () => togglePlayPause(audioPlayer, playButton));
             });
         }
-
-        if (typeof Essential_Audio !== 'undefined') {
-            Essential_Audio.init();
-        }
     }
 
     // Function to initialize video players
-function initializeVideoPlayers() {
-    const videos = document.querySelectorAll('video');
-    
-    if (videos.length) {
-        videos.forEach(video => {
-            // Check if there are controls available next to the video element
-            const controls = video.nextElementSibling;
-            if (controls) {
+    function initializeVideoPlayers() {
+        const videos = document.querySelectorAll('video');
+        if (videos.length) {
+            videos.forEach(video => {
+                const controls = video.nextElementSibling;
                 const playPauseButton = controls.querySelector('.play-pause');
                 const progressBar = controls.querySelector('.progress input');
                 const progressFilled = controls.querySelector('.progress-filled');
-                
-                if (playPauseButton) {
-                    playPauseButton.addEventListener('click', () => togglePlayPause(video, playPauseButton));
-                }
 
+                playPauseButton.addEventListener('click', () => togglePlayPause(video, playPauseButton));
                 video.addEventListener('play', () => updatePlayPauseButton(video, playPauseButton));
                 video.addEventListener('pause', () => updatePlayPauseButton(video, playPauseButton));
-
                 video.addEventListener('timeupdate', () => updateProgress(video, progressBar, progressFilled));
 
                 if (progressBar) {
                     progressBar.addEventListener('input', () => seekVideo(video, progressBar));
                 }
-            }
-        });
+            });
+        }
     }
-}
 
-// Toggle play and pause functionality for media players
-function togglePlayPause(media, button) {
-    if (media.paused) {
-        media.play();
-    } else {
-        media.pause();
+    // Toggle play and pause functionality for media players
+    function togglePlayPause(media, button) {
+        if (media.paused) {
+            media.play();
+        } else {
+            media.pause();
+        }
+        updatePlayPauseButton(media, button);
     }
-    updatePlayPauseButton(media, button);
-}
 
-// Update the play/pause button based on media state
-function updatePlayPauseButton(media, button) {
-    if (media.paused) {
-        button.classList.remove('pause');
-        button.classList.add('play');
-        button.setAttribute('aria-label', 'Play');
-    } else {
-        button.classList.add('pause');
-        button.classList.remove('play');
-        button.setAttribute('aria-label', 'Pause');
+    // Update the play/pause button based on media state
+    function updatePlayPauseButton(media, button) {
+        if (media.paused) {
+            button.classList.remove('pause');
+            button.classList.add('play');
+            button.setAttribute('aria-label', 'Play');
+        } else {
+            button.classList.add('pause');
+            button.classList.remove('play');
+            button.setAttribute('aria-label', 'Pause');
+        }
     }
-}
 
-// Update progress bar based on media time
-function updateProgress(media, progressBar, progressFilled) {
-    const percent = (media.currentTime / media.duration) * 100;
-    if (progressFilled) {
+    // Update progress bar based on media time
+    function updateProgress(media, progressBar, progressFilled) {
+        const percent = (media.currentTime / media.duration) * 100;
         progressFilled.style.width = `${percent}%`;
-    }
-    if (progressBar) {
         progressBar.value = percent;
     }
-}
 
-// Seek to a specific time in the media
-function seekVideo(media, progressBar) {
-    const seekTime = (progressBar.value / 100) * media.duration;
-    media.currentTime = seekTime;
-    const progressFilled = progressBar.closest('.progress').querySelector('.progress-filled');
-    updateProgress(media, progressBar, progressFilled);
-}
+    // Seek to a specific time in the media
+    function seekVideo(media, progressBar) {
+        const seekTime = (progressBar.value / 100) * media.duration;
+        media.currentTime = seekTime;
+        const progressFilled = progressBar.closest('.progress').querySelector('.progress-filled');
+        updateProgress(media, progressBar, progressFilled);
+    }
 
+    // Initialize content for the current page
     setupNavigation();
     initializePage();
 });
