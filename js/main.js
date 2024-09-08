@@ -2,6 +2,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const root = document.documentElement;
     const themeLocalStorageKey = 'preferredTheme';
     let submitted = false; // Used for form submission handling
+    const preloadedPages = {}; // Object to store preloaded page content
+
+     // Function to preload pages
+    function preloadPages(pages) {
+        pages.forEach(page => {
+            fetch(`/${page}.html`)
+                .then(response => response.text())
+                .then(html => {
+                    preloadedPages[page] = html; // Store the page content in the object
+                });
+        });
+    }
+
+    // Call the preloadPages function and preload the desired pages
+    preloadPages(['/content/info', '/content/news', '/content/writing', '/content-tdc', '/posts/ptk','/posts/why','/posts/i-knew']);
 
     // SVG icons for light and dark mode
     const darkModeSVG = `

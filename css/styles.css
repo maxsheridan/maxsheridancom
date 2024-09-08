@@ -146,13 +146,11 @@ header {
     overflow-y: auto;
     border-left: 7px solid var(--overlay-accent);
     background-color: var(--background-color);
-    visibility: hidden;
     transition: transform 0.3s ease-in-out;
     transform: translateX(0);
 }
 
 .overlay.active {
-    visibility: visible;
     transform: translateX(-100%);
 }
 
@@ -169,12 +167,10 @@ header {
     overflow-y: auto;
     border-left: 7px solid var(--nested-accent);
     background: var(--background-color);
-    visibility: hidden;
     transition: transform 0.3s ease-in-out; 
 }
 
 .nested.active {
-    visibility: visible;
     transform: translateX(0);
 }
 
