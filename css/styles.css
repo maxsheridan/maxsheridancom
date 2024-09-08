@@ -203,17 +203,17 @@ footer .contact-link a {
     color: var(--home-color);
 }
 
-/* Behavior */
+/* Fade-in effect */
 
 .fade-in {
     opacity: 0;
-    transition: opacity .35s ease-in;
+    transition: opacity .1s ease-in;
     opacity: 1;
 }
 
 .fade-out {
     opacity: 1;
-    transition: opacity .1s ease-out;
+    transition: opacity .005s ease-out;
     opacity: 0;
 }
 
