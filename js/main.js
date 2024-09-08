@@ -130,14 +130,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+        // Function to show the page and ensure it has a higher z-index
+    function showPage(pageElement) {
+        // Reset all pages' z-index before showing the new one
+        document.querySelectorAll('.overlay, .nested').forEach(page => {
+            page.style.zIndex = '5'; // Reset to default z-index
+        });
+
+        // Bring the active page to the front
+        pageElement.classList.add('active');
+        pageElement.style.zIndex = '10'; // Make sure active page has a higher z-index
+    }
+
+    // Function to hide the page and reset z-index
+    function hidePage(pageElement) {
+        pageElement.classList.remove('active');
+        setTimeout(() => {
+            pageElement.style.zIndex = '5'; // Reset z-index after sliding out
+        }, 300); // Match the transition time
+    }
+
     // Event listener for the close button click
     document.querySelectorAll('.close-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const overlay = document.getElementById('overlay-page');
             const nested = document.getElementById('nested-page');
+
+            // Close the nested page first (if active)
             if (nested.classList.contains('active')) {
                 hidePage(nested);
-            } else if (overlay.classList.contains('active')) {
+            } 
+            // Only close the overlay page if no nested page is active
+            else if (overlay.classList.contains('active')) {
                 hidePage(overlay);
             }
         });

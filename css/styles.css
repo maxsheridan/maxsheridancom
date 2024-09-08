@@ -151,6 +151,7 @@ header {
 }
 
 .overlay.active {
+    z-index: 10;
     transform: translateX(-100%);
 }
 
@@ -171,6 +172,7 @@ header {
 }
 
 .nested.active {
+    z-index: 10;
     transform: translateX(0);
 }
 
