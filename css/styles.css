@@ -146,11 +146,13 @@ header {
     overflow-y: auto;
     border-left: 7px solid var(--overlay-accent);
     background-color: var(--background-color);
+    visibility: hidden;
     transition: transform 0.3s ease-in-out;
     transform: translateX(0);
 }
 
 .overlay.active {
+    visibility: visible;
     transform: translateX(-100%);
 }
 
@@ -167,10 +169,12 @@ header {
     overflow-y: auto;
     border-left: 7px solid var(--nested-accent);
     background: var(--background-color);
+    visibility: hidden;
     transition: transform 0.3s ease-in-out; 
 }
 
 .nested.active {
+    visibility: visible;
     transform: translateX(0);
 }
 
@@ -203,29 +207,6 @@ footer .contact-link a {
 }
 
 /* Behavior */
-
-/* Keyframes for fade-in effect */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* Initially set opacity for all images except those in the .graphic class */
-img:not(.graphic):first-of-type {
-    opacity: 0;
-    animation: fadeIn 0.35s ease-in forwards;
-}
-
-/* When the image has loaded, the animation triggers */
-img:not(.graphic):first-of-type {
-    animation: fadeIn 0.35s ease-in forwards;
-}
-
-/* Type */
 
 p, li {
     font-family: var(--body-font);

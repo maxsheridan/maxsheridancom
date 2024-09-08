@@ -99,13 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize dark mode on page load
     initializeDarkMode();
 
-    // Function to show the overlay or nested page and the close button
-    function showPage(pageElement) {
-        pageElement.classList.add('active'); // Add the active class to the page
-        document.querySelector('.close-btn').style.display = 'flex'; // Show the close button
-        document.querySelector('.dark-mode-toggle').style.display = 'flex'; // Show the dark mode toggle
-    }
-
     // Function to hide the overlay or nested page, stop media, and hide the close button
     function hidePage(pageElement) {
         const audioElements = pageElement.querySelectorAll('audio');
@@ -156,11 +149,12 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
-    // Show or hide pages with smooth transitions
+   // Modify the `showPage` function to handle visibility and smooth transitions
     function showPage(pageElement) {
         pageElement.classList.add('active');
-        document.querySelector('.close-btn').style.display = 'flex';
-        document.querySelector('.dark-mode-toggle').style.display = 'flex';
+        document.querySelector('.close-btn').style.display = 'flex'; // Show the close button
+        document.querySelector('.dark-mode-toggle').style.display = 'flex'; // Show dark mode toggle
+        pageElement.style.visibility = 'visible'; // Ensure page is visible after it's active
     }
 
     // Handle overlay and nested page interactions
