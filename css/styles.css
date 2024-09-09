@@ -81,7 +81,7 @@ header {
     margin-left: .75rem;
 }
 
-.home-content {
+.site-description {
     position: absolute;
     bottom: 4.5rem;
     padding-left: clamp(1rem,3vw,1.5rem);
@@ -89,7 +89,7 @@ header {
     color: var(--home-color);
 }
 
-.home-content p {
+.site-description p {
     max-width: 38rem;
 }
 
