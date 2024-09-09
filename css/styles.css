@@ -43,7 +43,7 @@ body {
     z-index: 0;
     min-height: 100vh;
     min-height: 100dvh;
-    background: #0E000E url('/assets/images/background.webp') no-repeat 15% center/cover;
+    background: #0E000E url('/assets/covers/background.webp') no-repeat 15% center/cover;
     background-attachment: fixed;
     -ms-text-size-adjust: none;
     -moz-text-size-adjust: none;
@@ -203,18 +203,15 @@ footer .contact-link a {
     color: var(--home-color);
 }
 
-/* Fade-in effect */
+/* Behavior */
 
-.fade-in {
+img {
     opacity: 0;
-    transition: opacity .2s ease-in;
-    opacity: 1;
+    transition: opacity .75s ease-in-out;
 }
 
-.fade-out {
+img.loaded {
     opacity: 1;
-    transition: opacity .1s ease-out;
-    opacity: 0;
 }
 
 p, li {

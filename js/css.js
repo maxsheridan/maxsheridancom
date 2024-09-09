@@ -74,6 +74,8 @@
                 margin: 2rem 0;
             }
 
+            /*Type*/
+
             p, li {
                 font-family: var(--body-font);
                 font-size: var(--body-font-size);
