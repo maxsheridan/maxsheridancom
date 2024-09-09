@@ -1,20 +1,16 @@
-function fadeInFirstImage(images) {
-    let firstImageFadedIn = false;
-
+function fadeInImages(images) {
     images.forEach(img => {
-        if (!firstImageFadedIn && !img.closest('.graphic')) {
+        if (!img.closest('.graphic')) {
             img.classList.add('fade-in');
-            firstImageFadedIn = true;
-        }
+            img.onload = () => {
+                img.classList.add('loaded');
+                console.log(`Image loaded and added loaded class: ${img.src}`);
+            };
 
-        img.onload = () => {
-            img.classList.add('loaded');
-            console.log(`Image loaded and added loaded class: ${img.src}`);
-        };
-
-        if (img.complete) {
-            img.classList.add('loaded');
-            console.log(`Image already loaded and added loaded class: ${img.src}`);
+            if (img.complete) {
+                img.classList.add('loaded');
+                console.log(`Image already loaded and added loaded class: ${img.src}`);
+            }
         }
     });
 }
@@ -63,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 showPage(document.getElementById('overlay-page'));
                 attachFormSubmitListener();
                 const images = Array.from(contentDiv.querySelectorAll('img:not(.graphic img)'));
-                fadeInFirstImage(images);
+                fadeInImages(images);
 
                 // Initialize the audio player
                 if (typeof Essential_Audio !== 'undefined') {
@@ -166,10 +162,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener('load', () => {
-    const firstImage = document.querySelector('img:not(.graphic img)');
-    if (firstImage) {
-        fadeInFirstImage([firstImage]);
-    }
+    const images = document.querySelectorAll('img:not(.graphic img)');
+    fadeInImages(Array.from(images));
 
     // Set up MutationObserver to watch for new images
     const observer = new MutationObserver(mutations => {
@@ -177,10 +171,10 @@ window.addEventListener('load', () => {
             if (mutation.addedNodes.length) {
                 mutation.addedNodes.forEach(node => {
                     if (node.nodeName === 'IMG' && !node.closest('.graphic')) {
-                        fadeInFirstImage([node]);
+                        fadeInImages([node]);
                     } else if (node.nodeType === Node.ELEMENT_NODE) {
                         const images = node.querySelectorAll('img:not(.graphic img)');
-                        fadeInFirstImage(Array.from(images));
+                        fadeInImages(Array.from(images));
                     }
                 });
             }
