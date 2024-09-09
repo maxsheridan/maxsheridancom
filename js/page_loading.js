@@ -1,22 +1,5 @@
 let activePage = null; // Track the currently active page
 
-function fadeInImages(images) {
-    images.forEach(img => {
-        if (!img.closest('.graphic')) {
-            img.classList.add('fade-in');
-            img.onload = () => {
-                img.classList.add('loaded');
-                console.log(`Image loaded and added loaded class: ${img.src}`);
-            };
-
-            if (img.complete) {
-                img.classList.add('loaded');
-                console.log(`Image already loaded and added loaded class: ${img.src}`);
-            }
-        }
-    });
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     let submitted = false;
 
@@ -60,8 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 initializePage();
                 contentDiv.scrollTop = 0;
                 attachFormSubmitListener();
-                const images = Array.from(contentDiv.querySelectorAll('img:not(.graphic img)'));
-                fadeInImages(images);
 
                 // Initialize the audio player
                 if (typeof Essential_Audio !== 'undefined') {
@@ -89,7 +70,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.error('VideoPlayer is not defined');
                 }
 
-                contentDiv.classList.remove('hidden'); // Show the content once it's fully loaded
+                setTimeout(() => {
+                    contentDiv.classList.remove('hidden'); // Show the content once it's fully loaded
+                    contentDiv.classList.add('active');
+                }, 50); // Small delay to ensure the previous page is fully hidden
             })
             .catch(error => {
                 console.error('Error loading page content:', error);
@@ -101,11 +85,13 @@ document.addEventListener('DOMContentLoaded', () => {
             activePage.classList.remove('active');
             activePage.classList.add('hidden');
         }
-        pageElement.classList.remove('hidden');
-        pageElement.classList.add('active');
-        activePage = pageElement; // Update the currently active page
-        document.querySelector('.close-btn').style.display = 'flex';
-        document.querySelector('.dark-mode-toggle').style.display = 'flex';
+        setTimeout(() => {
+            pageElement.classList.remove('hidden');
+            pageElement.classList.add('active');
+            activePage = pageElement; // Update the currently active page
+            document.querySelector('.close-btn').style.display = 'flex';
+            document.querySelector('.dark-mode-toggle').style.display = 'flex';
+        }, 300); // Match the duration of the CSS transition
     }
 
     function hidePage(pageElement) {
@@ -171,27 +157,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setupNavigation();
     initializePage();
-});
-
-window.addEventListener('load', () => {
-    const images = document.querySelectorAll('img:not(.graphic img)');
-    fadeInImages(Array.from(images));
-
-    // Set up MutationObserver to watch for new images
-    const observer = new MutationObserver(mutations => {
-        mutations.forEach(mutation => {
-            if (mutation.addedNodes.length) {
-                mutation.addedNodes.forEach(node => {
-                    if (node.nodeName === 'IMG' && !node.closest('.graphic')) {
-                        fadeInImages([node]);
-                    } else if (node.nodeType === Node.ELEMENT_NODE) {
-                        const images = node.querySelectorAll('img:not(.graphic img)');
-                        fadeInImages(Array.from(images));
-                    }
-                });
-            }
-        });
-    });
-
-    observer.observe(document.body, { childList: true, subtree: true });
 });

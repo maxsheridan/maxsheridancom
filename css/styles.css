@@ -205,15 +205,6 @@ footer .contact-link a {
 
 /* Behavior */
 
-img {
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-img.loaded {
-    opacity: 1;
-}
-
 p, li {
     font-family: var(--body-font);
     font-size: var(--body-font-size);
