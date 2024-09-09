@@ -1,3 +1,5 @@
+let activePage = null; // Track the currently active page
+
 function fadeInImages(images) {
     images.forEach(img => {
         if (!img.closest('.graphic')) {
@@ -49,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function loadContent(pageId, url) {
         const contentDiv = document.getElementById(pageId);
+        contentDiv.classList.add('hidden'); // Hide the content initially
 
         fetch(url)
             .then(response => response.text())
@@ -56,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 contentDiv.innerHTML = html;
                 initializePage();
                 contentDiv.scrollTop = 0;
-                showPage(document.getElementById('overlay-page'));
                 attachFormSubmitListener();
                 const images = Array.from(contentDiv.querySelectorAll('img:not(.graphic img)'));
                 fadeInImages(images);
@@ -86,6 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     console.error('VideoPlayer is not defined');
                 }
+
+                contentDiv.classList.remove('hidden'); // Show the content once it's fully loaded
             })
             .catch(error => {
                 console.error('Error loading page content:', error);
@@ -93,7 +97,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showPage(pageElement) {
+        if (activePage && activePage !== pageElement) {
+            activePage.classList.remove('active');
+            activePage.classList.add('hidden');
+        }
+        pageElement.classList.remove('hidden');
         pageElement.classList.add('active');
+        activePage = pageElement; // Update the currently active page
         document.querySelector('.close-btn').style.display = 'flex';
         document.querySelector('.dark-mode-toggle').style.display = 'flex';
     }
@@ -112,6 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         pageElement.classList.remove('active');
+        pageElement.classList.add('hidden');
         if (!document.querySelector('.overlay.active') && !document.querySelector('.nested.active')) {
             document.querySelector('.close-btn').style.display = 'none';
             document.querySelector('.dark-mode-toggle').style.display = 'none';
@@ -138,6 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const insidePage = insideLink.getAttribute('data-inside-page');
                 loadContent('dynamic-content2', `/${insidePage}.html`);
                 showPage(nestedPage);
+                overlayPage.classList.add('active'); // Ensure overlay page remains active
             }
         });
 
