@@ -220,6 +220,12 @@ p.small {
     font-size: clamp(.8rem,3vw,.9rem);
 }
 
+b, strong {
+    font-family: var(--heading-font);
+    font-weight: 500;
+    font-style: normal;
+}
+    
 a {
     display: inline; 
     position: relative;
