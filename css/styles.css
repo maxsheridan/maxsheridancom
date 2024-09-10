@@ -453,9 +453,9 @@ p.intro-text {
     }
 }
 
-/* Mobile */
+/* Mobile, incl. iPad 5th gen. */
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
     .controls-container {
         left: 1rem;
         right: 1rem;
