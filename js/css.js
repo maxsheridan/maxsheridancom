@@ -59,7 +59,7 @@
             .content { 
                 max-width: 38rem;
                 margin: 0 auto;
-                padding: 2rem 0;
+                padding: 4rem 0;
                 color: var(--primary-color);
             }
                 
