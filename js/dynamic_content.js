@@ -32,6 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function loadScript(url, callback) {
+        const script = document.createElement('script');
+        script.src = url;
+        script.defer = true;
+        script.onload = callback;
+        document.head.appendChild(script);
+    }
+
     function loadContent(pageId, url) {
         const contentDiv = document.getElementById(pageId);
         contentDiv.classList.add('hidden'); // Hide the content initially
@@ -44,30 +52,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 contentDiv.scrollTop = 0;
                 attachFormSubmitListener();
 
-                // Initialize the audio player
-                if (typeof Essential_Audio !== 'undefined') {
-                    console.log('Essential_Audio is defined');
-                    if (typeof Essential_Audio.init === 'function') {
-                        console.log('Calling Essential_Audio.init()');
-                        Essential_Audio.init();
-                    } else {
-                        console.error('Essential_Audio.init is not a function');
-                    }
-                } else {
-                    console.error('Essential_Audio is not defined');
-                }
-
-                // Initialize the video player
-                if (typeof VideoPlayer !== 'undefined') {
-                    console.log('VideoPlayer is defined');
-                    if (typeof VideoPlayer.init === 'function') {
-                        console.log('Calling VideoPlayer.init()');
-                        VideoPlayer.init();
-                    } else {
-                        console.error('VideoPlayer.init is not a function');
-                    }
-                } else {
-                    console.error('VideoPlayer is not defined');
+                // Conditionally load scripts based on the content
+                if (url.includes('news') || url.includes('post')) {
+                    loadScript('/js/audioplayer.js', () => {
+                        if (typeof Essential_Audio !== 'undefined' && typeof Essential_Audio.init === 'function') {
+                            Essential_Audio.init();
+                        }
+                    });
+                    loadScript('/js/videoplayer.js', () => {
+                        if (typeof VideoPlayer !== 'undefined' && typeof VideoPlayer.init === 'function') {
+                            VideoPlayer.init();
+                        }
+                    });
                 }
 
                 setTimeout(() => {
