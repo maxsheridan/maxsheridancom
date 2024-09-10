@@ -18,7 +18,7 @@
 
 :root {
     --body-font: 'ABC Diatype', Helvetica, Arial, sans-serif;
-    --body-font-size: clamp(1.1rem,3vw,1.2rem);
+    --body-font-size: clamp(1.1rem,3vw,1.125rem);
     --heading-font: 'ABC Diatype Medium', Helvetica, Arial, sans-serif;
     --primary-color: whitesmoke;
     --secondary-color: #39FF14;

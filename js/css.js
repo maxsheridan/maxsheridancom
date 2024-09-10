@@ -56,10 +56,10 @@
                 background: var(--background-color);
             } 
 
-            .page-content-inner { 
+            .content { 
                 max-width: 38rem;
                 margin: 0 auto;
-                padding: 2rem 1.5rem;
+                padding: 4rem 1.5rem;
                 color: var(--primary-color);
             }
                 
@@ -84,12 +84,6 @@
                 font-size: clamp(.8rem,3vw,.9rem);
             }
 
-            p.intro-text {
-            font-size: clamp(1rem,3vw,1.05rem);
-            line-height: 1.45;
-            margin: 1rem 0;
-            }
-
             a {
                 display: inline; 
                 position: relative;
@@ -108,10 +102,6 @@
 
             a:hover {
                 text-shadow: 0 0 10px var(--highlight-color), 0 0 15px var(--highlight-color), 0 0 20px var(--highlight-color);
-            }
-
-            header a:hover, footer a:hover {
-                text-shadow: 0 0 10px yellow, 0 0 15px yellow, 0 0 20px yellow;
             }
 
             li:not(.link) {
@@ -173,26 +163,44 @@
                 text-align: center;
                 margin-top: 4rem;
             }
+                
+            /* All longform content, including TDC*/
 
-            /* TDC classes */
+            .intro {
+                margin: 2rem 0;
+            }
+
+            .intro hr {
+                margin: 0;
+            }
+
+            p.intro-text {
+                font-size: clamp(1rem,3vw,1.1rem);
+                line-height: 1.45;
+                margin: 1rem 0;
+            }
+
+            .longform blockquote {
+                margin: 3rem auto;
+                padding: 0 .5rem 0 .5rem;
+            }
+
+            /* TDC only */
 
             .heading {
                 text-align: center;
+                padding-top: 2rem;
             }
 
             .heading .graphic {
                 margin-bottom: 1rem;
             }
 
-            .heading:first-of-type .graphic {
-                margin-top: 2rem; /* Matches page top padding */
-            }
-
             .heading h2 {
                 margin-bottom: 1.5rem;
             }
 
-            /* News classes */
+            /* News classes and standalone posts */
 
             article:not(:last-of-type) {
                 padding: 0 0 5rem;
@@ -215,16 +223,16 @@
                 margin: .5rem 0 2.5rem;
             }
 
-            .post blockquote {
+            #news blockquote, .post blockquote {
                 margin: 2rem auto;
                 padding: 0;
             }
 
-            .post blockquote.audio {
+            #news blockquote.audio, .post blockquote.audio {
                 margin: 2rem auto 2.5rem;
             }
 
-            .post blockquote h2 {
+            #news blockquote h2, .post blockquote h2 {
                 padding-left: 1rem;
                 border-left: 4px solid var(--overlay-accent);
                 font-size: clamp(1.1rem,3vw,1.2rem); 
@@ -623,7 +631,7 @@
             }
 
             @media (max-width: 768px) {
-                .page-content-inner {
+                .content {
                     padding: 2rem 1rem;
                 }
             }
