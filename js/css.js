@@ -59,7 +59,7 @@
             .content { 
                 max-width: 38rem;
                 margin: 0 auto;
-                padding: 4rem 1.5rem;
+                padding: 2rem 0;
                 color: var(--primary-color);
             }
                 
@@ -173,12 +173,12 @@
             .intro hr {
                 margin: 0;
             }
-
+                
             p.intro-text {
-                font-size: clamp(1rem,3vw,1.1rem);
+                font-size: clamp(1rem,3vw,1.05rem);
                 line-height: 1.45;
                 margin: 1rem 0;
-            }
+}
 
             .longform blockquote {
                 margin: 3rem auto;
