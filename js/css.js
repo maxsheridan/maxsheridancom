@@ -59,11 +59,11 @@
             .content { 
                 max-width: 38rem;
                 margin: 0 auto;
-                padding: 4rem 0;
+                padding: 5.5rem 0;
                 color: var(--primary-color);
             }
                 
-            section {
+            section:not(:last-of-type) {
                 padding-bottom: clamp(2rem,3vw,4rem);
             }
 
@@ -202,12 +202,12 @@
 
             /* News classes and standalone posts */
 
+            article:first-of-type p, p.date {
+            margin-bottom: 0;
+            }
+            
             article:not(:last-of-type) {
                 padding: 0 0 5rem;
-            }
-
-            article:last-of-type {
-                padding: 0 0 2rem
             }
 
             article:not(:last-of-type)::after {
@@ -227,16 +227,16 @@
                 margin: .5rem 0 2.5rem;
             }
 
-            #news blockquote, .post blockquote {
+            .news blockquote {
                 margin: 2rem auto;
                 padding: 0;
             }
 
-            #news blockquote.audio, .post blockquote.audio {
+            .news blockquote.audio {
                 margin: 2rem auto 2.5rem;
             }
 
-            #news blockquote h2, .post blockquote h2 {
+            .news blockquote h2 {
                 padding-left: 1rem;
                 border-left: 4px solid var(--overlay-accent);
                 font-size: clamp(1.1rem,3vw,1.2rem); 
@@ -251,10 +251,6 @@
 
             .source:before {
                 content:"—";
-            }
-
-            p.date {
-                margin: 0;
             }
 
             /********** Essential Audio Player 2.1 CSS **********/

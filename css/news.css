@@ -21,12 +21,12 @@ div.essential_audio > div:nth-child(1) div.load,
 	cursor: url('/assets/graphics/hover.svg'), auto !important;
 }
 
-article:not(:last-of-type) {
-    padding: 0 0 5rem;
+article:first-of-type p, p.date {
+	margin-bottom: 0;
 }
 
-article:last-of-type {
-    padding: 0 0 2rem
+article:not(:last-of-type) {
+    padding: 0 0 5rem;
 }
 
 article:not(:last-of-type)::after {
@@ -46,15 +46,15 @@ article:not(:last-of-type)::after {
     margin: .5rem 0 2.5rem;
 }
 
-#news blockquote, .post blockquote {
+.news blockquote  {
     margin: 2rem auto;
 }
 
-#news blockquote.audio, .post blockquote.audio {
+.news blockquote.audio {
     margin: 2rem auto 2.5rem;
 }
 
-#news blockquote h2, .post blockquote h2 {
+.news blockquote h2 {
     padding-left: 1rem;
     border-left: 4px solid var(--overlay-accent);
     font-size: clamp(1.1rem,3vw,1.2rem); 
@@ -69,10 +69,6 @@ article:not(:last-of-type)::after {
 
 .source:before {
     content:"—";
-}
-
-p.date {
-	margin: 0;
 }
 
 /********** Essential Audio Player 2.1 CSS **********/
