@@ -1,4 +1,4 @@
-/* CSS for news only, including special blockquote styling */
+/* CSS for news only, including special blockquote styling for posts */
 
 * {
     box-sizing: border-box;
@@ -46,15 +46,15 @@ article:not(:last-of-type)::after {
     margin: .5rem 0 2.5rem;
 }
 
-#news blockquote {
+#news blockquote, .post blockquote {
     margin: 2rem auto;
 }
 
-#news blockquote.audio {
+#news blockquote.audio, .post blockquote.audio {
     margin: 2rem auto 2.5rem;
 }
 
-#news blockquote h2 {
+#news blockquote h2, .post blockquote h2 {
     padding-left: 1rem;
     border-left: 4px solid var(--overlay-accent);
     font-size: clamp(1.1rem,3vw,1.2rem); 
