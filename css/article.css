@@ -1,3 +1,5 @@
+/* CSS for article layout only */
+
 @font-face {
     font-family: 'ABC Diatype';
     src: url('/assets/type/ABC_Diatype.woff2') format('woff2');
@@ -82,7 +84,7 @@ body {
 
 .text-inner {
     max-width: 45rem;
-    padding: 3rem 2rem;
+    padding: 4rem 2rem;
 }
 
 section {
@@ -100,7 +102,7 @@ p {
 }
 
 p.intro-text {
-    font-size: clamp(1rem,3vw,1.05rem);
+    font-size: clamp(1rem,3vw,1.15rem);
     line-height: 1.45;
     margin: 1rem 0;
 }
@@ -149,7 +151,7 @@ hr {
     background: var(--primary-color);
 }
 
-/* TDC */
+/* TDC only */
 
 .heading {
     text-align: center;
@@ -173,10 +175,6 @@ hr {
     font-size: 7rem;
     font-weight: 800;
     line-height: 4.5rem;
-}
-
-.part:not(.fin) {
-    padding-bottom: 5rem;
 }
 
 /* SVG s*/
@@ -203,7 +201,7 @@ hr {
 
 #coda {
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 4rem;
 }
 
 /*——Blink*/

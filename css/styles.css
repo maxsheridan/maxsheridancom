@@ -1,3 +1,5 @@
+/* Global styles */
+
 @font-face {
     font-family: 'ABC Diatype';
     src: url('/assets/type/ABC_Diatype.woff2') format('woff2');
@@ -313,7 +315,7 @@ hr {
     width: auto;
 }
 
-/* Articles */
+/* All longform content, including TDC*/
 
 .intro {
     margin: 2rem 0;
@@ -329,11 +331,12 @@ p.intro-text {
     margin: 1rem 0;
 }
 
-.article h1 {
-    margin: 0;
+.longform blockquote {
+    margin: 3rem auto;
+    padding: 0 .5rem 0 .5rem;
 }
 
-/* TDC */
+/* TDC only */
 
 .heading {
     text-align: center;

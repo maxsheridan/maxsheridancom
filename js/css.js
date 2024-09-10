@@ -54,16 +54,13 @@
                 -webkit-text-size-adjust: none;
                 text-size-adjust: none;
                 background: var(--background-color);
-            }  
+            } 
 
-            .page-content-inner {
-                color: var(--primary-color);
-            }
-
-            .content {
-                max-width: 45rem;
+            .page-content-inner { 
+                max-width: 38rem;
                 margin: 0 auto;
-                padding: 4rem 1.5rem;
+                padding: 2rem 1.5rem;
+                color: var(--primary-color);
             }
                 
             section {
@@ -101,10 +98,7 @@
                 color: var(--primary-color);
             }
 
-            /* Pseudo-element for the curved underline */
-            a:not(header a):not(footer a):not(li a),
-            .link a, 
-            button[type="submit"] {
+            a:not(header a):not(footer a):not(li a), .link a, button[type="submit"] {
                 background-image: linear-gradient(transparent 80%, var(--overlay-accent) 80%);
                 background-size: 100% 10px;
                 background-repeat: repeat-x;
@@ -143,7 +137,7 @@
             h1 {
                 font-family: var(--heading-font);
                 font-size: clamp(2rem,3vw,2.5rem);
-                margin: 0 0 1rem;
+                margin: 0;
             }
 
             blockquote {
@@ -177,7 +171,7 @@
 
             #coda {
                 text-align: center;
-                margin-top: 3rem;
+                margin-top: 4rem;
             }
 
             /* TDC classes */
@@ -221,15 +215,16 @@
                 margin: .5rem 0 2.5rem;
             }
 
-            #news blockquote {
+            .post blockquote {
                 margin: 2rem auto;
+                padding: 0;
             }
 
-            #news blockquote.audio {
+            .post blockquote.audio {
                 margin: 2rem auto 2.5rem;
             }
 
-            #news blockquote h2 {
+            .post blockquote h2 {
                 padding-left: 1rem;
                 border-left: 4px solid var(--overlay-accent);
                 font-size: clamp(1.1rem,3vw,1.2rem); 
@@ -559,6 +554,8 @@
                 display: none;
             }
 
+            /* Info and contact form */
+
             #info p {
                 margin: 0;
             }
@@ -623,6 +620,12 @@
                 font-size: clamp(1.063rem,3vw,1.125rem);
                 text-align: center;
                 color: var(--primary-color);
+            }
+
+            @media (max-width: 768px) {
+                .page-content-inner {
+                    padding: 2rem 1rem;
+                }
             }
         `;
         document.head.appendChild(style); // Injects the CSS into the document head
