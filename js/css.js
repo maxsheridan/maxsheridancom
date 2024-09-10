@@ -206,6 +206,10 @@
                 padding: 0 0 5rem;
             }
 
+            article:last-of-type {
+                padding: 0 0 2rem
+            }
+
             article:not(:last-of-type)::after {
                 display: block;
                 height: 5rem;
