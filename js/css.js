@@ -127,7 +127,7 @@
             h1 {
                 font-family: var(--heading-font);
                 font-size: clamp(2rem,3vw,2.5rem);
-                margin: 0;
+                margin: 0 0 2rem;
             }
 
             blockquote {
