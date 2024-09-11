@@ -274,7 +274,7 @@ h2 {
 
 h1 {
     font-family: var(--heading-font);
-    font-size: clamp(2rem,3vw,2.5rem);
+    font-size: clamp(1.85rem,3vw,2.5rem);
     font-weight: 500;
     font-style: normal;
     margin: 0 0 2rem;
