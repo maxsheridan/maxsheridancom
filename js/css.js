@@ -67,10 +67,6 @@
                 padding-bottom: clamp(2rem,3vw,4rem);
             }
 
-            .intro {
-                margin: 2rem 0;
-            }
-
             /*Type*/
 
             p, li {
@@ -82,6 +78,12 @@
 
             p.small {
                 font-size: clamp(.8rem,3vw,.9rem);
+            }
+
+            b, strong {
+                font-family: var(--heading-font);
+                font-weight: 500;
+                font-style: normal;
             }
 
             a {
@@ -576,7 +578,10 @@
 
             label {
                 font-family: var(--body-font);
+                font-weight: 400;
+                font-style: normal; 
                 color: var(--primary-color);
+                
             }
 
             input {
@@ -587,6 +592,9 @@
                 border-radius: .15rem .15rem .15rem .15rem;
                 font-family: var(--body-font);
                 font-size: .95rem;
+                font-weight: 400;
+                font-style: normal; 
+                background-color: white;
             }
 
             textarea {
@@ -600,6 +608,8 @@
                 border-radius: .15rem .15rem .15rem .15rem;
                 font-family: var(--body-font);
                 font-size: .95rem;
+                font-weight: 400;
+                font-style: normal; 
                 background-color: white;
             }
 
@@ -608,6 +618,8 @@
                 background: none;
                 font-family: var(--body-font);
                 font-size: var(--body-font-size);
+                font-weight: 400;
+                font-style: normal; 
                 color: var(--primary-color);
             }
 
@@ -626,11 +638,13 @@
             form p {
                 font-family: var(--body-font);
                 font-size: clamp(1.063rem,3vw,1.125rem);
+                font-weight: 400;
+                font-style: normal; 
                 text-align: center;
-                color: var(--primary-color);
+                color: var(--overlay-accent);
             }
 
-            @media (max-width: 768px) {
+            @media (max-width: 820px) {
                 .content {
                     padding: 2rem 1rem;
                 }
