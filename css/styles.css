@@ -416,6 +416,7 @@ p.intro-text {
     left: 50%;
     z-index: 100;
     width: 50vw;
+    max-width: 100%;
     height: auto;
     transform: translateX(-50%);
     pointer-events: none;
