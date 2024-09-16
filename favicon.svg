@@ -7,13 +7,27 @@
         @media (prefers-color-scheme: dark) {
             :root { filter: invert(100%); }
         }
+        
+        .rotate {
+            display: inline-block;
+            -webkit-animation: rotate 4s linear infinite;
+            animation: rotate 4s linear infinite;
+}
 
-        /* Define keyframes for rotation */
-        @keyframes rotate {
-            0% {
+        @-webkit-keyframes rotate {
+            from {
                 transform: rotate(0deg);
             }
-            100% {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
                 transform: rotate(360deg);
             }
         }

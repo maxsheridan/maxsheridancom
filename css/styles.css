@@ -376,7 +376,7 @@ p.intro-text {
     animation-iteration-count: infinite;
 }
 
-@keyframes blink {
+@-webkit-keyframes blink {
     0%, 15% {
         opacity: 0;
     }
@@ -385,7 +385,7 @@ p.intro-text {
     }
 }
 
-@-webkit-keyframes blink {
+@keyframes blink {
     0%, 15% {
         opacity: 0;
     }
@@ -450,6 +450,15 @@ p.intro-text {
     display: inline-block;
     -webkit-animation: rotate 4s linear infinite;
     animation: rotate 4s linear infinite;
+}
+
+@-webkit-keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes rotate {
