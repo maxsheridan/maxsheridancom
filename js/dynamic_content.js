@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(html => {
                 contentDiv.innerHTML = html;
                 initializePage();
+                initializeDarkModeToggle(); // Re-initialize dark mode toggles after content load
                 contentDiv.scrollTop = 0;
                 attachFormSubmitListener();
 
