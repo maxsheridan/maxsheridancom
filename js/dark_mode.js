@@ -34,6 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             setLightTheme();
         }
+    
+        // Ensure all dark-mode toggle icons are updated on every page
+        document.querySelectorAll('.dark-mode-toggle').forEach(toggle => {
+            toggle.innerHTML = theme === 'dark' ? lightModeSVG : darkModeSVG;
+        });
     }
 
     function applySavedTheme() {
