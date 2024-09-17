@@ -448,8 +448,8 @@ p.intro-text {
 
 .rotate {
     display: inline-block;
-    -webkit-animation: rotate 4s linear infinite;
-    animation: rotate 4s linear infinite;
+    -webkit-animation: rotate 6s linear infinite;
+    animation: rotate 6s linear infinite;
 }
 
 @-webkit-keyframes rotate {

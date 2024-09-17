@@ -10,8 +10,8 @@
         
         .rotate {
             display: inline-block;
-            -webkit-animation: rotate 4s linear infinite;
-            animation: rotate 4s linear infinite;
+            -webkit-animation: rotate 6s linear infinite;
+            animation: rotate 6s linear infinite;
 }
 
         @-webkit-keyframes rotate {
@@ -35,8 +35,8 @@
         /* Apply the rotation to the inner path */
         path {
             transform-origin: center;
-            -webkit-animation: rotate 4s linear infinite;
-            animation: rotate 4s linear infinite;
+            -webkit-animation: rotate 6s linear infinite;
+            animation: rotate 6s linear infinite;
             }
         }
         ]]>
