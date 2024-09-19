@@ -153,8 +153,15 @@ document.addEventListener('DOMContentLoaded', () => {
     function initializePage() {
         // Add any initialization logic here
         console.log('Page initialized');
+        initializeDarkModeToggle(); // Ensure the dark mode toggle is initialized on page load
     }
 
     setupNavigation();
     initializePage();
 });
+
+function initializeDarkModeToggle() {
+    document.querySelectorAll('.dark-mode-toggle').forEach((toggle) => {
+        toggle.addEventListener('click', toggleDarkMode);
+    });
+}
