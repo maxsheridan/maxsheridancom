@@ -105,10 +105,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         pageElement.classList.remove('active');
         pageElement.classList.add('hidden');
-        if (!document.querySelector('.overlay.active') && !document.querySelector('.nested.active')) {
-            document.querySelector('.close-btn').style.display = 'none';
-            document.querySelector('.dark-mode-toggle').style.display = 'none';
-        }
+
+        // Delay hiding the buttons until the transition is complete
+        setTimeout(() => {
+            if (!document.querySelector('.overlay.active') && !document.querySelector('.nested.active')) {
+                document.querySelector('.close-btn').style.display = 'none';
+                document.querySelector('.dark-mode-toggle').style.display = 'none';
+            }
+        }, 300); // Match the duration of the CSS transition
     }
 
     function setupNavigation() {
@@ -144,11 +148,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
+
+        // Initialize dark mode toggle
+        initializeDarkModeToggle();
+    }
+
+    function initializeDarkModeToggle() {
+        document.querySelectorAll('.dark-mode-toggle').forEach((toggle) => {
+            toggle.addEventListener('click', toggleDarkMode);
+        });
     }
 
     function initializePage() {
         // Add any initialization logic here
         console.log('Page initialized');
+        initializeDarkModeToggle(); // Ensure the dark mode toggle is initialized on page load
     }
 
     setupNavigation();
