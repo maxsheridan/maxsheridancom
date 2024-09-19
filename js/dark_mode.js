@@ -16,9 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         root.style.setProperty('--nested-accent', 'yellow');
         root.style.setProperty('--highlight-color', 'magenta');
         root.style.setProperty('--background-color', '#121212');
-        document.querySelectorAll('.dark-mode-toggle').forEach(toggle => {
-            toggle.innerHTML = lightModeSVG;
-        });
+        document.querySelector('.dark-mode-toggle').innerHTML = lightModeSVG;
     }
 
     function setLightTheme() {
@@ -27,9 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         root.style.setProperty('--nested-accent', 'darkmagenta');
         root.style.setProperty('--highlight-color', 'yellow');
         root.style.setProperty('--background-color', 'whitesmoke');
-        document.querySelectorAll('.dark-mode-toggle').forEach(toggle => {
-            toggle.innerHTML = darkModeSVG;
-        });
+        document.querySelector('.dark-mode-toggle').innerHTML = darkModeSVG;
     }
 
     function setTheme(theme) {
