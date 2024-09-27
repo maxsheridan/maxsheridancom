@@ -291,7 +291,7 @@ hr {
 /* SVG s*/
 
 .graphic {
-    height: clamp(2.5rem,3vw,3rem);
+    height: clamp(2.5rem,3vw,2.75rem);
     width: auto;
 }
 
