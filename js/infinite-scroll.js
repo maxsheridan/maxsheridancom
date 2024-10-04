@@ -83,7 +83,7 @@ function onScroll() {
         } else {
             // If all files have been loaded, indicate the end of articles
             console.log('All JSON files have been loaded.');
-            const theEndElement = '<div id="end-of-articles"><img class="graphic" src="/projects/maxsheridan.com/assets/graphics/coda_dark.svg" alt="coda" width="28" height="40"></div>';
+            const theEndElement = '<div id="end-of-articles"><img class="graphic" src="/assets/graphics/coda_dark.svg" alt="coda" width="28" height="40"></div>';
 
             // Insert the "end of articles" indicator after the article container
             document.getElementById('article-container').insertAdjacentHTML('afterend', theEndElement);
