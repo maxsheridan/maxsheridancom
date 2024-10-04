@@ -1,3 +1,5 @@
+var isNewsOverlay = ''; // Detect overlay state
+
 let activePage = null; // Track the currently active page
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -123,7 +125,45 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', event => {
                 event.preventDefault();
                 const page = event.target.getAttribute('data-page');
-                loadContent('dynamic-content1', `/${page}.html`);
+                // Check if the page contains 'news'
+                if (page.includes('news')) {
+                    isNewsOverlay = true;
+                    // Fetch the JSON data from the specified URL
+                    fetch(`/news-data/article-set-${totalJSONFiles}.json?cache=` + unixTimestamp)
+                        .then(response => {
+                            if (!response.ok) { throw new Error('Network response was not ok'); }
+                            return response.json(); // Parse the JSON data
+                        })
+                        // Assuming 'data' is the JSON array
+                        .then(data => {
+                            // Reverse the order of articles based on 'articleNumber'
+                            data.sort((a, b) => b.articleNumber - a.articleNumber);
+
+                            // Construct the HTML content dynamically
+                            let content = `<div class="news page-content-inner">
+                                           <div class="content">
+                                           <h1>News</h1>
+                                           <div id="article-container">
+                                           <article>
+                                           <div class="text">
+                                           <h2>Announcing: The Purge</h2>
+                                           <p>Friends and freaks with terrifying keyword searches that ended up on my blog: it was time to say goodbye to content I’d been hauling around for years. That means posts from before 2015 are now in the big blog dumpster in the sky. Scroll down for my latest news. If you were looking for something else, something potentially revol&shy;ting for which this website was the only known source, I’m afraid you’re plumb out of luck.</p>
+                                           </div>
+                                           </article>`;
+
+                            data.forEach(article => { content += article.htmlContent; });
+
+                            content += '</div></div></div>';
+
+                            // Insert the content into the element with ID 'dynamic-content1'
+                            document.getElementById('dynamic-content1').innerHTML = content;
+                        })
+                        .catch(error => { console.error('There was a problem with the fetch operation:', error); });
+                } else {
+                    isNewsOverlay = false;
+                    loadContent('dynamic-content1', `/${page}.html`);
+                }
+
                 showPage(overlayPage);
             });
         });
@@ -144,6 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (nestedPage.classList.contains('active')) {
                     hidePage(nestedPage);
                 } else if (overlayPage.classList.contains('active')) {
+                    currentFileIndex = totalJSONFiles - 1;
                     hidePage(overlayPage);
                 }
             });
