@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                            <div id="article-container">
                                            <article>
                                            <div class="text">
-                                           <h2>Announcing: The Purge</h2>
+                                           <h2>Announcing: The Purge test</h2>
                                            <p>Friends and freaks with terrifying keyword searches that ended up on my blog: it was time to say goodbye to content I’d been hauling around for years. That means posts from before 2015 are now in the big blog dumpster in the sky. Scroll down for my latest news. If you were looking for something else, something potentially revol&shy;ting for which this website was the only known source, I’m afraid you’re plumb out of luck.</p>
                                            </div>
                                            </article>`;
