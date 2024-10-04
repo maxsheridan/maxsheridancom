@@ -2,7 +2,7 @@
 const totalJSONFiles = 5;
 
 // Base URL pattern for JSON files
-const baseUrl = '/projects/maxsheridan.com/news-data/article-set-';
+const baseUrl = '/news-data/article-set-';
 
 // Index to track which JSON file to fetch next, starting from the last file
 let currentFileIndex = totalJSONFiles - 1;
