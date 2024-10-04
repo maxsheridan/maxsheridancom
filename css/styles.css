@@ -315,6 +315,11 @@ hr {
     margin-top: 3rem;
 }
 
+#end-of-articles {
+    text-align: center;
+    margin-top: 30px;
+}
+
 /* Not in use */
 .arrow {
     height: clamp(.7rem,3vw,.8rem);
