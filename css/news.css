@@ -11,7 +11,7 @@
 .progress input {
 	cursor: url('/assets/graphics/point.svg'), auto !important;
 }
-div.essential_audio > div:nth-child(1) div,
+
 div.essential_audio > div:nth-child(1) div.off,
 div.essential_audio > div:nth-child(1) div.play,
 div.essential_audio > div:nth-child(1) div.load,
