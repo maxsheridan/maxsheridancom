@@ -12,17 +12,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function setDarkTheme() {
         root.style.setProperty('--primary-color', 'whitesmoke');
-        root.style.setProperty('--overlay-accent', 'magenta');
+        root.style.setProperty('--overlay-accent', 'deepskyblue');
         root.style.setProperty('--nested-accent', 'yellow');
-        root.style.setProperty('--highlight-color', 'magenta');
-        root.style.setProperty('--background-color', '#121212');
+        root.style.setProperty('--highlight-color', 'yellow');
+        root.style.setProperty('--background-color', '#111');
         updateDarkModeToggleIcons(lightModeSVG);
     }
 
     function setLightTheme() {
         root.style.setProperty('--primary-color', '#111');
         root.style.setProperty('--overlay-accent', 'blue');
-        root.style.setProperty('--nested-accent', 'darkmagenta');
+        root.style.setProperty('--nested-accent', 'springgreen');
         root.style.setProperty('--highlight-color', 'yellow');
         root.style.setProperty('--background-color', 'whitesmoke');
         updateDarkModeToggleIcons(darkModeSVG);
