@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function setLightTheme() {
         root.style.setProperty('--primary-color', '#111');
         root.style.setProperty('--overlay-accent', 'blue');
-        root.style.setProperty('--nested-accent', 'darkmagenta');
+        root.style.setProperty('--nested-accent', 'mediumvioletred');
         root.style.setProperty('--highlight-color', 'yellow');
         root.style.setProperty('--background-color', 'whitesmoke');
         updateDarkModeToggleIcons(darkModeSVG);
