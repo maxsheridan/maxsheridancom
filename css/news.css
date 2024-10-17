@@ -291,6 +291,17 @@ video {
     background-image: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><rect fill='%23FFF' x='17' y='8' width='3' height='14' /><rect fill='%23FFF' x='10' y='8' width='3' height='14'/></svg>");
 }
 
+/* Inverts play button in dark mode */
+.dark-mode .play-pause {
+	background-image: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><polygon fill='%23111' points='10,6.9 10,23.1 24,15'/></svg>");
+	/* Offsets size */
+	background-size: 75%;
+}
+
+.dark-mode .play-pause.pause {
+	background-image: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><rect fill='%23111' x='17' y='8' width='3' height='14' /><rect fill='%23111' x='10' y='8' width='3' height='14'/></svg>");
+}
+
 .progress {
     position: relative;
     width: 100%;
