@@ -3,6 +3,14 @@ let activePage = null; // Track the currently active page
 document.addEventListener('DOMContentLoaded', () => {
     let submitted = false;
 
+    // Function to preload multiple images
+    function preloadImages(imageArray) {
+        imageArray.forEach(src => {
+            const img = new Image();
+            img.src = src; // Set the source to preload the image
+        });
+    }
+
     function attachFormSubmitListener() {
         const contactForm = document.getElementById("contactForm");
         if (contactForm) {
@@ -133,6 +141,16 @@ document.addEventListener('DOMContentLoaded', () => {
             if (insideLink) {
                 event.preventDefault();
                 const insidePage = insideLink.getAttribute('data-inside-page');
+        
+                // Preload specific images based on the inside page
+                if (insidePage === 'posts/ptbk') {
+                    preloadImages(['https://maxsheridan.com/assets/images/press_the_button_kim.webp']);
+                } else if (insidePage === 'posts/why') {
+                    preloadImages(['https://maxsheridan.com/assets/images/why.webp']);
+                } else if (insidePage === 'posts/iknew') {
+                    preloadImages(['https://maxsheridan.com/assets/images/i_knew.webp']);
+                }
+        
                 loadContent('dynamic-content2', `/${insidePage}.html`);
                 showPage(nestedPage);
                 overlayPage.classList.add('active'); // Ensure overlay page remains active
