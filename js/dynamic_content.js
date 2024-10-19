@@ -28,24 +28,29 @@ document.addEventListener('DOMContentLoaded', () => {
                     setTimeout(() => contactForm.submit(), 1000);
                 }
             });
-
+    
             document.getElementById("hidden_iframe").onload = function() {
                 if (submitted) {
                     console.log('Form submitted and iframe loaded.');
                     submitted = false;
-                } else {
-                    console.error('Iframe loaded without form submission.');
                 }
             };
         }
     }
-
+    
+    // Updated loadScript function with duplication check
     function loadScript(url, callback) {
-        const script = document.createElement('script');
-        script.src = url;
-        script.defer = true;
-        script.onload = callback;
-        document.head.appendChild(script);
+        // Check if the script is already in the document
+        if (!document.querySelector(`script[src="${url}"]`)) {
+            const script = document.createElement('script');
+            script.src = url;
+            script.defer = true;
+            script.onload = callback;
+            document.head.appendChild(script);
+        } else {
+            // If the script is already loaded, execute the callback immediately
+            if (callback) callback();
+        }
     }
 
     function loadContent(pageId, url) {
