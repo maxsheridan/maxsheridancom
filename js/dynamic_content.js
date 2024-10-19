@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function loadContent(pageId, url) {
         const contentDiv = document.getElementById(pageId);
         contentDiv.classList.add('hidden'); // Hide the content initially
-
+    
         fetch(url)
             .then(response => response.text())
             .then(html => {
@@ -59,21 +59,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 initializePage();
                 contentDiv.scrollTop = 0;
                 attachFormSubmitListener();
-
+    
                 // Conditionally load scripts based on the content
                 if (url.includes('news') || url.includes('post')) {
+                    // Load the audio player for both 'news' and 'post'
                     loadScript('/js/audioplayer.js', () => {
                         if (typeof Essential_Audio !== 'undefined' && typeof Essential_Audio.init === 'function') {
                             Essential_Audio.init();
                         }
                     });
-                    loadScript('/js/videoplayer.js', () => {
-                        if (typeof VideoPlayer !== 'undefined' && typeof VideoPlayer.init === 'function') {
-                            VideoPlayer.init();
-                        }
-                    });
+    
+                    // Load the video player only for 'news'
+                    if (url.includes('news')) {
+                        loadScript('/js/videoplayer.js', () => {
+                            if (typeof VideoPlayer !== 'undefined' && typeof VideoPlayer.init === 'function') {
+                                VideoPlayer.init();
+                            }
+                        });
+                    }
                 }
-
+    
                 setTimeout(() => {
                     contentDiv.classList.remove('hidden'); // Show the content once it's fully loaded
                     contentDiv.classList.add('active');
@@ -83,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Error loading page content:', error);
             });
     }
+    
 
     function showPage(pageElement) {
         if (activePage && activePage !== pageElement) {
