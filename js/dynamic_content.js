@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function preloadImages(imageArray) {
         imageArray.forEach(src => {
             const img = new Image();
-            img.src = src; // Set the source to preload the image
+            img.src = src;
         });
     }
 
@@ -180,8 +180,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function initializePage() {
-        // Add any initialization logic here
-        console.log('Page initialized');
     }
 
     setupNavigation();
