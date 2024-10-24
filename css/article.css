@@ -79,14 +79,14 @@ blockquote {
         border:unset;
     }
 
-    .dark-mode-toggle {
-        position: relative;
-        top: .5rem;
-    }
-
     .content {
         border-top: 7px solid var(--primary-color);
         border-left: unset;
+    }
+
+    .dark-mode-toggle {
+        position: relative;
+        top: .5rem;
     }
 
     .text {
