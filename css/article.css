@@ -86,15 +86,14 @@ blockquote {
 
     .dark-mode-toggle {
         position: relative;
-        top: .5rem;
     }
 
     .text {
-        padding: 3rem 1rem;
+        padding: 0rem 1rem;
     }
 
     .text-inner {
         max-width: unset;
-        padding: 2rem 0;
+        padding: 3rem 0; /* 2rem (dark-mode-toggle) + 3rem = 5rem */
     }
 }
