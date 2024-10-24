@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
+        <meta name="color-scheme" content="light only">
+        <link rel="preload" as="image" href="/assets/covers/background.webp" type="image/webp" fetchpriority="high">
+        <link rel="preload" as="font" href="/assets/type/ABC_Diatype.woff2" type="font/woff2" crossorigin="anonymous" fetchpriority="high"> 
+        <title>Max Sheridan</title>     
+        <link rel="stylesheet" href="/css/styles.css" type="text/css">
+        <link rel="stylesheet" href="/css/news.css" type="text/css">
+        <link rel="stylesheet" href="/css/contact.css" type="text/css">
+        <link rel="icon" sizes="32x32" href="/favicon.ico" type="image/x-icon">
+        <link rel="icon" sizes="any" href="/favicon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/assets/icons/apple_touch_icon.png" type="image/png">
+        <link rel="manifest" href="/manifest.json" type="application/json">
+        <link rel="canonical" href="https://maxsheridan.com">
+        <meta name="description" content="Max Sheridan is the weirdo who wrote the novels Dillo and God’s Speedboat. He lives in Nicosia, Cyprus.">
+        <meta name="thumbnail" content="https://maxsheridan.com/assets/graphics/share.webp">
+        <meta property="og:site_name" content="Max Sheridan">
+        <meta property="og:title" content="Max Sheridan">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://maxsheridan.com">
+        <meta property="og:image" content="https://maxsheridan.com/assets/graphics/share.webp">
+        <meta property="og:image:type" content="image/webp">
+        <meta property="og:image:width" content="720">
+        <meta property="og:image:height" content="720">
+    </head>
+    <body>
+        <header>
+            <div class="site-title">
+                Max Sheridan
+            </div>
+            <nav class="nav-links">
+                <a href="#" data-page="content/writing">Writing</a>
+                <a href="#" data-page="content/news">News</a>
+                <a href="#" data-page="content/info">Info</a>
+            </nav>
+        </header>
+        <main>
+            <div class="site-description">
+                <p>
+                    Max Sheridan is the weirdo who wrote the novels Dillo and God’s Speedboat. He lives in Nicosia, Cyprus.
+                </p>
+            </div>
+        </main>
+        <footer>
+            <div>
+                <img class="rotate" id="logo" src="/assets/graphics/logo.svg" alt="logo" width="100" height="70">
+            </div>
+            <div class="copyright">
+                ©2012+MS
+            </div>
+        </footer>
+        <div id="overlay-page" class="overlay">
+            <div class="page-content">
+                <div class="controls-container">
+                    <div class="dark-mode-toggle">
+                        <!-- Default SVG (for Light mode initially) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+                            <path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"/>
+                        </svg>
+                    </div>
+                    <button class="close-btn" aria-label="Close">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm37.66,130.34a8,8,0,0,1-11.32,11.32L128,139.31l-26.34,26.35a8,8,0,0,1-11.32-11.32L116.69,128,90.34,101.66a8,8,0,0,1,11.32-11.32L128,116.69l26.34-26.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg>
+                    </button>
+                </div>
+                <div id="dynamic-content1"></div>
+            </div>
+        </div>
+        <div id="nested-page" class="nested">
+            <div class="page-content">
+                <div class="controls-container">
+                    <div class="dark-mode-toggle">
+                        <!-- Default SVG (for Light mode initially) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+                            <path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"/>
+                        </svg>
+                    </div>
+                    <button class="close-btn" aria-label="Close">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm37.66,130.34a8,8,0,0,1-11.32,11.32L128,139.31l-26.34,26.35a8,8,0,0,1-11.32-11.32L116.69,128,90.34,101.66a8,8,0,0,1,11.32-11.32L128,116.69l26.34-26.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg>
+                    </button>
+                </div>
+                <div id="dynamic-content2"></div>
+            </div>
+        </div>
+        <script src="/js/dynamic_content.js" defer></script>
+        <script src="/js/dark_mode.js" defer></script>
+        <script src="/js/videoplayer.js" derer></script>
+        <script src="/js/audioplayer.js" defer></script>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Max Sheridan",
+            "description": "Max Sheridan is the weirdo who wrote the novels Dillo and God’s Speedboat. He lives in Nicosia, Cyprus.",
+            "url": "https://maxsheridan.com"
+        }
+        </script>    
+    </body>
+</html>

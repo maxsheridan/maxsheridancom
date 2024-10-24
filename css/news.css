@@ -1,0 +1,355 @@
+/* CSS for news only, including special blockquote styling for posts */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    overscroll-behavior: none;
+}
+
+.progress,
+.progress input {
+	cursor: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjkiIHZpZXdCb3g9IjAgMCAyMiAzMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWw6c3BhY2U9InByZXNlcnZlIiBzdHlsZT0iZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS1taXRlcmxpbWl0OjIiPjxwYXRoIGQ9Ik0xLjM0MiAyLjY4NGgxLjM0MnYxLjM0MmgxLjM0MnYxLjM0MmgxLjM0MnYxLjM0M0g2LjcxdjEuMzQyaDEuMzQydjEuMzQxbDEuMzQyLjAwMXYxLjM0MmgxLjM0MmwuMDAxIDEuMzQyaDEuMzQydjEuMzQyaDEuMzQydjEuMzQyaDEuMzQydjEuMzQzSDkuMzk0djIuNjgzaDEuMzQybC4wMDEgMi42ODRoMS4zNDJ2Mi42ODVIOS4zOTR2LTIuNjg1SDguMDUydi0yLjY4NEg2Ljcxdi0xLjM0Mkg1LjM2OHYxLjM0Mkg0LjAyNnYxLjM0M0gyLjY4NHYxLjM0MUgxLjM0MlYyLjY4NFoiIHN0eWxlPSJmaWxsOiNmNWY1ZjUiIHRyYW5zZm9ybT0ibWF0cml4KDEuMjU0OSAwIDAgMS4yNTQ5IC44OTQ4NTY3NiAwKSIvPjxwYXRoIHN0eWxlPSJmaWxsOiMxMTEiIGQ9Ik0uMjAxIDBIMi4wOHYzMS45NDJILjIwMXpNMi4wOCAxLjg3OWgxLjg3OXYxLjg3OEgyLjA4ek0zLjk1OSAzLjc1OGgxLjg3OXYxLjg3OUgzLjk1OXpNNS44MzggNS42MzdoMS44Nzh2MS44NzhINS44Mzh6TTcuNzE3IDcuNTE2aDEuODc5djEuODc5SDcuNzE3ek05LjU5NiA5LjM5NWgxLjg3OHYxLjg3OUg5LjU5NnpNMTEuNDc0IDExLjI3NGgxLjg3OXYxLjg3OGgtMS44Nzl6TTEzLjM1NCAxMy4xNTNoMS44Nzl2MS44NzhoLTEuODc5ek0xNS4yMzMgMTUuMDMxaDEuODc5djEuODc5aC0xLjg3OXpNMTcuMTEyIDE2LjkxMWgxLjg3OHYxLjg3OGgtMS44Nzh6TTE4Ljk5MSAxOC43ODloMS44Nzl2MS44NzloLTEuODc5ek0yMC44NjkgMjAuNjY5aDEuODc5djEuODc5aC0xLjg3OXoiIHRyYW5zZm9ybT0ibWF0cml4KC44OTYzNiAwIDAgLjg5NjM2IC43MTQyODUyIDApIi8+PHBhdGggc3R5bGU9ImZpbGw6IzExMSIgZD0iTTEzLjM1NCAyMi41NDhoOS4zOTV2MS44NzloLTkuMzk1eiIgdHJhbnNmb3JtPSJtYXRyaXgoLjg5NjM2IDAgMCAuODk2MzYgLjcxNDI4NTIgMCkiLz48cGF0aCBzdHlsZT0iZmlsbDojMTExIiBkPSJNMTMuMzU0IDI0LjQyNmgxLjg3OXYxLjg3OGgtMS44Nzl6TTcuNzE3IDI0LjQyNmgxLjg3OXYxLjg3OEg3LjcxN3pNOS41OTYgMjYuMzA1aDEuODc4djMuNzU4SDkuNTk2ek0xMS40NzQgMzAuMDYzaDEuODc5djMuNzU4aC0xLjg3OXpNMTMuMzU0IDMzLjgyMmgzLjc1OFYzNS43aC0zLjc1OHpNMTUuMjMzIDI2LjMwNWgxLjg3OXYzLjc1OGgtMS44Nzl6TTE3LjExMiAzMC4wNjNoMS44Nzh2My43NThoLTEuODc4ek01LjgzOCAyNi4zMDVoMS44Nzh2MS44NzlINS44Mzh6TTMuOTU5IDI4LjE4NGgxLjg3OXYxLjg3OEgzLjk1OXpNMi4wOCAzMC4wNjNoMS44Nzl2MS44NzlIMi4wOHoiIHRyYW5zZm9ybT0ibWF0cml4KC44OTYzNiAwIDAgLjg5NjM2IC43MTQyODUyIDApIi8+PC9zdmc+") 5 -5, auto !important;
+}
+
+div.essential_audio > div:nth-child(1) div.off,
+div.essential_audio > div:nth-child(1) div.play,
+div.essential_audio > div:nth-child(1) div.load {
+	cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIiIGhlaWdodD0iMjkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoyIj48cGF0aCBkPSJNMy42MTQgMTIuNDJ2MS4yaDEuMnYyLjRoMS4yVjEuNjJoMi40MDF2MTAuOGgxLjJWNy42MTlsMi40LjAwMS0uMDAxIDEuMnYzLjZoMS4ydi0zLjZoMi40bC4wMDEgMS4ydjMuNTk4aDEuMTk5VjEwLjAyaDEuMnYxLjJoMS4ydjguNGgtMS4ydjMuNmgtMS4ydjIuNGgtOS42di0yLjRoLTEuMnYtMi40MDFoLTEuMlYxOC40MmgtMS4ydi0yLjRIMi40MTV2LTEuMkgxLjIxNHYtMi40aDIuNFoiIHN0eWxlPSJmaWxsOiNmNWY1ZjUiIHRyYW5zZm9ybT0ibWF0cml4KDEuMDY2NjcgMCAwIDEuMDY2NjcgLjEwNSAwKSIvPjxwYXRoIHN0eWxlPSJmaWxsOiMxMTEiIGQ9Ik02Ljc0IDIuMWgxLjY4djIwLjE2SDYuNzR6TTguNDIuNDJoMy4zNlYyLjFIOC40MnpNMTEuNzgxIDIuMWgxLjY4djE1LjEyaC0xLjY4eiIgdHJhbnNmb3JtPSJtYXRyaXgoLjc2MTkgMCAwIC43NjE5IC4xMDUgMCkiLz48cGF0aCBzdHlsZT0iZmlsbDojMTExIiBkPSJNMTMuNDYgOC44MmgzLjM2djEuNjhoLTMuMzZ6TTE2LjgxOSAxMi4xOGgxLjY4djUuMDRoLTEuNjh6TTE2LjgxOSAxMC41aDUuMDR2MS42OGgtNS4wNHpNMjEuODYgMTMuODZoMS42OHY1LjAzN2gtMS42OHpNMjEuODYgMTIuMThoMy4zNnYxLjY4aC0zLjM2ek0yNS4yMiAxMy44NmgxLjY4djEuNjhoLTEuNjh6TTI2LjkgMTUuNTRoMS42OFYyNy4zSDI2Ljl6TTI1LjIyIDI3LjNoMS42OHY1LjA0aC0xLjY4ek0yMy41NCAzMi4zNGgxLjY4djUuMDRoLTEuNjh6TTguNDIgMzUuN2gxNS4xMnYxLjY4SDguNDJ6TTUuMDYgMTcuMjJoMS42OHYxLjY4SDUuMDZ6TS4wMiAxNS41NGg1LjA0djEuNjhILjAyek0uMDIgMTcuMjJIMS43djMuMzZILjAyek0xLjcgMjAuNThoMS42OHYxLjY4SDEuN3pNMy4zOCAyMi4yNmgxLjY4djMuMzU5SDMuMzh6TTUuMDYgMjUuNjJoMS42OHYzLjM2SDUuMDZ6TTYuNzQgMjguOThoMS42OHYzLjM2SDYuNzR6TTguNDIgMzIuMzRoMS42OHYzLjM2SDguNDJ6IiB0cmFuc2Zvcm09Im1hdHJpeCguNzYxOSAwIDAgLjc2MTkgLjEwNSAwKSIvPjwvc3ZnPg==') 5 -5, auto !important;
+}
+
+.play-pause, 
+.progress input::-webkit-slider-thumb,
+.progress input::-moz-range-thumb {
+	cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIiIGhlaWdodD0iMjkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoyIj48cGF0aCBkPSJNMy42MTQgMTIuNDJ2MS4yaDEuMnYyLjRoMS4yVjEuNjJoMi40MDF2MTAuOGgxLjJWNy42MTlsMi40LjAwMS0uMDAxIDEuMnYzLjZoMS4ydi0zLjZoMi40bC4wMDEgMS4ydjMuNTk4aDEuMTk5VjEwLjAyaDEuMnYxLjJoMS4ydjguNGgtMS4ydjMuNmgtMS4ydjIuNGgtOS42di0yLjRoLTEuMnYtMi40MDFoLTEuMlYxOC40MmgtMS4ydi0yLjRIMi40MTV2LTEuMkgxLjIxNHYtMi40aDIuNFoiIHN0eWxlPSJmaWxsOiNmNWY1ZjUiIHRyYW5zZm9ybT0ibWF0cml4KDEuMDY2NjcgMCAwIDEuMDY2NjcgLjEwNSAwKSIvPjxwYXRoIHN0eWxlPSJmaWxsOiMxMTEiIGQ9Ik02Ljc0IDIuMWgxLjY4djIwLjE2SDYuNzR6TTguNDIuNDJoMy4zNlYyLjFIOC40MnpNMTEuNzgxIDIuMWgxLjY4djE1LjEyaC0xLjY4eiIgdHJhbnNmb3JtPSJtYXRyaXgoLjc2MTkgMCAwIC43NjE5IC4xMDUgMCkiLz48cGF0aCBzdHlsZT0iZmlsbDojMTExIiBkPSJNMTMuNDYgOC44MmgzLjM2djEuNjhoLTMuMzZ6TTE2LjgxOSAxMi4xOGgxLjY4djUuMDRoLTEuNjh6TTE2LjgxOSAxMC41aDUuMDR2MS42OGgtNS4wNHpNMjEuODYgMTMuODZoMS42OHY1LjAzN2gtMS42OHpNMjEuODYgMTIuMThoMy4zNnYxLjY4aC0zLjM2ek0yNS4yMiAxMy44NmgxLjY4djEuNjhoLTEuNjh6TTI2LjkgMTUuNTRoMS42OFYyNy4zSDI2Ljl6TTI1LjIyIDI3LjNoMS42OHY1LjA0aC0xLjY4ek0yMy41NCAzMi4zNGgxLjY4djUuMDRoLTEuNjh6TTguNDIgMzUuN2gxNS4xMnYxLjY4SDguNDJ6TTUuMDYgMTcuMjJoMS42OHYxLjY4SDUuMDZ6TS4wMiAxNS41NGg1LjA0djEuNjhILjAyek0uMDIgMTcuMjJIMS43djMuMzZILjAyek0xLjcgMjAuNThoMS42OHYxLjY4SDEuN3pNMy4zOCAyMi4yNmgxLjY4djMuMzU5SDMuMzh6TTUuMDYgMjUuNjJoMS42OHYzLjM2SDUuMDZ6TTYuNzQgMjguOThoMS42OHYzLjM2SDYuNzR6TTguNDIgMzIuMzRoMS42OHYzLjM2SDguNDJ6IiB0cmFuc2Zvcm09Im1hdHJpeCguNzYxOSAwIDAgLjc2MTkgLjEwNSAwKSIvPjwvc3ZnPg==') 5 -5, auto !important;
+}
+
+article:first-of-type p, p.date {
+	margin-bottom: 0;
+}
+
+article:not(:last-of-type) {
+    padding: 0 0 5rem;
+}
+
+article:not(:last-of-type)::after {
+    display: block;
+    height: 5rem;
+    border-bottom: 2px solid var(--primary-color);
+    content: "";
+}
+
+.visual img,
+.visual video:not(.player) {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    border-radius: .5rem .5rem .5rem .5rem;
+    margin: .5rem 0 2.5rem;
+}
+
+.news blockquote  {
+    margin: 2rem auto;
+}
+
+.news blockquote.audio {
+    margin: 2rem auto 2.5rem;
+}
+
+.news blockquote h2 {
+    padding-left: 1rem;
+    border-left: 4px solid var(--overlay-accent);
+    font-size: clamp(1.1rem,3vw,1.2rem); 
+	line-height: 1.5;
+    text-transform: uppercase;
+    color: var(--primary-color);
+}
+
+.source {
+    text-align: right;
+}
+
+.source:before {
+    content:"—";
+}
+
+/********** Essential Audio Player 2.1 CSS **********/
+
+/****************************************/
+/*                                      */
+/*         Section 1: The Looks         */
+/*                                      */
+/****************************************/
+
+/* 1. The Main Container */
+div.essential_audio {
+	position: relative;
+	z-index: 10;
+	width: 100%;
+    margin: 2rem 0 2rem;
+}
+
+/* 2. The Player Button – General */
+div.essential_audio > div:nth-child(1) div {
+	width: 24px;
+	height: 24px;
+	margin-top: -12px;
+	border-radius: 50%;
+	background-color: var(--overlay-accent);
+}
+
+div.essential_audio > div:nth-child(1) div:after {
+	position: absolute;
+	top: 17.5%;
+	left: 17.5%;
+	width: 65%;
+	height: 65%;
+}
+
+/* Set here how much the button exceeds the horizontal track limits: */
+/* This must not be deleted! (but can be changed, of course) */
+:root {
+	--button-protrusion: 2px;
+}
+
+/* 2.a) The Player Button – Off */
+div.essential_audio > div:nth-child(1) div.off:after {
+	content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><polygon fill='%23FFF' points='10,6.9 10,23.1 24,15' /></svg>");
+}
+
+/* 2.b) The Player Button – Loading */
+div.essential_audio > div:nth-child(1) div.load:after {
+	content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><circle opacity='0.64' fill='%23FFFFFF' cx='6.5' cy='18.5' r='2'/><circle opacity='0.76' fill='%23FFFFFF' cx='6.5' cy='11.5' r='2'/><circle opacity='0.88' fill='%23FFFFFF' cx='11.5' cy='6.5' r='2'/><circle fill='%23FFFFFF' cx='18.5' cy='6.5' r='2'/><circle opacity='0.16' fill='%23FFFFFF' cx='23.5' cy='11.5' r='2'/><circle opacity='0.28' fill='%23FFFFFF' cx='23.5' cy='18.5' r='2'/><circle opacity='0.4' fill='%23FFFFFF' cx='18.5' cy='23.4' r='2'/><circle opacity='0.52' fill='%23FFFFFF' cx='11.5' cy='23.4' r='2'/></svg>");
+	animation: audio_load_rotate 1s infinite linear;
+}
+@keyframes audio_load_rotate {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+
+/* 2.c) The Player Button – Playing */
+div.essential_audio > div:nth-child(1) div.play {
+	background-color: var(--overlay-accent) !important;
+}
+div.essential_audio > div:nth-child(1) div.play:after {
+	content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><rect fill='%23FFF' x='17' y='8' width='3' height='14' /><rect fill='%23FFF' x='10' y='8' width='3' height='14'/></svg>");
+}
+
+/* 2.d) The Player Button – Dragging */
+div.essential_audio > div:nth-child(1) div.drag {
+	transition: left 0s !important;
+}
+
+/* 2.e) The Player Button – Error */
+div.essential_audio > div:nth-child(1) div.error {
+	background-color: hsla(0, 0%, 0%, 0.35) !important;
+}
+div.essential_audio > div:nth-child(1) div.error:after {
+	content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path fill='%23FFF' d='M13.9,18.6c0-0.3,0-0.5,0-0.9c0-1.6,0.6-2.9,2.1-3.9l1.1-0.8c0.9-0.6,1.3-1.5,1.3-2.4c0-1.5-1-2.8-3-2.8c-2.2,0-3.1,1.6-3.1,3.2c0,0.2,0,0.4,0,0.5L10,11.9c-0.1-0.3-0.1-0.8-0.1-1.2c0-2.3,1.7-5.1,5.5-5.1c3.5,0,5.5,2.5,5.5,5c0,2-1.1,3.4-2.5,4.3l-1.2,0.8c-0.8,0.5-1.1,1.4-1.1,2.4c0,0.1,0,0.2,0,0.5H13.9z'/><path fill='%23FFF' d='M15,20.8c1,0,1.8,0.8,1.8,1.8S16,24.4,15,24.4c-1,0-1.8-0.8-1.8-1.8S14,20.8,15,20.8z'/></svg>");
+}
+
+/* Inverts play button, offsets element size in dark mode */
+.dark-mode div.essential_audio > div:nth-child(1) div:after {
+    filter: invert(100%);
+	top: 12.5%;
+	left: 12.5%;
+	width: 75%;
+	height: 75%;
+}
+
+/* 3. The Track */
+div.essential_audio > div:nth-child(2) {
+	height: 2px;
+}
+
+
+/* 4. The Loading Progress Bar */
+div.essential_audio > div:nth-child(2) div {
+	background-color: lightgray;
+}
+
+div.essential_audio > div:nth-child(2):after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	background-color: lightgray;
+	content: "";
+}
+
+/* 5. The Click & Drag Sensor */
+div.essential_audio > div:nth-child(3) {
+	height: 18px;
+	margin-top: -8px;
+}
+
+/****************************************/
+/*                                      */
+/*        Section 2: Core Values        */
+/*                                      */
+/****************************************/
+
+/* 1. The Main Container + General Settings */
+div.essential_audio,
+div.essential_audio * {
+	user-select: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-overflow-scrolling: auto;
+}
+div.essential_audio *:focus {
+	outline: none;
+}
+
+/* 2. The Player Button */
+div.essential_audio > div:nth-child(1) div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+}
+
+/* 2.a) Container for Player Button */
+div.essential_audio > div:nth-child(1) {
+	position: absolute;
+	z-index: 13;
+	top: 0;
+	left: calc(var(--button-protrusion) * -1);
+	width: calc(100% + (2 * var(--button-protrusion)));
+	height: 0;
+}
+
+/* 3. The Track */
+div.essential_audio > div:nth-child(2) {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	border-radius: .25rem .25rem .25rem .25rem;
+}
+
+/* 4. The Loading Progress Bar */
+div.essential_audio > div:nth-child(2) div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 11;
+	width: 0%;
+	height: 100%;
+	transition: width 0.5s;
+}
+
+/* 5. The Click & Drag Sensor */
+div.essential_audio > div:nth-child(3) {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 12;
+	width: 100%;
+}
+
+/********** Essential Video Player 1.0 CSS **********/
+
+.video-player {
+    max-width: 100%;
+    margin: 0 0 2.5rem;
+	padding: .75rem;
+	border: 1px solid #ccc;
+    border-radius: .25rem;
+	box-shadow: 0 0 .25rem hsla(0, 0%, 0%, 0.1);
+	background-color: transparent;
+}
+
+video {
+    display: block;
+    object-fit: cover;
+	width: 100%;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    margin-top: .5rem;
+}
+
+.play-pause {
+    width: 24px;
+    height: 24px;
+	margin-right: .5rem;
+	border: none;
+    border-radius: 50%;
+    background-color: var(--overlay-accent);
+    background-image: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><polygon fill='%23FFF' points='10,6.9 10,23.1 24,15'/></svg>");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 65%;
+	cursor: pointer;
+}
+
+.play-pause.pause {
+    background-image: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><rect fill='%23FFF' x='17' y='8' width='3' height='14' /><rect fill='%23FFF' x='10' y='8' width='3' height='14'/></svg>");
+}
+
+/* Inverts play button in dark mode */
+.dark-mode .play-pause {
+	background-image: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><polygon fill='%23111' points='10,6.9 10,23.1 24,15'/></svg>");
+	/* Offsets size */
+	background-size: 75%;
+}
+
+.dark-mode .play-pause.pause {
+	background-image: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><rect fill='%23111' x='17' y='8' width='3' height='14' /><rect fill='%23111' x='10' y='8' width='3' height='14'/></svg>");
+}
+
+.progress {
+    position: relative;
+    width: 100%;
+    height: 2px;
+	border-radius: .25rem;
+    background-color: hsla(0, 0%, 0%, 0.15);
+    cursor: pointer;
+}
+
+.progress-filled {
+    width: 0;
+    height: 100%;
+    border-radius: .25rem;
+	background-color: var(--overlay-accent);
+}
+
+.progress {
+	position: relative;
+}
+
+.progress input {
+    position: absolute;
+    top: -11px;
+    width: 100%;
+    height: 24px;
+	background: transparent;
+    appearance: none;
+	box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.progress input::-webkit-slider-thumb {
+    width: 12px;
+    height: 12px;
+    border: none;
+    background-color: var(--overlay-accent);
+	border-radius: 50%;
+    appearance: none;
+	cursor: pointer;
+}
+
+.progress input::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border: none;
+    background-color: var(--overlay-accent);
+	border-radius: 50%;
+    appearance: none;
+	cursor: pointer;
+}
