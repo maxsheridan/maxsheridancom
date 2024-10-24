@@ -76,19 +76,17 @@ blockquote {
     .cover {
         position: relative;
         height: 50vh;
-        border-right: none;
-        border:unset
-    }
-
-    .content {
-        border-top: 7px solid var(--primary-color);
-        border-left: unset;
+        border:unset;
     }
 
     .dark-mode-toggle {
         position: relative;
         top: .5rem;
-        padding-left: 1rem;
+    }
+
+    .content {
+        border-top: 7px solid var(--primary-color);
+        border-left: unset;
     }
 
     .text {
@@ -97,6 +95,6 @@ blockquote {
 
     .text-inner {
         max-width: unset;
-        padding: 2rem 1rem;
+        padding: 2rem 0;
     }
 }
