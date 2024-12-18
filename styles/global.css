@@ -7,9 +7,8 @@
 }
 
 :root {
-    --body-font: 'MD-IO', Helvetica, Arial, sans-serif;
+    --font: 'MD-IO', Helvetica, Arial, sans-serif;
     --body-font-size: 1rem;
-    --heading-font: 'MD-IO', Helvetica, Arial, sans-serif;
     --primary-color: whitesmoke;
     --accent-color: limegreen;
 }
@@ -51,7 +50,7 @@ header {
     top: 0;
     left: 0;
     padding: 1.5rem 2rem;
-    font-family: var(--body-font);
+    font-family: var(--font);
     color: var(--primary-color);
 }
 
@@ -90,7 +89,7 @@ section {
 }
 
 p, li {
-    font-family: var(--body-font);
+    font-family: var(--font);
     font-size: var(--body-font-size);
     font-weight: 400;
     font-style: normal;
@@ -134,7 +133,7 @@ li span {
 }
 
 h2 {
-    font-family: var(--body-font);
+    font-family: var(--font);
     font-size: clamp(1.6rem,3vw,1.85rem);
     line-height: 1.2;
     font-weight: 400;
@@ -144,7 +143,7 @@ h2 {
 }
 
 h1 {
-    font-family: var(--heading-font);
+    font-family: var(--font);
     font-size: clamp(1.85rem,3vw,2.5rem);
     font-weight: 500;
     font-style: normal;
