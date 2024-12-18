@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="color-scheme" content="dark only">
+        <link rel="preload" href="assets/type/MD_IO.woff2" as="font" type="font/woff2">
+        <title>Info - Max Sheridan</title>     
+        <link rel="stylesheet" href="/styles/global.css" type="text/css">     
+        <link rel="stylesheet" href="/styles/contact.css" type="text/css">     
+        <link rel="icon" sizes="32x32" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" sizes="any" href="favicon.svg" type="image/svg+xml">
+        <link rel="canonical" href="https://maxsheridan.com/info">
+        <meta name="description" content="Site and contact info.">
+        <meta name="thumbnail" content="https://maxsheridan.com/assets/images/share.webp">
+        <meta property="og:site_name" content="Max Sheridan">
+        <meta property="og:title" content="Max Sheridan">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://maxsheridan.com">
+        <meta property="og:image" content="https://maxsheridan.com/assets/images/share.webp">
+        <meta property="og:image:type" content="image/webp">
+        <meta property="og:image:width" content="720">
+        <meta property="og:image:height" content="720">
+    </head>
+    <body>
+        <header>
+            <nav class="bunch-of-buttons">
+                <a href="/writing">Writing</a>
+                <a href="/news">News</a>
+                <a href="/info">Info</a>
+            </nav>
+        </header>
+        <main id="info">
+            <div class="stuff" style="max-width: 39rem">
+                <h1>Info</h1>
+                <p>
+                    This site is a few HTML and CSS files hosted on GitHub. Type is Analo Grotesk by Due Studio for headings and MD-IO by Mass-Driver for the body. Design by Tug Wells. Fill out the form to get in touch.
+                </p>
+                <div>
+                    <form id="contactForm" name="contactForm" target="hidden_iframe" onsubmit="submitted=true;" action="https://docs.google.com/forms/d/e/1FAIpQLSd77W4y_BozhZ_z5f_Bh7ckV6vuqJFw89PwSC48mN67u2HMuQ/formResponse?">
+                        <label for="entry.827037062">Name</label><br>
+                        <input type="text" name="entry.827037062" id="entry.827037062" ><br>
+                        <label for="entry.1983459528">Email</label><br>
+                        <input type="text" name="entry.1983459528" id="entry.1983459528"><br>
+                        <label for="entry.1950049378">Message</label><br>
+                        <textarea name="entry.1950049378" id="entry.1950049378" placeholder="Hi there. I’ve spotted some serious errors on your website."></textarea><br><br>
+                        <button type="submit">Send</button>
+                    </form>
+                </div>
+            </div>
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display: none;"></iframe>
+            </div>
+        </main>
+        <script src="/js/contact.js" defer></script>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Info",
+            "description": "This site is a few HTML and CSS files hosted on GitHub. Type is Analo Grotesk by Due Studio for headings and MD-IO by Mass-Driver for the body.",
+            "url": "https://maxsheridan.com/info"
+        }
+        </script>    
+    </body>
+</html>
