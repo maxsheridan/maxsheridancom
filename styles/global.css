@@ -28,6 +28,7 @@ body {
     min-height: 100dvh;
     background: linear-gradient(0deg, rgb(7, 4, 15), rgba(14, 36, 26, 0)), url('/assets/images/background.webp') no-repeat 15% center / cover;
     background-attachment: fixed;
+    -webkit-tap-highlight-color: transparent;
 
 }
 
