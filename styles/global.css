@@ -25,8 +25,7 @@ html {
 }    
 
 body {
-    min-height: 100dvh; /* Ensure it covers the entire viewport */
-    margin: 0;
+    min-height: 100dvh;
     background: linear-gradient(180deg, rgb(13, 8, 23), rgba(14, 36, 26, 0)), url('/assets/images/background.webp') no-repeat 15% center / cover;
     background-attachment: fixed;
 
@@ -51,6 +50,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 2;
     padding: 1.5rem 2rem;
     font-family: var(--font);
     color: var(--primary-color);
