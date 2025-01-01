@@ -1,0 +1,206 @@
+@font-face {
+    font-family: 'MD-IO';
+    src: url(/assets/type/MD_IO.woff2) format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --font: 'MD-IO', Helvetica, Arial, sans-serif;
+    --body-font-size: clamp(.9rem, 3vw, 1rem);
+    --background-color: #111;
+    --primary-color: floralwhite;
+    --accent-color: lightblue;
+}
+
+[data-theme="light"] {
+    --primary-color: #111;
+    --accent-color: mediumblue;
+    --background-color: floralwhite;
+}
+
+[data-theme="dark"] {
+    --primary-color: floralwhite;
+    --primary-color-alt: #111;
+    --accent-color: lightblue;
+    --background-color: #111;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    overscroll-behavior: none;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100dvh;
+    color: var(--primary-color);
+    background-color: var(--background-color);
+}
+
+.acme-all-purpose-wrapper {
+    width: 100%;
+    max-width: 47rem;
+    min-height: 100dvh;
+    padding: 4rem 1rem;
+}
+
+header a {
+    display: flex;
+    height: 100%;
+}
+
+header svg:hover {
+    fill: var(--accent-color) !important;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem 0 2.5rem;
+    padding: .25rem .5rem;
+    border-radius: .25rem;
+    font-family: var(--font);
+    font-size: var(--body-font-size);
+    background-color: var(--primary-color);
+}
+
+nav a {
+    color: var(--background-color);
+}
+
+nav a:hover {
+    text-decoration: line-through;
+}
+
+button.theme-o-matic {
+    font-family: var(--font);
+    font-size: var(--body-font-size);
+    color: var(--background-color);
+    background: none;
+    cursor: pointer;
+}
+
+section {
+    margin: 0 0 3rem;
+}
+
+.some-news {
+    margin-bottom: 1.5rem;
+}
+
+.some-media {
+    margin-bottom: 3rem;
+}
+
+p, li {
+    font-family: var(--font);
+    font-size: var(--body-font-size);
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.6;
+    margin: 0 0 1rem;
+    color: var(--primary-color);
+}
+
+.info p span {
+    margin-right: 1rem;
+    color: var(--accent-color);
+}
+
+a {
+    display: inline;
+    position: relative;
+    line-height: 1.6;
+    text-decoration: none;
+    color: var(--primary-color);
+}
+p a, li.link a {
+    background-image: linear-gradient(transparent 80%, var(--accent-color) 80%);
+    background-size: 100% 10px;
+    background-repeat: repeat-x;
+    background-position: 0 100%;
+    padding-bottom: .15rem;
+}
+.just-a-list li {
+    list-style: none;
+}
+.just-a-list li span {
+    color: var(--accent-color);
+}
+.just-a-list li:not(.link) {
+    pointer-events: none;
+}
+.fancy-pants-list li {
+    list-style: decimal;
+    list-style-position: inside;
+    color: var(--accent-color);
+}
+.fancy-pants-list p {
+    margin: 1rem 0 2.5rem;
+}
+h2 {
+    font-family: var(--font);
+    font-size: clamp(1.6rem, 3vw, 1.85rem);
+    line-height: 1.2;
+    font-weight: 600;
+    font-style: normal;
+    margin: 0 0 1.5rem;
+    color: var(--primary-color);
+}
+
+hr {
+    height: 3px;
+    border: 0;
+    background: var(--primary-color);
+    margin: 2rem 0;
+}
+.inline-graphic {
+    height: clamp(1.17rem,3vw,1.3rem);
+    width: auto;
+    vertical-align: middle;
+}
+.inline-graphic.lft-arrow, .inline-graphic.rgt-arrow {
+    height: .675rem;
+    width: auto;
+    margin-right: .125rem;
+}
+#coda {
+    text-align: center;
+}
+@media (max-width:768px) {
+    .acme-all-purpose-wrapper {
+        padding: 2rem 1rem;
+}
+}.blinkeroo {
+    display: inline-block;
+    -webkit-animation: 1s infinite blink;
+    animation: 1s infinite blink;
+}
+@keyframes blink {
+    0%, 15% {
+    opacity: 0;
+}
+16%, 100% {
+    opacity: 1;
+}
+}@-webkit-keyframes blink {
+    0%, 15% {
+    opacity: 0;
+}
+16%, 100% {
+    opacity: 1;
+}
+}
