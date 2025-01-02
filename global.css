@@ -50,10 +50,24 @@ body {
 }
 
 .acme-all-purpose-wrapper {
+    display: flex;
     width: 100%;
-    max-width: 47rem;
+    max-width: 46rem;
     min-height: 100dvh;
-    padding: 4rem 1rem;
+    background-color: var(--background-color);
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    max-width: 46rem;
+    padding-top: 4rem;
+    background-color: var(--background-color);
 }
 
 header a {
@@ -81,7 +95,7 @@ nav a {
     color: var(--background-color);
 }
 
-nav a:hover {
+nav a.active, nav a:hover {
     text-decoration: line-through;
 }
 
@@ -93,11 +107,15 @@ button.theme-o-matic {
     cursor: pointer;
 }
 
-section {
+main {
+    padding-bottom: 4rem;
+}
+
+section:not(:last-child) {
     margin: 0 0 3rem;
 }
 
-.some-news {
+.some-news:not(:last-child) {
     margin-bottom: 1.5rem;
 }
 
@@ -118,6 +136,10 @@ p, li {
 .info p span {
     margin-right: 1rem;
     color: var(--accent-color);
+}
+
+p:last-child, li:last-child {
+    margin-bottom: 0;
 }
 
 a {
@@ -181,9 +203,12 @@ hr {
     text-align: center;
 }
 @media (max-width:768px) {
-    .acme-all-purpose-wrapper {
-        padding: 2rem 1rem;
-}
+    header {
+        padding: 2rem 1rem 0;
+    }
+    main {
+        padding: 0 1rem 2rem;
+    }
 }.blinkeroo {
     display: inline-block;
     -webkit-animation: 1s infinite blink;
