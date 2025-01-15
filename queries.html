@@ -57,11 +57,11 @@
                 <div class="stuff">
                     <h2>Queries? Complaints?</h2>
                     <p>
-                        We take your bafflement and&thinsp;/&thinsp;or dismay at this website seriously. Your ticket number is #<span id="ticket-number">00</span>. Please keep it handy for future communication.
+                        We take your bafflement and&thinsp;/&thinsp;or dismay at this website seriously. Your secret code is&#32;<span id="secret-code"></span>. Please keep it handy for future communication.
                     </p>
                     <form id="contactForm" name="contactForm" target="hidden_iframe" onsubmit="submitted=true;" action="https://docs.google.com/forms/d/e/1FAIpQLSdFOyyvnpaDhECFkVOSxcj_DrVqcKi2muiGAi036sWST0xKag/formResponse?">
-                        <label for="entry.1854071305">Ticket Number</label><br>
-                        <input type="text" name="entry.1854071305" id="entry.1854071305" placeholder="#01"><br>
+                        <label for="entry.1854071305">Secret Code</label><br>
+                        <input type="text" name="entry.1854071305" id="entry.1854071305" placeholder="Eimuntas Nekrošius"><br>
                         <label for="entry.1254595295">Feedback</label><br>
                         <textarea name="entry.1254595295" id="entry.1254595295" placeholder="Where is the home button?!?"></textarea><br><br>
                         <button type="submit">Send</button>
@@ -79,7 +79,7 @@
                 </a>
             </main>
         </div>
-        <script>document.addEventListener("DOMContentLoaded",()=>{const ticketNumberElement=document.getElementById("ticket-number");const form=document.getElementById("contactForm");let lastTicket=parseInt(localStorage.getItem("lastTicketNumber"),10)||0;const formattedTicket=(lastTicket%99+1).toString().padStart(2,"0");if(ticketNumberElement){ticketNumberElement.textContent=`${formattedTicket}`}if(form){form.addEventListener("submit",()=>{lastTicket=(lastTicket%99)+1;localStorage.setItem("lastTicketNumber",lastTicket)})}});</script>
+        <script>document.addEventListener("DOMContentLoaded",()=>{const secretCodeElement=document.getElementById("secret-code");if(secretCodeElement){const lithuanianNames=["Mindaugas","Gediminas","Kęstutis","Vytautas","Jogaila","Barbora Radvilaitė","Laurynas Gucevičius","Simonas Daukantas","Motiejus Valančius","Antanas Baranauskas","Vydūnas","Jonas Basanavičius","Kazys Grinius","Algirdas Brazauskas","Dalia Grybauskaitė","Tomas Venclova","Antanas Smetona","Rūta Meilutytė","Maironis","Martynas Mažvydas","Jonas Mekas","Jonas Jablonskis","Salomėja Nėris","Birutė Galdikas","Jurgis Baltrušaitis","Algimantas Čekuolis","Liudas Mažylis","Vincas Kudirka","Donatas Banionis","Eimuntas Nekrošius","Arvydas Sabonis","Jascha Heifetz","Juozas Budraitis","Romas Kalanta","Kazimieras Būga","Marija Gimbutienė","Ričardas Gavelis","Dainius Šalenga","Giedrius Arlauskis","Irena Degutienė","Linas Kleiza","Nijolė Sadūnaitė","Rimvydas Valatka","Adomas Mickevičius","Žemaitė","Juozas Naujalis","Petras Cvirka","Kazimieras Jaunius","Mykolas Biržiška","Balys Dvarionas","Antanas Vienuolis","Mikalojus Akelaitis","Petras Rimša","Adomas Galdikas","Antanas Gustaitis","Leonidas Donskis","Martynas Jankus","Antanas Škėma","Jurgis Pabrėža","Pranas Skardžius","Simonas Stanevičius","Adomas Petrauskas","Mykolas Sleževičius","Antanas Mackevičius","Jurgis Balčikonis","Kazys Škirpa","Pranas Mašiotas","Stasys Girėnas","Steponas Darius","Jonas Žemaitis","Kazimieras Žitkus","Vaclovas Biržiška","Bronius Paukštys","Kazys Grigaitis","Kazys Bizauskas","Juozas Keliuotis","Jurgis Šaulys","Petras Vileišis","Antanas Purėnas","Jonas Krikščiūnas","Mykolas Šešelgis","Juozas Montvila","Bronius Kviklys","Antanas Tumėnas","Juozas Gabrys","Juozas Urbšys","Petras Klimas"];const randomName=lithuanianNames[Math.floor(Math.random()*lithuanianNames.length)];secretCodeElement.textContent=randomName}})</script>  
         <script src="/theme-o-matic.js" defer></script>
     </body>
 </html>
