@@ -71,7 +71,7 @@
                             </p>
                         </noscript>
                     </form>
-                    <script>function initContactForm(){let submitted=!1;const form=document.getElementById("contactForm");window.addEventListener("load",()=>{form.reset()});if(form){form.addEventListener("submit",function(event){if(!submitted){event.preventDefault();form.querySelectorAll("*").forEach((el)=>{el.style.display="none"});const message=document.createElement("p");message.textContent="Thanks for your feedback! We’ll be in touch soon.";form.insertBefore(message,form.firstChild);submitted=!0;setTimeout(()=>form.submit(),1000)}});document.getElementById("hidden_iframe").onload=function(){if(submitted){submitted=!1}}}}document.addEventListener("DOMContentLoaded",initContactForm)</script>
+                    <script>function initContactForm(){let submitted=!1;const form=document.getElementById("contactForm");if(form){form.addEventListener("submit",function(event){if(!submitted){event.preventDefault();form.querySelectorAll("*").forEach((el)=>{el.style.display="none"});const message=document.createElement("p");message.textContent="Thank you for your query!";form.insertBefore(message,form.firstChild);submitted=!0;setTimeout(()=>{form.reset();form.submit()},1000)}});document.getElementById("hidden_iframe").onload=function(){if(submitted){submitted=!1}}}}document.addEventListener("DOMContentLoaded",initContactForm);</script>
                     <iframe name="hidden_iframe" id="hidden_iframe" style="display: none;"></iframe>
                 </div>
                 <a href="/">
