@@ -23,6 +23,13 @@
     }
 }
 
+[data-theme="light"] {
+    --primary-color: #111;
+    --accent-color: mediumblue;
+    --background-color: floralwhite;
+    --form-field-background-color: white;
+}
+
 * {
     padding: 0;
     margin: 0;
