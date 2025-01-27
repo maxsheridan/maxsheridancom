@@ -106,8 +106,10 @@ nav a.active {
 }
 
 nav button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    display: none;
 }
 
 svg.hidden {
