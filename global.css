@@ -113,7 +113,7 @@ nav a.active {
 
 .toggle-thingy {
     height: 1.3rem;
-    width: auto;
+    width: 1.3rem;
     vertical-align: middle;
 }
 
@@ -253,6 +253,7 @@ hr {
     }
     .toggle-thingy {
         height: 1.17rem;
+        width: 1.17rem;
     }
     .yikes {
         padding: .5rem 1rem
