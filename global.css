@@ -107,6 +107,7 @@ nav a.active {
 
 nav button {
     cursor: pointer;
+    display: none;
 }
 
 svg.hidden {
