@@ -33,8 +33,6 @@
 
 html {
     font-size: 16px;
-    overflow-y: none;
-    
 }
 
 body {
@@ -45,10 +43,6 @@ body {
     min-height: 100dvh;
     color: var(--primary-color);
     background-color: var(--background-color)
-}
-
-.acme-all-purpose-scrollbar-imitator {
-    padding-left: calc(100vw - 100%);
 }
 
 .acme-all-purpose-wrapper {
