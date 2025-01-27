@@ -131,7 +131,87 @@
                             </div>
                         </div>
                     </div>
-                    <script>document.addEventListener("DOMContentLoaded",()=>{const resetAudioPlayers=()=>{document.querySelectorAll(".audio-player").forEach((e)=>{const audio=e.querySelector("audio");const playPause=e.querySelector(".play-pause");const progress=e.querySelector(".progress input");const progressFill=e.querySelector(".progress-filled");audio.currentTime=0;audio.pause();playPause.className="play-pause play";playPause.innerHTML=` <svg class="icon" viewBox="0 0 30 30"> <polygon points="10,6.9 10,23.1 24,15"></polygon> </svg>`;progressFill.style.width="0%";progress.value=0})};resetAudioPlayers();document.querySelectorAll(".audio-player").forEach((e)=>{const audio=e.querySelector("audio");const playPause=e.querySelector(".play-pause");const progress=e.querySelector(".progress input");const progressFill=e.querySelector(".progress-filled");playPause.addEventListener("click",()=>{if(audio.paused){document.querySelectorAll("audio").forEach((a)=>a!==audio&&a.pause());audio.play()}else{audio.pause()}});audio.addEventListener("play",()=>{playPause.className="play-pause pause";playPause.innerHTML=` <svg class="icon" viewBox="0 0 30 30"> <rect x="10" y="8" width="3" height="14"></rect> <rect x="17" y="8" width="3" height="14"></rect> </svg>`});audio.addEventListener("pause",()=>{playPause.className="play-pause play";playPause.innerHTML=` <svg class="icon" viewBox="0 0 30 30"> <polygon points="10,6.9 10,23.1 24,15"></polygon> </svg>`});audio.addEventListener("timeupdate",()=>{const percentage=(audio.currentTime/audio.duration)*100||0;progressFill.style.width=`${percentage}%`;progress.value=percentage});progress.addEventListener("input",()=>{audio.currentTime=(progress.value/100)*audio.duration})})});window.addEventListener("pageshow",()=>{document.querySelectorAll(".audio-player audio").forEach((audio)=>{audio.currentTime=0;audio.pause()})});</script>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", () => {
+                          const resetAudioPlayers = () => {
+                            document.querySelectorAll(".audio-player").forEach((e) => {
+                              const audio = e.querySelector("audio");
+                              const playPause = e.querySelector(".play-pause");
+                              const progress = e.querySelector(".progress input");
+                              const progressFill = e.querySelector(".progress-filled");
+                        
+                              // Reset audio player state
+                              audio.currentTime = 0;
+                              audio.pause();
+                              playPause.className = "play-pause play";
+                              playPause.innerHTML = `
+                                <svg class="icon" viewBox="0 0 30 30">
+                                  <polygon points="10,6.9 10,23.1 24,15"></polygon>
+                                </svg>`;
+                              progressFill.style.width = "0%";
+                              progress.value = 0;
+                            });
+                          };
+                        
+                          resetAudioPlayers();
+                        
+                          document.querySelectorAll(".audio-player").forEach((e) => {
+                            const audio = e.querySelector("audio");
+                            const playPause = e.querySelector(".play-pause");
+                            const progress = e.querySelector(".progress input");
+                            const progressFill = e.querySelector(".progress-filled");
+                        
+                            // Play/pause functionality
+                            playPause.addEventListener("click", () => {
+                              if (audio.paused) {
+                                document.querySelectorAll("audio").forEach((a) => a !== audio && a.pause());
+                                audio.play();
+                              } else {
+                                audio.pause();
+                              }
+                            });
+                        
+                            // Update play/pause button state
+                            audio.addEventListener("play", () => {
+                              playPause.className = "play-pause pause";
+                              playPause.innerHTML = `
+                                <svg class="icon" viewBox="0 0 30 30">
+                                  <rect x="10" y="8" width="3" height="14"></rect>
+                                  <rect x="17" y="8" width="3" height="14"></rect>
+                                </svg>`;
+                            });
+                        
+                            audio.addEventListener("pause", () => {
+                              playPause.className = "play-pause play";
+                              playPause.innerHTML = `
+                                <svg class="icon" viewBox="0 0 30 30">
+                                  <polygon points="10,6.9 10,23.1 24,15"></polygon>
+                                </svg>`;
+                            });
+                        
+                            // Update progress bar during playback
+                            audio.addEventListener("timeupdate", () => {
+                              const percentage = (audio.currentTime / audio.duration) * 100 || 0;
+                              progressFill.style.width = `${percentage}%`;
+                              progress.value = percentage;
+                            });
+                        
+                            // Seek functionality
+                            progress.addEventListener("input", () => {
+                              audio.currentTime = (progress.value / 100) * audio.duration;
+                            });
+                          });
+                        });
+                        
+                        // Ensure audio players are reset when the page is loaded
+                        window.addEventListener("load", () => {
+                          document.querySelectorAll(".audio-player audio").forEach((audio) => {
+                            audio.currentTime = 0;
+                            audio.pause();
+                          });
+                        });
+                        </script>
+                        
                     <noscript>
                         <p style="margin-top: 1rem; color: var(--accent-color)">
                             Sorry! You need to enable Javascript to listen.
