@@ -43,6 +43,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     min-height: 100dvh;
+    padding-left: calc(100vw - 100%);
     color: var(--primary-color);
     background-color: var(--background-color)
 }
@@ -53,7 +54,6 @@ body {
     width: 100%;
     max-width: 46rem;
     min-height: 100dvh;
-    padding-left: calc(100vw - 100%);
     background-color: var(--background-color)
 }
 
