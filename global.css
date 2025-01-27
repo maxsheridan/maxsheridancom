@@ -111,14 +111,15 @@ nav a.active {
     }
 }
 
-.toggle-thingy {
-    height: 1.3rem;
-    width: 1.3rem;
-    vertical-align: middle;
+nav button {
+    height: 20px;
+    width: 20px;
 }
 
-svg.hidden {
-    display: none
+.toggle-thingy {
+    height: 20px;
+    width: 20px;
+    vertical-align: middle;
 }
 
 .yikes {
@@ -251,9 +252,14 @@ hr {
     main {
         padding: 0 1rem 2rem
     }
+    nav button {
+        height: 19px;
+        width: 19px;
+    }
+    
     .toggle-thingy {
-        height: 1.17rem;
-        width: 1.17rem;
+        height: 19px;
+        width: 19px;
     }
     .yikes {
         padding: .5rem 1rem
