@@ -111,17 +111,6 @@ nav a.active {
     }
 }
 
-nav button {
-    height: 20px;
-    width: 20px;
-}
-
-.toggle-thingy {
-    height: 20px;
-    width: 20px;
-    vertical-align: middle;
-}
-
 .yikes {
     display: flex;
     position: fixed;
@@ -232,14 +221,21 @@ hr {
     margin: 2rem 0
 }
 
+.toggle-thingy {
+    height: 20px;
+    width: 20px;
+    vertical-align: middle;
+}
+
 .moolah {
-    height: var(--heading-font-size);
+    height: 29.5px;
+    width: auto;
     vertical-align: top;
     margin-left: .25rem
 }
 
 .lft-arrow {
-    height: clamp(.59rem, 2vw, .65rem);
+    height: 10.5px;
     width: auto;
     vertical-align: baseline;
     padding-right: .2rem
@@ -252,14 +248,12 @@ hr {
     main {
         padding: 0 1rem 2rem
     }
-    nav button {
-        height: 19px;
-        width: 19px;
-    }
-    
     .toggle-thingy {
-        height: 19px;
-        width: 19px;
+        height: 18px;
+        width: 18px;
+    }
+    .moolah {
+        height: 26.5px;
     }
     .yikes {
         padding: .5rem 1rem
