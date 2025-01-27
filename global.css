@@ -93,15 +93,7 @@ nav a {
     color: var(--background-color)
 }
 
-nav a.active {
-    text-decoration: line-through
-}
 
-@media (hover:hover) and (pointer:fine) {
-    nav a:hover {
-        text-decoration: line-through
-    }
-}
 
 nav button {
     background: none;
