@@ -43,9 +43,12 @@ body {
     justify-content: flex-start;
     align-items: center;
     min-height: 100dvh;
-    padding-left: calc(100vw - 100%);
     color: var(--primary-color);
     background-color: var(--background-color)
+}
+
+.acme-all-purpose-scrollbar-imitator {
+    padding-left: calc(100vw - 100%);
 }
 
 .acme-all-purpose-wrapper {
