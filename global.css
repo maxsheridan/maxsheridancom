@@ -33,8 +33,11 @@
 
 html {
     font-size: 16px;
-    overflow-y: scroll;
+    overflow-y: none;
     
+}
+::-webkit-scrollbar {
+    display: none;
 }
 
 body {
@@ -85,8 +88,9 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
     margin: 1.25rem 0 2.5rem;
-    padding: .25rem .5rem;
+    padding: .25rem 0;
     border-radius: .25rem;
     font-family: var(--font);
     font-size: var(--body-font-size);
@@ -107,7 +111,12 @@ nav a.active {
     }
 }
 
-button.theme-o-matic {
+nav a:first-child {
+    padding-left: .5rem;
+}
+
+nav button {
+    padding-right: .5rem;
     background: none;
     cursor: pointer
 }
