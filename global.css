@@ -29,7 +29,7 @@
     border: 0;
     outline: none;
     box-sizing: border-box;
-    background: 0;
+    background: none;
     overscroll-behavior: none;
 }
 
@@ -107,7 +107,6 @@ nav a.active {
 
 nav button {
     cursor: pointer;
-    display: none;
 }
 
 svg.hidden {
