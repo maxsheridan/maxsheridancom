@@ -75,7 +75,7 @@ header {
     }
 }
 
-header a {
+header a svg {
     display: flex;
     height: 100%
 }
@@ -83,16 +83,22 @@ header a {
 nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    height: calc(var(--body-font-size) + 1.1rem);
     margin: 1.25rem 0 2.5rem;
-    padding: .25rem .5rem;
+    padding: 0 .5rem;
     border-radius: .25rem;
     font-family: var(--font);
     font-size: var(--body-font-size);
     background-color: var(--primary-color)
 }
 
-nav a {
-    color: var(--background-color)
+nav a, nav button {
+    display: flex;
+    font-size: var(--body-font-size);
+    line-height: 1.6;
+    color: var(--background-color);
+    cursor: pointer;
 }
 
 nav a.active {
@@ -101,14 +107,14 @@ nav a.active {
 
 @media (hover:hover) and (pointer:fine) {
     nav a:hover {
-        text-decoration: line-through
+        text-decoration: line-through;
     }
 }
 
-nav button {
-    cursor: pointer;
-    height: 1.6rem;
-    width: 1.3rem;
+.toggle-thingy {
+    height: 1.3rem;
+    width: auto;
+    vertical-align: middle;
 }
 
 svg.hidden {
@@ -225,12 +231,6 @@ hr {
     margin: 2rem 0
 }
 
-.inline-graphic {
-    height: 1.3rem;
-    width: auto;
-    vertical-align: middle
-}
-
 .moolah {
     height: var(--heading-font-size);
     vertical-align: top;
@@ -250,6 +250,9 @@ hr {
     }
     main {
         padding: 0 1rem 2rem
+    }
+    .toggle-thingy {
+        height: 1.17rem;
     }
     .yikes {
         padding: .5rem 1rem
