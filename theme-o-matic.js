@@ -19,18 +19,21 @@ theme_toggler.addEventListener('click', function(){
     updateThemeUI(newTheme);
 });
 
-// Retrieve and apply theme on page load (ensures back/forward navigation works)
+// Retrieve and apply theme on page load
 function retrieve_theme(){
     let savedTheme = localStorage.getItem('website_theme') || 'default'; // Default to dark mode
     updateThemeUI(savedTheme);
 }
 
-// Listen for back/forward button navigation (this is the key fix)
-window.addEventListener("popstate", function() {
-    retrieve_theme();
-}, false);
+retrieve_theme();
 
-// Listen for changes across tabs/windows (to sync theme when navigating between tabs)
+// Listen for changes across tabs/windows
 window.addEventListener("storage", function(){
     retrieve_theme();
 }, false);
+
+// Ensure theme persists on back/forward navigation
+window.addEventListener("pageshow", () => {
+    let storedTheme = localStorage.getItem("theme") || "dark";
+    updateThemeUI(storedTheme);
+});
