@@ -1,28 +1,38 @@
+// Set default theme to dark if not already set
 if (!sessionStorage.getItem("visited")) {
     sessionStorage.setItem("visited", "true");
     localStorage.setItem("theme", "dark");
 }
 
 let currentThemeSetting = localStorage.getItem("theme") || "dark";
-const lightThemeStyles = `:root{--primary-color:#111;--accent-color:mediumblue;--background-color:floralwhite;--form-field-background-color:white}`;
 
+// Define the icons for the themes
+const darkModeIcon = `<svg class="inline-graphic toggle-thingy" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"> <path fill="none" d="M0 0h256v256H0z"/> <path fill="none" stroke="#111" stroke-linecap="round" stroke-linejoin="round" stroke-width="18" d="M128 40V16"/> <circle cx="128" cy="128" r="56" fill="none" stroke="#111" stroke-linecap="round" stroke-linejoin="round" stroke-width="18"/> <path fill="none" stroke="#111" stroke-linecap="round" stroke-linejoin="round" stroke-width="18" d="M64 64 48 48m16 144-16 16M192 64l16-16m-16 144 16 16M40 128H16m112 88v24m88-112h24"/> </svg>`;
 const lightModeIcon = `<svg class="inline-graphic toggle-thingy" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"> <path fill="none" d="M0 0h256v256H0z"/> <path d="M108.11 28.11a96.09 96.09 0 0 0 119.78 119.78A96 96 0 1 1 108.11 28.11" fill="none" stroke="floralwhite" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/> </svg>`;
 
+// Apply the current theme
 function applyTheme(theme) {
-    const styleTag = document.getElementById("theme-style");
-    if (theme === "light") {
-        if (!styleTag) {
-            const newStyleTag = document.createElement("style");
-            newStyleTag.id = "theme-style";
-            newStyleTag.textContent = lightThemeStyles;
-            document.head.appendChild(newStyleTag);
-        }
-    } else {
-        if (styleTag) styleTag.remove();
-    }
-
     document.documentElement.setAttribute("data-theme", theme);
 
+    // Load light.css when switching to light theme
+    if (theme === "light") {
+        const existingLink = document.getElementById("light-theme-styles");
+        if (!existingLink) {
+            const link = document.createElement("link");
+            link.id = "light-theme-styles";
+            link.rel = "stylesheet";
+            link.href = "path/to/light.css"; // Replace with actual path to your light.css
+            document.head.appendChild(link);
+        }
+    } else {
+        // Remove light.css if it's loaded
+        const lightLink = document.getElementById("light-theme-styles");
+        if (lightLink) {
+            lightLink.remove();
+        }
+    }
+
+    // Update the button text and aria-label
     const button = document.querySelector("[data-theme-toggle]");
     if (button) {
         button.innerHTML = theme === "dark" ? darkModeIcon : lightModeIcon;
@@ -30,8 +40,10 @@ function applyTheme(theme) {
     }
 }
 
+// Apply the current theme on page load
 applyTheme(currentThemeSetting);
 
+// Add click event to toggle button
 const button = document.querySelector("[data-theme-toggle]");
 if (button) {
     button.addEventListener("click", () => {
@@ -42,6 +54,7 @@ if (button) {
     });
 }
 
+// Ensure theme is applied on page reload
 window.addEventListener("pageshow", () => {
     const savedTheme = localStorage.getItem("theme") || "dark";
     applyTheme(savedTheme);
