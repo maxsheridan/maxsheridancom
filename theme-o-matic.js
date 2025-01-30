@@ -1,4 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
     let currentThemeSetting = localStorage.getItem("theme") || "dark";
     document.querySelector("html").setAttribute("data-theme", currentThemeSetting);
 
@@ -22,4 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("theme", currentThemeSetting);
         updateThemeUI(currentThemeSetting);
     });
-});
+    document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "visible") {
+            let storedTheme = localStorage.getItem("theme") || "dark";
+            document.querySelector("html").setAttribute("data-theme", storedTheme);
+        }
+    });
