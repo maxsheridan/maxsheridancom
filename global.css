@@ -17,11 +17,36 @@
     --form-field-background-color: floralwhite
 }
 
-.light {
+.yikes {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 46rem;
+    padding: .5rem 0;
+    background-color: var(--background-color)
+}
+
+.yikes p {
+    margin: 0;
+    color: var(--accent-color)
+}
+
+[data-theme="light"] {
+    --primary-color: floralwhite;
+    --accent-color: lightblue;
+    --background-color: #111;
+    --form-field-color: #111;
+    --form-field-background-color: floralwhite;
+}
+
+[data-theme="light"] {
     --primary-color: #111;
     --accent-color: mediumblue;
     --background-color: floralwhite;
-    --form-field-background-color: white
+    --form-field-background-color: white;
 }
 
 svg {
@@ -89,7 +114,7 @@ header a svg {
     height: 100%
 }
 
-#theme-o-matic {
+.theme-o-matic {
     display: flex;
     align-items: center;
     cursor: pointer;
