@@ -21,7 +21,7 @@ function applyTheme(theme) {
             const link = document.createElement("link");
             link.id = "light-theme-styles";
             link.rel = "stylesheet";
-            link.href = "path/to/light.css"; // Replace with actual path to your light.css
+            link.href = "/light.css";  // Make sure to replace with correct path
             document.head.appendChild(link);
         }
     } else {
