@@ -1,43 +1,36 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const themeToggle = document.getElementById("theme-o-matic");
-    const lightThemeClass = "light";
-    const storageKey = "themePreference";
+let currentThemeSetting = localStorage.getItem("theme") || "dark";
 
-    // Sun and moon SVGs
-    const sunIcon = `<svg class="inline-graphic toggle-thingy" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><path fill="none" stroke="var(--background-color)" stroke-linecap="round" stroke-linejoin="round" stroke-width="18" d="M128 40V16"/><circle cx="128" cy="128" r="56" fill="none" stroke="var(--background-color)" stroke-linecap="round" stroke-linejoin="round" stroke-width="18"/><path fill="none" stroke="var(--background-color)" stroke-linecap="round" stroke-linejoin="round" stroke-width="18" d="M64 64 48 48M64 192l-16 16M192 64l16-16M192 192l16 16M40 128H16M128 216v24M216 128h24"/></svg>`;
+const darkModeIcon = `<svg class="inline-graphic toggle-thingy" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+    <path fill="none" d="M0 0h256v256H0z"/>
+    <path fill="none" stroke="#111" stroke-linecap="round" stroke-linejoin="round" stroke-width="18" d="M128 40V16"/>
+    <circle cx="128" cy="128" r="56" fill="none" stroke="#111" stroke-linecap="round" stroke-linejoin="round" stroke-width="18"/>
+    <path fill="none" stroke="#111" stroke-linecap="round" stroke-linejoin="round" stroke-width="18" d="M64 64 48 48m16 144-16 16M192 64l16-16m-16 144 16 16M40 128H16m112 88v24m88-112h24"/>
+</svg>`;
 
-    const moonIcon = `<svg class="inline-graphic toggle-thingy" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><path d="M108.1 28.1A96 96 0 0 0 228 148 96 96 0 1 1 108 28" fill="none" stroke="var(--background-color)" stroke-linecap="round" stroke-linejoin="round" stroke-width="18"/></svg>`;
+const lightModeIcon = `<svg class="inline-graphic toggle-thingy" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+    <path fill="none" d="M0 0h256v256H0z"/>
+    <path d="M108.11 28.11a96.09 96.09 0 0 0 119.78 119.78A96 96 0 1 1 108.11 28.11" fill="none" stroke="floralwhite" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+</svg>`;
 
-    // Function to apply the theme
-    function applyTheme(isLight) {
-        if (isLight) {
-            document.documentElement.classList.add(lightThemeClass);
-            themeToggle.setAttribute("aria-label", "Click for dark theme");
-            themeToggle.innerHTML = moonIcon;
-        } else {
-            document.documentElement.classList.remove(lightThemeClass);
-            themeToggle.setAttribute("aria-label", "Click for light theme");
-            themeToggle.innerHTML = sunIcon;
-        }
+function applyTheme(theme) {
+    const button = document.querySelector("#theme-o-matic");
+    if (button) {
+        button.innerHTML = theme === "dark" ? darkModeIcon : lightModeIcon;
+        button.setAttribute("aria-label", `Click for ${theme === "dark" ? "light" : "dark"} theme`);
     }
+    document.documentElement.setAttribute("data-theme", theme);
+    document.body.classList.toggle("dark", theme === "dark");
+    document.body.classList.toggle("light", theme === "light");
+}
 
-    // Function to get the saved theme from localStorage
-    function getSavedTheme() {
-        return localStorage.getItem(storageKey) === "light";
-    }
+applyTheme(currentThemeSetting);
 
-    // Apply theme on page load (even on back/forward navigation)
-    applyTheme(getSavedTheme());
-
-    // Toggle theme on button click
-    themeToggle.addEventListener("click", function () {
-        const isLight = !getSavedTheme();
-        localStorage.setItem(storageKey, isLight ? "light" : "dark");
-        applyTheme(isLight);
+const button = document.querySelector("#theme-o-matic");
+if (button) {
+    button.addEventListener("click", () => {
+        const newTheme = currentThemeSetting === "dark" ? "light" : "dark";
+        localStorage.setItem("theme", newTheme);
+        currentThemeSetting = newTheme;
+        applyTheme(newTheme);
     });
-
-    // Apply the theme immediately on page load without relying on other events.
-    window.onload = function () {
-        applyTheme(getSavedTheme());
-    };
-});
+}
