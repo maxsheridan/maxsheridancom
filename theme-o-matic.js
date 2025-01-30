@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
+    if (!sessionStorage.getItem("visited")) {
+        sessionStorage.setItem("visited", "true");
+        localStorage.setItem("theme", "dark");
+    }
+    
     let currentThemeSetting = localStorage.getItem("theme") || "dark"; // Default to dark if no theme saved
 
     // Define the icons for the themes
