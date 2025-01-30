@@ -38,3 +38,9 @@ if (button) {
         applyTheme(newTheme);  // Apply the new theme
     });
 }
+
+// Ensure theme is applied on page reload
+window.addEventListener("pageshow", () => {
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    applyTheme(savedTheme);
+});
