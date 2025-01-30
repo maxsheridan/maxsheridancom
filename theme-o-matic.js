@@ -36,10 +36,8 @@ document.addEventListener("DOMContentLoaded", function () {
         applyTheme(isLight);
     });
 
-    // Detect localStorage changes (for navigation and multi-tab support)
-    window.addEventListener("storage", function (event) {
-        if (event.key === storageKey) {
-            applyTheme(getSavedTheme());
-        }
+    // Ensure the theme applies after any page reload, forward/back navigation
+    window.addEventListener("load", function() {
+        applyTheme(getSavedTheme());
     });
 });
