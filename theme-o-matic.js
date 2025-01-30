@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const moonIcon = `<svg class="inline-graphic toggle-thingy" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><path d="M108.1 28.1A96 96 0 0 0 228 148 96 96 0 1 1 108 28" fill="none" stroke="var(--background-color)" stroke-linecap="round" stroke-linejoin="round" stroke-width="18"/></svg>`;
 
-    // Function to set the theme
-    function setTheme(isLight) {
+    // Function to apply the theme
+    function applyTheme(isLight) {
         if (isLight) {
             document.documentElement.classList.add(lightThemeClass);
             themeToggle.setAttribute("aria-label", "Click for dark theme");
@@ -21,20 +21,23 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem(storageKey);
-    setTheme(savedTheme === "light");
+    // Function to get theme from localStorage
+    function getSavedTheme() {
+        return localStorage.getItem(storageKey) === "light";
+    }
+
+    // Apply theme immediately on page load
+    applyTheme(getSavedTheme());
 
     // Toggle theme on button click
     themeToggle.addEventListener("click", function () {
-        const isLight = !document.documentElement.classList.contains(lightThemeClass);
-        setTheme(isLight);
+        const isLight = !getSavedTheme();
+        applyTheme(isLight);
         localStorage.setItem(storageKey, isLight ? "light" : "dark");
     });
 
-    // Ensure theme persists across history navigation (back/forward buttons)
-    window.addEventListener("pageshow", function () {
-        const savedTheme = localStorage.getItem(storageKey);
-        setTheme(savedTheme === "light");
+    // Listen for storage changes (when navigating back/forward)
+    window.addEventListener("storage", function () {
+        applyTheme(getSavedTheme());
     });
 });
