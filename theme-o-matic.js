@@ -1,7 +1,4 @@
-if (!sessionStorage.getItem("visited")) {
-    sessionStorage.setItem("visited", "true");
-    localStorage.setItem("theme", "dark")
-}
+
 let currentThemeSetting = localStorage.getItem("theme") || "dark";
 const lightThemeStyles = `:root{--primary-color:#111;--accent-color:mediumblue;--background-color:floralwhite;--form-field-background-color:white}body{color:var(--primary-color);background-color:var(--background-color)}svg{fill:var(--primary-color)}.play-pause .icon{fill:var(--background-color)}`;
 const darkModeIcon = `<svg class="inline-graphic toggle-thingy" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"> <path fill="none" d="M0 0h256v256H0z"/> <path fill="none" stroke="#111" stroke-linecap="round" stroke-linejoin="round" stroke-width="18" d="M128 40V16"/> <circle cx="128" cy="128" r="56" fill="none" stroke="#111" stroke-linecap="round" stroke-linejoin="round" stroke-width="18"/> <path fill="none" stroke="#111" stroke-linecap="round" stroke-linejoin="round" stroke-width="18" d="M64 64 48 48m16 144-16 16M192 64l16-16m-16 144 16 16M40 128H16m112 88v24m88-112h24"/> </svg>`;
