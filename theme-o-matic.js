@@ -19,15 +19,16 @@ theme_toggler.addEventListener('click', function(){
     updateThemeUI(newTheme);
 });
 
-// Retrieve and apply theme on page load
+// Retrieve and apply theme on page load (ensures back/forward navigation works)
 function retrieve_theme(){
     let savedTheme = localStorage.getItem('website_theme') || 'default'; // Default to dark mode
     updateThemeUI(savedTheme);
 }
 
-retrieve_theme();
+// Retrieve the theme immediately on page load (DOMContentLoaded or load)
+document.addEventListener('DOMContentLoaded', retrieve_theme);
 
-// Listen for changes across tabs/windows
+// Listen for changes across tabs/windows (to sync theme when navigating between tabs)
 window.addEventListener("storage", function(){
     retrieve_theme();
 }, false);
