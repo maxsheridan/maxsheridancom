@@ -32,14 +32,6 @@
     --form-field-background-color: white;
 }
 
-svg {
-    fill: var(--primary-color);
-}
-
-.play-pause .icon {
-    fill: var(--background-color);
-}
-
 .yikes {
     display: flex;
     position: fixed;
