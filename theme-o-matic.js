@@ -21,12 +21,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Function to get theme from localStorage
+    // Function to get the saved theme from localStorage
     function getSavedTheme() {
         return localStorage.getItem(storageKey) === "light";
     }
 
-    // Apply theme immediately on page load
+    // Apply theme on page load (even on back/forward navigation)
     applyTheme(getSavedTheme());
 
     // Toggle theme on button click
@@ -36,8 +36,8 @@ document.addEventListener("DOMContentLoaded", function () {
         applyTheme(isLight);
     });
 
-    // Ensure the theme applies after any page reload, forward/back navigation
-    window.addEventListener("load", function() {
+    // Apply the theme immediately on page load without relying on other events.
+    window.onload = function () {
         applyTheme(getSavedTheme());
-    });
+    };
 });
