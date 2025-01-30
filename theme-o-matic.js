@@ -25,8 +25,13 @@ function retrieve_theme(){
     updateThemeUI(savedTheme);
 }
 
-// Retrieve the theme immediately on page load (DOMContentLoaded or load)
+// Apply theme on DOMContentLoaded (also handles back/forward navigation)
 document.addEventListener('DOMContentLoaded', retrieve_theme);
+
+// Listen for back/forward button navigation (this is the key fix)
+window.addEventListener("popstate", function() {
+    retrieve_theme();
+}, false);
 
 // Listen for changes across tabs/windows (to sync theme when navigating between tabs)
 window.addEventListener("storage", function(){
