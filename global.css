@@ -17,23 +17,6 @@
     --form-field-background-color: floralwhite
 }
 
-.yikes {
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    max-width: 46rem;
-    padding: .5rem 0;
-    background-color: var(--background-color)
-}
-
-.yikes p {
-    margin: 0;
-    color: var(--accent-color)
-}
-
 [data-theme="light"] {
     --primary-color: floralwhite;
     --accent-color: lightblue;
@@ -55,6 +38,23 @@ svg {
 
 .play-pause .icon {
     fill: var(--background-color);
+}
+
+.yikes {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 46rem;
+    padding: .5rem 0;
+    background-color: var(--background-color)
+}
+
+.yikes p {
+    margin: 0;
+    color: var(--accent-color)
 }
 
 * {
