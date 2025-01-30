@@ -1,0 +1,12 @@
+
+:root {
+    --primary-color: #111;
+    --accent-color: mediumblue;
+    --background-color: floralwhite;
+    --form-field-background-color: white;
+}
+
+body {
+    --primary-color: #111;
+    --background-color: floralwhite;
+}
