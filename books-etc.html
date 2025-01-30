@@ -5,8 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
         <meta name="color-scheme" content="dark">
+        <script>if(!sessionStorage.getItem("visited")){sessionStorage.setItem("visited","true");localStorage.setItem("theme","dark")}let currentThemeSetting=localStorage.getItem("theme")||"dark";document.documentElement.setAttribute("data-theme",currentThemeSetting);</script>
         <link rel="preload" href="/assets/type/MD_IO.woff2" as="font" type="font/woff2" crossorigin>
-        <script src="/theme-o-matic.js" defer></script> 
         <link rel="stylesheet" href="/global.css" type="text/css">
         <link rel="icon" sizes="32x32" href="favicon.ico" type="image/x-icon">
         <link rel="icon" sizes="any" href="favicon.svg" type="image/svg+xml">
@@ -248,6 +248,7 @@
             "description": "Novels, stories, etc.",
             "url": "https://maxsheridan.com/writing"
         }
-        </script>    
+        </script>
+        <script src="/theme-o-matic.js" defer></script>   
     </body>
 </html>
