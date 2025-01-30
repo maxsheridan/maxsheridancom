@@ -17,7 +17,7 @@
     --form-field-background-color: floralwhite
 }
 
-[data-theme="light"] {
+[data-theme="dark"] {
     --primary-color: floralwhite;
     --accent-color: lightblue;
     --background-color: #111;
