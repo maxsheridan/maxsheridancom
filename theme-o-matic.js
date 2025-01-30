@@ -26,18 +26,20 @@ document.addEventListener("DOMContentLoaded", function () {
         return localStorage.getItem(storageKey) === "light";
     }
 
-    // Apply theme immediately on page load
+    // Apply theme on page load
     applyTheme(getSavedTheme());
 
     // Toggle theme on button click
     themeToggle.addEventListener("click", function () {
         const isLight = !getSavedTheme();
-        applyTheme(isLight);
         localStorage.setItem(storageKey, isLight ? "light" : "dark");
+        applyTheme(isLight);
     });
 
-    // Listen for storage changes (when navigating back/forward)
-    window.addEventListener("storage", function () {
-        applyTheme(getSavedTheme());
+    // Check and apply theme every time the page is shown
+    document.addEventListener("visibilitychange", function () {
+        if (document.visibilityState === "visible") {
+            applyTheme(getSavedTheme());
+        }
     });
 });
