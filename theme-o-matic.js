@@ -40,8 +40,7 @@ if (button) {
     });
 }
 
-// Ensure the theme is applied correctly when navigating using the browser buttons (back/forward)
-window.addEventListener("load", () => {
+window.addEventListener("pageshow", () => {
     const savedTheme = localStorage.getItem("theme") || "dark";
-    applyTheme(savedTheme);  // Apply the saved theme on page load
-});
+    applyTheme(savedTheme)
+})
