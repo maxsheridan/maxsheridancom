@@ -31,3 +31,9 @@ retrieve_theme();
 window.addEventListener("storage", function(){
     retrieve_theme();
 }, false);
+
+// Ensure theme persists on back/forward navigation
+window.addEventListener("pageshow", () => {
+    let storedTheme = localStorage.getItem('website_theme') || 'default';
+    updateThemeUI(storedTheme);
+});
