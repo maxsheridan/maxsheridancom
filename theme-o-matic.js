@@ -25,9 +25,6 @@ function retrieve_theme(){
     updateThemeUI(savedTheme);
 }
 
-// Apply theme on DOMContentLoaded (also handles back/forward navigation)
-document.addEventListener('DOMContentLoaded', retrieve_theme);
-
 // Listen for back/forward button navigation (this is the key fix)
 window.addEventListener("popstate", function() {
     retrieve_theme();
