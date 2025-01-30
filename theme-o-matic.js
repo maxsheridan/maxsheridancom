@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return localStorage.getItem(storageKey) === "light";
     }
 
-    // Apply theme on page load
+    // Apply theme immediately on page load
     applyTheme(getSavedTheme());
 
     // Toggle theme on button click
@@ -36,9 +36,9 @@ document.addEventListener("DOMContentLoaded", function () {
         applyTheme(isLight);
     });
 
-    // Check and apply theme every time the page is shown
-    document.addEventListener("visibilitychange", function () {
-        if (document.visibilityState === "visible") {
+    // Detect localStorage changes (for navigation and multi-tab support)
+    window.addEventListener("storage", function (event) {
+        if (event.key === storageKey) {
             applyTheme(getSavedTheme());
         }
     });
