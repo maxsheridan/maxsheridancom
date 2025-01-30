@@ -14,24 +14,6 @@ const lightModeIcon = `<svg class="inline-graphic toggle-thingy" xmlns="http://w
 function applyTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
 
-    // Load light.css when switching to light theme
-    if (theme === "light") {
-        const existingLink = document.getElementById("light-theme-styles");
-        if (!existingLink) {
-            const link = document.createElement("link");
-            link.id = "light-theme-styles";
-            link.rel = "stylesheet";
-            link.href = "/light.css";  // Make sure to replace with correct path
-            document.head.appendChild(link);
-        }
-    } else {
-        // Remove light.css if it's loaded
-        const lightLink = document.getElementById("light-theme-styles");
-        if (lightLink) {
-            lightLink.remove();
-        }
-    }
-
     // Update the button text and aria-label
     const button = document.querySelector("[data-theme-toggle]");
     if (button) {

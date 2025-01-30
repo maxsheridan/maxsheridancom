@@ -17,12 +17,11 @@
     --form-field-background-color: floralwhite
 }
 
-[data-theme="dark"] {
-    --primary-color: floralwhite;
-    --accent-color: lightblue;
-    --background-color: #111;
-    --form-field-color: #111;
-    --form-field-background-color: floralwhite;
+[data-theme="light"] {
+    --primary-color: #111;
+    --accent-color: mediumblue;
+    --background-color: floralwhite;
+    --form-field-background-color: white;
 }
 
 * {
