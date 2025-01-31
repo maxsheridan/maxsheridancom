@@ -47,15 +47,19 @@ mediaQuery.addListener(() => {
     document.querySelector('#theme-o-matic').checked = mediaQuery.matches;
 });
 
-window.addEventListener('pageshow', (event) => {
+const applySavedMode = () => {
     const savedMode = window.localStorage.getItem('color-mode') || 'dark';
     setColorMode(savedMode);
+};
 
-    if (event.persisted) {
-        // Force a reflow to refresh styles in mobile browsers
-        document.documentElement.style.display = 'none';
-        requestAnimationFrame(() => {
-            document.documentElement.style.display = '';
-        });
+// Apply theme when navigating back/forward
+window.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+        applySavedMode();
     }
+});
+
+// Also apply on `pageshow`, in case it's needed
+window.addEventListener('pageshow', () => {
+    applySavedMode();
 });
