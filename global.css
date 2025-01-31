@@ -37,6 +37,14 @@
     --accent-color: mediumblue;
 }
 
+svg {
+    fill:var(--primary-color)
+}
+
+.play-pause .icon {
+    fill:var(--background-color)
+}
+
 #theme-o-matic-wrapper {
     display: inline-block;
     cursor: pointer;
