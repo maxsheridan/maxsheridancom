@@ -120,6 +120,12 @@ html[data-force-color-mode="light"] {
     .sun {
         display: none;
     }
+    svg {
+        fill: #111 !important;
+    }
+    .play-pause icon {
+        fill: floralwhite !important;
+    }
 }
 
 html[data-force-color-mode="dark"] {
@@ -128,6 +134,12 @@ html[data-force-color-mode="dark"] {
     }
     .sun {
         display: block;
+    }
+    svg {
+        fill: floralwhite !important;
+    }
+    .play-pause icon {
+        fill: #111 !important;
     }
 }
 
