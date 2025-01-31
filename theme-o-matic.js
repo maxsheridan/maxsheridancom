@@ -42,3 +42,9 @@ mediaQuery.addListener(() => {
     // Make sure the checkbox is up-to-date
     document.querySelector('#theme-o-matic').checked = mediaQuery.matches;
 });
+
+// Ensure color mode is applied when navigating via back/forward buttons
+window.addEventListener('pageshow', () => {
+    const savedMode = window.localStorage.getItem('color-mode');
+    setColorMode(savedMode !== null ? savedMode : 'dark');
+});
