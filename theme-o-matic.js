@@ -43,18 +43,17 @@ mediaQuery.addListener(() => {
     document.querySelector('#theme-o-matic').checked = mediaQuery.matches;
 });
 
-window.addEventListener('pageshow', (event) => {
-    const savedMode = window.localStorage.getItem('color-mode');
-    setColorMode(savedMode !== null ? savedMode : 'dark');
+window.addEventListener('pageshow', () => {
+    // Force reapply the saved mode
+    const savedMode = window.localStorage.getItem('color-mode') || 'dark';
+    setColorMode(savedMode);
 
-    if (event.persisted) {
-        // Force a reflow to refresh styles in Firefox
-        document.documentElement.style.display = 'none';
-        requestAnimationFrame(() => {
-            document.documentElement.style.display = '';
-        });
-    }
+    // Force a small reflow for Firefox to refresh styles
+    void document.documentElement.offsetHeight;
+});
 
-    // Ensure the correct icon is displayed in Chrome
-    document.querySelector('#theme-o-matic').checked = (savedMode === 'dark');
+window.addEventListener('popstate', () => {
+    // Ensure theme is reapplied when navigating with back/forward buttons
+    const savedMode = window.localStorage.getItem('color-mode') || 'dark';
+    setColorMode(savedMode);
 });
