@@ -5,30 +5,70 @@ const setColorMode = (mode) => {
         document.documentElement.setAttribute('data-force-color-mode', mode);
         // Persist the mode in localStorage
         window.localStorage.setItem('color-mode', mode);
-        
-        // Apply the appropriate CSS variables based on the mode
-        if (mode === 'light') {
-            document.documentElement.style.setProperty('--primary-color', '#111');
-            document.documentElement.style.setProperty('--accent-color', 'mediumblue');
-            document.documentElement.style.setProperty('--background-color', 'floralwhite');
-            document.documentElement.style.setProperty('--form-field-background-color', 'white');
-            document.body.style.color = 'var(--primary-color)';
-            document.body.style.backgroundColor = 'var(--background-color)';
-            document.querySelectorAll('svg').forEach((svg) => svg.style.fill = 'var(--primary-color)');
-        } 
 
-        // 🔥 Swap icons based on mode
-        document.querySelector('.moon-icon').style.display = (mode === 'light') ? 'block' : 'none';
-        document.querySelector('.sun-icon').style.display = (mode === 'dark') ? 'block' : 'none';
+        if (mode === 'light') {
+            // Apply the light theme styles dynamically
+            const lightThemeStyles = `
+                :root {
+                    --primary-color: #111;
+                    --accent-color: mediumblue;
+                    --background-color: floralwhite;
+                    --form-field-background-color: white;
+                }
+                body {
+                    color: var(--primary-color);
+                    background-color: var(--background-color);
+                }
+                svg {
+                    fill: var(--primary-color);
+                }
+                .play-pause .icon {
+                    fill: var(--background-color);
+                }
+            `;
+            // Inject the styles into the document
+            const styleSheet = document.createElement('style');
+            styleSheet.type = 'text/css';
+            styleSheet.innerText = lightThemeStyles;
+            document.head.appendChild(styleSheet);
+        } else {
+            // Remove existing light/dark theme styles when switching modes
+            const existingStyle = document.querySelector('style[data-theme="light"]');
+            if (existingStyle) existingStyle.remove();
+
+            // Apply the dark theme styles dynamically
+            const darkThemeStyles = `
+                :root {
+                    --primary-color: #f0f0f0;
+                    --accent-color: #ff6347;
+                    --background-color: #333;
+                    --form-field-background-color: #555;
+                }
+                body {
+                    color: var(--primary-color);
+                    background-color: var(--background-color);
+                }
+                svg {
+                    fill: var(--primary-color);
+                }
+                .play-pause .icon {
+                    fill: var(--background-color);
+                }
+            `;
+            // Inject the dark theme styles into the document
+            const styleSheet = document.createElement('style');
+            styleSheet.type = 'text/css';
+            styleSheet.innerText = darkThemeStyles;
+            styleSheet.setAttribute('data-theme', 'dark');
+            document.head.appendChild(styleSheet);
+        }
     } else {
         // Remove the color mode override (reset to system preference)
         document.documentElement.removeAttribute('data-force-color-mode');
         window.localStorage.removeItem('color-mode');
-        
-        // 🔥 Reset icon display based on the system preferences
-        const systemMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        document.querySelector('.moon-icon').style.display = (systemMode === 'light') ? 'block' : 'none';
-        document.querySelector('.sun-icon').style.display = (systemMode === 'dark') ? 'block' : 'none';
+        // Remove custom styles when resetting
+        const customStyle = document.querySelector('style[data-theme="light"]') || document.querySelector('style[data-theme="dark"]');
+        if (customStyle) customStyle.remove();
     }
 };
 
@@ -52,10 +92,5 @@ const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 mediaQuery.addListener(() => {
     if (!document.documentElement.getAttribute('data-force-color-mode')) {
         document.querySelector('#theme-o-matic').checked = mediaQuery.matches;
-        
-        // 🔥 Sync the icon state with system preferences
-        const systemMode = mediaQuery.matches ? 'dark' : 'light';
-        document.querySelector('.moon-icon').style.display = (systemMode === 'light') ? 'block' : 'none';
-        document.querySelector('.sun-icon').style.display = (systemMode === 'dark') ? 'block' : 'none';
     }
 });
