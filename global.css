@@ -68,10 +68,9 @@
     display: none;
 }
 
-
 .sun-icon, .moon-icon {
     width: auto;
-    height: 22px;
+    height: clamp(20px,2vw,22px);
     cursor: pointer;
 }
 
