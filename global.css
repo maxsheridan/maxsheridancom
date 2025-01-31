@@ -63,16 +63,6 @@
     display: none;
 }
 
-/* Show the Sun icon when in Dark Mode */
-#theme-o-matic:checked + label .sun {
-    display: block;
-}
-
-/* Hide the Moon icon when in Dark Mode */
-#theme-o-matic:checked + label .moon {
-    display: none;
-}
-
 * {
     margin: 0;
     padding: 0;

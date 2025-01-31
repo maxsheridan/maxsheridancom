@@ -6,6 +6,10 @@ const setColorMode = (mode) => {
         // Persist the mode in localStorage
         window.localStorage.setItem('color-mode', mode);
 
+        // Swap the icons based on mode
+        document.querySelector('.moon').style.display = (mode === 'light') ? 'block' : 'none';
+        document.querySelector('.sun').style.display = (mode === 'dark') ? 'block' : 'none';
+
         if (mode === 'light') {
             // Apply the light theme styles dynamically
             const lightThemeStyles = `
@@ -40,9 +44,8 @@ const setColorMode = (mode) => {
             const darkThemeStyles = `
                 :root {
                     --primary-color: floralwhite;
-                    --background-color: #111;
                     --accent-color: lightblue;
-                    --form-field-color: #111;
+                    --background-color: #111;
                     --form-field-background-color: floralwhite;
                 }
                 body {
@@ -70,6 +73,10 @@ const setColorMode = (mode) => {
         // Remove custom styles when resetting
         const customStyle = document.querySelector('style[data-theme="light"]') || document.querySelector('style[data-theme="dark"]');
         if (customStyle) customStyle.remove();
+
+        // Reset icons when the mode is reset
+        document.querySelector('.moon').style.display = 'block';
+        document.querySelector('.sun').style.display = 'none';
     }
 };
 
