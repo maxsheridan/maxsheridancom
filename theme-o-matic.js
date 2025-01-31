@@ -42,3 +42,19 @@ mediaQuery.addListener(() => {
     // Make sure the checkbox is up-to-date
     document.querySelector('#theme-o-matic').checked = mediaQuery.matches;
 });
+
+window.addEventListener('pageshow', (event) => {
+    const savedMode = window.localStorage.getItem('color-mode');
+    setColorMode(savedMode !== null ? savedMode : 'dark');
+
+    if (event.persisted) {
+        // Force a reflow to refresh styles in Firefox
+        document.documentElement.style.display = 'none';
+        requestAnimationFrame(() => {
+            document.documentElement.style.display = '';
+        });
+    }
+
+    // Ensure the correct icon is displayed in Chrome
+    document.querySelector('#theme-o-matic').checked = (savedMode === 'dark');
+});
