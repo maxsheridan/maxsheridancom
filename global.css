@@ -141,7 +141,7 @@ html[data-force-color-mode="dark"] .play-pause .icon {
     fill: var(--background-color) !important;
 }
 
-html[data-force-color-mode="light"] svg {
+html[data-force-color-mode="light"] .play-pause .icon {
     fill: var(--background-color) !important;
 }
 
