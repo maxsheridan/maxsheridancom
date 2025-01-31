@@ -43,8 +43,14 @@ mediaQuery.addListener(() => {
     document.querySelector('#theme-o-matic').checked = mediaQuery.matches;
 });
 
-// Ensure color mode is applied when navigating via back/forward buttons
-window.addEventListener('pageshow', () => {
+window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+        // Force a reflow to apply the correct theme when coming from cache
+        document.documentElement.style.display = 'none';
+        requestAnimationFrame(() => {
+            document.documentElement.style.display = '';
+        });
+    }
     const savedMode = window.localStorage.getItem('color-mode');
     setColorMode(savedMode !== null ? savedMode : 'dark');
 });
