@@ -95,13 +95,18 @@ header a svg {
 }
 
 #all-purpose-theme-toggle-wrapper {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 22px;
     height: 22px;
     cursor: pointer;
 }
 
-.toggle-thingy, .sun, .moon {
+.toggle-thingy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 22px;
     height: 22px;
     vertical-align: middle;
