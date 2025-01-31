@@ -6,6 +6,26 @@ const setColorMode = (mode) => {
         // Persist the mode in localStorage
         window.localStorage.setItem('color-mode', mode);
         
+        // Apply the appropriate CSS variables based on the mode
+        if (mode === 'light') {
+            document.documentElement.style.setProperty('--primary-color', '#111');
+            document.documentElement.style.setProperty('--accent-color', 'mediumblue');
+            document.documentElement.style.setProperty('--background-color', 'floralwhite');
+            document.documentElement.style.setProperty('--form-field-background-color', 'white');
+            document.body.style.color = 'var(--primary-color)';
+            document.body.style.backgroundColor = 'var(--background-color)';
+            document.querySelectorAll('svg').forEach((svg) => svg.style.fill = 'var(--primary-color)');
+        } else {
+            // Dark mode styles
+            document.documentElement.style.setProperty('--primary-color', '#f0f0f0');
+            document.documentElement.style.setProperty('--accent-color', '#ff6347');
+            document.documentElement.style.setProperty('--background-color', '#333');
+            document.documentElement.style.setProperty('--form-field-background-color', '#555');
+            document.body.style.color = 'var(--primary-color)';
+            document.body.style.backgroundColor = 'var(--background-color)';
+            document.querySelectorAll('svg').forEach((svg) => svg.style.fill = 'var(--primary-color)');
+        }
+
         // 🔥 Swap icons based on mode
         document.querySelector('.moon-icon').style.display = (mode === 'light') ? 'block' : 'none';
         document.querySelector('.sun-icon').style.display = (mode === 'dark') ? 'block' : 'none';
