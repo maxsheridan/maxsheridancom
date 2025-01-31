@@ -113,8 +113,28 @@ header a svg {
     cursor: pointer;
 }
 
-.moon {display: 
-    none;
+html[data-force-color-mode="light"] .moon {
+    display: block;
+}
+
+html[data-force-color-mode="dark"] .moon {
+    display: none;
+}
+
+html[data-force-color-mode="light"] .sun {
+    display: none;
+}
+
+html[data-force-color-mode="dark"] .sun {
+    display: block;
+}
+
+html[data-force-color-mode="dark"] svg {
+    fill: floralwhite;
+}
+
+html[data-force-color-mode="light"] svg {
+    fill: #111;
 }
 
 nav {
