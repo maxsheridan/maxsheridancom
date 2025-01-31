@@ -7,16 +7,16 @@ const setColorMode = (mode) => {
         window.localStorage.setItem('color-mode', mode);
 
         // Select the theme icon element
-        const themeThingy = document.querySelector('.theme-thingy');
+        const toggleThingy = document.querySelector('.toggle-thingy');
 
         // Swap the icon based on the mode
         if (mode === 'light') {
-            themeThingy.innerHTML = `
+            toggleThingy.innerHTML = `
                 <path fill="none" d="M0 0h256v256H0z"/>
                 <path d="M108.11 28.11a96.09 96.09 0 0 0 119.78 119.78A96 96 0 1 1 108.11 28.11" fill="none" stroke="floralwhite" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
             `;
         } else {
-            themeThingy.innerHTML = `
+            toggleThingy.innerHTML = `
                 <path fill="none" d="M0 0h256v256H0z"/>
                 <path fill="none" stroke="#111" stroke-linecap="round" stroke-linejoin="round" stroke-width="18" d="M128 40V16"/>
                 <circle cx="128" cy="128" r="56" fill="none" stroke="#111" stroke-linecap="round" stroke-linejoin="round" stroke-width="18"/>
