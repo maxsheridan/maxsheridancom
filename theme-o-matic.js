@@ -6,6 +6,10 @@ const setColorMode = (mode) => {
         // Persist the mode in localStorage
         window.localStorage.setItem('color-mode', mode);
 
+        // Swap the icons based on mode
+        document.querySelector('.moon-icon').style.display = (mode === 'light') ? 'block' : 'none';
+        document.querySelector('.sun-icon').style.display = (mode === 'dark') ? 'block' : 'none';
+
         if (mode === 'light') {
             // Apply the light theme styles dynamically
             const lightThemeStyles = `
@@ -69,6 +73,10 @@ const setColorMode = (mode) => {
         // Remove custom styles when resetting
         const customStyle = document.querySelector('style[data-theme="light"]') || document.querySelector('style[data-theme="dark"]');
         if (customStyle) customStyle.remove();
+
+        // Reset icons when the mode is reset
+        document.querySelector('.moon-icon').style.display = 'block';
+        document.querySelector('.sun-icon').style.display = 'none';
     }
 };
 
