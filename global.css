@@ -37,9 +37,10 @@
     --accent-color: mediumblue;
 }
 
-#theme-o-matic-wrapper {
+#acme-all-purpose-theme-toggle-wrapper {
     display: inline-block;
     cursor: pointer;
+    height: 22px;
 }
 
 /* Hide the checkbox input */
@@ -48,20 +49,10 @@
     
 }
 
-.sun-icon, .moon-icon {
+.theme-thingy {
     width: auto;
     height: clamp(20px,2vw,22px);
     cursor: pointer;
-}
-
-/* Initially show the Moon icon (appears in light mode) */
-.moon-icon {
-    display: block;
-}
-
-/* Initially hide the Sun icon (appears in dark mode) */
-.sun-icon {
-    display: none;
 }
 
 * {
