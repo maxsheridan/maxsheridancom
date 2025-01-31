@@ -100,17 +100,16 @@ header a svg {
 }
 
 #theme-o-matic {
-    display: none;
+    cursor: pointer;
 }
 
 .toggle-thingy {
     width: 22px;
     height: 22px;
     cursor: pointer;
-}
-
-.moon,.sun {
-    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 nav {

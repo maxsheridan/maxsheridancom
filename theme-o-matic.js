@@ -1,3 +1,20 @@
+// Define the SVG icons as strings for dark and light modes
+const darkModeIcon = `
+    <svg class="inline-graphic sun" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 256 256">
+        <path fill="none" d="M0 0h256v256H0z"/>
+        <path fill="none" stroke="#111" stroke-linecap="round" stroke-linejoin="round" stroke-width="18" d="M128 40V16"/>
+        <circle cx="128" cy="128" r="56" fill="none" stroke="#111" stroke-linecap="round" stroke-linejoin="round" stroke-width="18"/>
+        <path fill="none" stroke="#111" stroke-linecap="round" stroke-linejoin="round" stroke-width="18" d="M64 64 48 48m16 144-16 16M192 64l16-16m-16 144 16 16M40 128H16m112 88v24m88-112h24"/>
+    </svg>
+`;
+
+const lightModeIcon = `
+    <svg class="inline-graphic moon" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 256 256">
+        <path fill="none" d="M0 0h256v256H0z"/>
+        <path d="M108.11 28.11a96.09 96.09 0 0 0 119.78 119.78A96 96 0 1 1 108.11 28.11" fill="none" stroke="floralwhite" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+    </svg>
+`;
+
 // Function to set the color mode based on saved preference
 const setColorMode = (mode) => {
     if (mode) {
@@ -6,73 +23,77 @@ const setColorMode = (mode) => {
         // Persist the mode in localStorage
         window.localStorage.setItem('color-mode', mode);
 
-        // Swap the icons based on mode
-        document.querySelector('.moon').style.display = (mode === 'light') ? 'block' : 'none';
-        document.querySelector('.sun').style.display = (mode === 'dark') ? 'block' : 'none';
+        const label = document.querySelector('#theme-o-matic');
 
+        // Inject the corresponding icon based on the mode
         if (mode === 'light') {
-            // Apply the light theme styles dynamically
-            const lightThemeStyles = `
-                :root {
-                    --primary-color: #111;
-                    --accent-color: mediumblue;
-                    --background-color: floralwhite;
-                    --form-field-background-color: white;
-                }
-                body {
-                    color: var(--primary-color);
-                    background-color: var(--background-color);
-                }
-                svg {
-                    fill: var(--primary-color);
-                }
-                .play-pause .icon {
-                    fill: var(--background-color);
-                }
-            `;
-            // Inject the styles into the document
-            const styleSheet = document.createElement('style');
-            styleSheet.type = 'text/css';
-            styleSheet.innerText = lightThemeStyles;
-            document.head.appendChild(styleSheet);
+            label.innerHTML = lightModeIcon; // Inject light mode icon (moon)
+            label.classList.remove('dark-mode');
+            label.classList.add('light-mode');
         } else {
-            // Remove existing light/dark theme styles when switching modes
-            const existingStyle = document.querySelector('style[data-theme="light"]');
-            if (existingStyle) existingStyle.remove();
-
-            // Apply the dark theme styles dynamically
-            const darkThemeStyles = `
-                :root {
-                    --primary-color: floralwhite;
-                    --accent-color: lightblue;
-                    --background-color: #111;
-                    --form-field-background-color: floralwhite;
-                }
-                body {
-                    color: var(--primary-color);
-                    background-color: var(--background-color);
-                }
-                svg {
-                    fill: var(--primary-color);
-                }
-                .play-pause .icon {
-                    fill: var(--background-color);
-                }
-            `;
-            // Inject the dark theme styles into the document
-            const styleSheet = document.createElement('style');
-            styleSheet.type = 'text/css';
-            styleSheet.innerText = darkThemeStyles;
-            styleSheet.setAttribute('data-theme', 'dark');
-            document.head.appendChild(styleSheet);
+            label.innerHTML = darkModeIcon; // Inject dark mode icon (sun)
+            label.classList.remove('light-mode');
+            label.classList.add('dark-mode');
         }
+
+        // Apply the theme styles dynamically based on the mode
+        const lightThemeStyles = `
+            :root {
+                --primary-color: #111;
+                --accent-color: mediumblue;
+                --background-color: floralwhite;
+                --form-field-background-color: white;
+            }
+            body {
+                color: var(--primary-color);
+                background-color: var(--background-color);
+            }
+            svg {
+                fill: var(--primary-color);
+            }
+            .play-pause .icon {
+                fill: var(--background-color);
+            }
+        `;
+        const darkThemeStyles = `
+            :root {
+                --primary-color: floralwhite;
+                --accent-color: lightblue;
+                --background-color: #111;
+                --form-field-background-color: floralwhite;
+            }
+            body {
+                color: var(--primary-color);
+                background-color: var(--background-color);
+            }
+            svg {
+                fill: var(--primary-color);
+            }
+            .play-pause .icon {
+                fill: var(--background-color);
+            }
+        `;
+
+        // Inject the appropriate theme styles
+        const existingStyle = document.querySelector('style[data-theme]');
+        if (existingStyle) existingStyle.remove();
+
+        const styleSheet = document.createElement('style');
+        styleSheet.type = 'text/css';
+        styleSheet.innerText = mode === 'light' ? lightThemeStyles : darkThemeStyles;
+        styleSheet.setAttribute('data-theme', mode);
+        document.head.appendChild(styleSheet);
+
     } else {
-        // Remove the color mode override (reset to system preference)
+        // Reset to system preference (remove custom styles and mode)
         document.documentElement.removeAttribute('data-force-color-mode');
         window.localStorage.removeItem('color-mode');
-        // Remove custom styles when resetting
         const customStyle = document.querySelector('style[data-theme="light"]') || document.querySelector('style[data-theme="dark"]');
         if (customStyle) customStyle.remove();
+
+        // Reset icon when the mode is reset
+        const label = document.querySelector('#theme-o-matic');
+        label.innerHTML = ''; // Remove the icon when reset
     }
 };
 
@@ -86,8 +107,10 @@ const applySavedMode = () => {
 window.addEventListener('DOMContentLoaded', applySavedMode);
 window.addEventListener('pageshow', applySavedMode); // Reapply on page show (after back/forward navigation)
 
-document.querySelector('#theme-o-matic').addEventListener('click', (e) => {
-    const newMode = e.target.checked ? 'dark' : 'light';
+// Theme toggle functionality (clicking on the label)
+document.querySelector('#theme-o-matic').addEventListener('click', () => {
+    const currentMode = document.documentElement.getAttribute('data-force-color-mode') || 'dark';
+    const newMode = currentMode === 'light' ? 'dark' : 'light';
     setColorMode(newMode);
 });
 
@@ -95,6 +118,7 @@ document.querySelector('#theme-o-matic').addEventListener('click', (e) => {
 const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 mediaQuery.addListener(() => {
     if (!document.documentElement.getAttribute('data-force-color-mode')) {
-        document.querySelector('#theme-o-matic').checked = mediaQuery.matches;
+        document.querySelector('#theme-o-matic').classList.toggle('dark-mode', mediaQuery.matches);
+        document.querySelector('#theme-o-matic').classList.toggle('light-mode', !mediaQuery.matches);
     }
 });
