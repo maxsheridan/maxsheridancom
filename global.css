@@ -101,7 +101,7 @@ header a svg {
     cursor: pointer;
 }
 
-.toggle-thingy {
+.toggle-thingy, .sun, .moon {
     width: 22px;
     height: 22px;
     vertical-align: middle;
