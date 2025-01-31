@@ -50,10 +50,16 @@
 
 .toggle-thingy {
     width: auto;
-    height: clamp(20px,2vw,22px);
+    height: clamp(20px, 2vw, 22px);
     cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.1s ease-out; /* Slower and smoother */
 }
-/* Initially show the Moon icon (appears in light mode) */
+
+.hidden {
+    opacity: 0;
+}
+
 .moon {
     display: block;
 }
