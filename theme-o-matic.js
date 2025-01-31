@@ -15,16 +15,7 @@ const setColorMode = (mode) => {
             document.body.style.color = 'var(--primary-color)';
             document.body.style.backgroundColor = 'var(--background-color)';
             document.querySelectorAll('svg').forEach((svg) => svg.style.fill = 'var(--primary-color)');
-        } else {
-            // Dark mode styles
-            document.documentElement.style.setProperty('--primary-color', '#f0f0f0');
-            document.documentElement.style.setProperty('--accent-color', '#ff6347');
-            document.documentElement.style.setProperty('--background-color', '#333');
-            document.documentElement.style.setProperty('--form-field-background-color', '#555');
-            document.body.style.color = 'var(--primary-color)';
-            document.body.style.backgroundColor = 'var(--background-color)';
-            document.querySelectorAll('svg').forEach((svg) => svg.style.fill = 'var(--primary-color)');
-        }
+        } 
 
         // 🔥 Swap icons based on mode
         document.querySelector('.moon-icon').style.display = (mode === 'light') ? 'block' : 'none';
