@@ -130,11 +130,19 @@ html[data-force-color-mode="dark"] .sun {
 }
 
 html[data-force-color-mode="dark"] svg {
-    fill: floralwhite !important;
+    fill: var(--primary-color) !important;
 }
 
 html[data-force-color-mode="light"] svg {
-    fill: #111 !important;
+    fill: var(--primary-color) !important;
+}
+
+html[data-force-color-mode="dark"] .play-pause .icon {
+    fill: var(--background-color) !important;
+}
+
+html[data-force-color-mode="light"] svg {
+    fill: var(--background-color) !important;
 }
 
 nav {
