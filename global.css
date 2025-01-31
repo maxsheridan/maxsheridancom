@@ -112,6 +112,18 @@ header a svg {
     align-items: center;
 }
 
+.sun, .moon {
+    display: none;  /* Icons will be shown dynamically based on the mode */
+}
+
+#theme-o-matic.light-mode .moon {
+    display: inline-block;  /* Show the moon icon when in light mode */
+}
+
+#theme-o-matic.dark-mode .sun {
+    display: inline-block;  /* Show the sun icon when in dark mode */
+}
+
 nav {
     display: flex;
     justify-content: space-between;
