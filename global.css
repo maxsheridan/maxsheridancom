@@ -54,6 +54,10 @@
     cursor: pointer;
 }
 
+.moon,.sun {
+    display: none;
+}
+
 * {
     margin: 0;
     padding: 0;
