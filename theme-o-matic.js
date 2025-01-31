@@ -1,3 +1,8 @@
+// Function to trigger reflow (forces a repaint)
+const forceReflow = () => {
+    document.body.offsetHeight; // Accessing offsetHeight forces a reflow
+};
+
 // Function to set the color mode (light or dark)
 const setColorMode = (mode) => {
     const label = document.querySelector('#theme-o-matic');
@@ -5,6 +10,9 @@ const setColorMode = (mode) => {
     // Persist the mode (store in localStorage)
     document.documentElement.setAttribute('data-force-color-mode', mode);
     window.localStorage.setItem('color-mode', mode);
+
+    // Trigger reflow after setting the color mode
+    forceReflow();
 };
 
 // Apply saved mode or default to dark mode when the page loads
