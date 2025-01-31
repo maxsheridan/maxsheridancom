@@ -17,6 +17,10 @@ const setColorMode = (mode) => {
         // Make sure the checkbox is up-to-date, matching the system preferences
         document.querySelector('#theme-o-matic').checked = window.matchMedia('(prefers-color-scheme: dark)').matches;
     }
+
+    // 🔥 Swap icons based on mode
+    document.querySelector('.moon-icon').style.display = (mode === 'light') ? 'block' : 'none';
+    document.querySelector('.sun-icon').style.display = (mode === 'dark') ? 'block' : 'none';
 };
 
 // 🔥 Apply stored preference OR default to dark mode
@@ -43,16 +47,8 @@ mediaQuery.addListener(() => {
     document.querySelector('#theme-o-matic').checked = mediaQuery.matches;
 });
 
+// 🔥 Fix back/forward button behavior
 window.addEventListener('pageshow', () => {
     const savedMode = window.localStorage.getItem('color-mode') || 'dark';
     setColorMode(savedMode);
-
-    // Explicitly update the checkbox state (since Chrome may restore it without triggering events)
-    document.querySelector('#theme-o-matic').checked = (savedMode === 'dark');
-
-    // Force reflow in Firefox
-    document.documentElement.style.display = 'none';
-    requestAnimationFrame(() => {
-        document.documentElement.style.display = '';
-    });
 });
