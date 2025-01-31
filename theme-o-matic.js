@@ -47,8 +47,15 @@ mediaQuery.addListener(() => {
     document.querySelector('#theme-o-matic').checked = mediaQuery.matches;
 });
 
-// 🔥 Fix back/forward button behavior
-window.addEventListener('pageshow', () => {
+window.addEventListener('pageshow', (event) => {
     const savedMode = window.localStorage.getItem('color-mode') || 'dark';
     setColorMode(savedMode);
+
+    if (event.persisted) {
+        // Force a reflow to refresh styles in mobile browsers
+        document.documentElement.style.display = 'none';
+        requestAnimationFrame(() => {
+            document.documentElement.style.display = '';
+        });
+    }
 });
