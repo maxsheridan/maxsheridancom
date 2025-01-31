@@ -54,15 +54,6 @@
     cursor: pointer;
 }
 
-/* Initially show the Moon icon (appears in light mode) */
-.moon {
-    display: block;
-}
-
-/* Initially hide the Sun icon (appears in dark mode) */
-.sun {
-    display: none;
-}
 * {
     margin: 0;
     padding: 0;
