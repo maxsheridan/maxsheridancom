@@ -1,41 +1,44 @@
-// Get the current theme
-let currentThemeSetting = localStorage.getItem("theme") || "dark";
-
-// Define the icons for the themes
-const darkModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" stroke="#111" stroke-width="18" d="M128 40V16"/><circle cx="128" cy="128" r="56" fill="none" stroke="#111" stroke-width="18"/><path fill="none" stroke="#111" stroke-width="18" d="M64 64 48 48m16 144-16 16M192 64l16-16m-16 144 16 16M40 128H16m112 88v24m88-112h24"/></svg>`;
-const lightModeIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path d="M108.11 28.11a96.09 96.09 0 0 0 119.78 119.78A96 96 0 1 1 108.11 28.11" fill="none" stroke="floralwhite" stroke-width="16"/></svg>`;
-
-// Apply the current theme
-function applyTheme(theme) {
-    document.documentElement.setAttribute("data-theme", theme); // Apply theme to root element
-
-    // Update the button icon and aria-label
-    const button = document.querySelector("[data-theme-toggle]");
-    if (button) {
-        const icon = button.querySelector("svg");
-        if (icon) {
-            icon.innerHTML = theme === "dark" ? darkModeIcon : lightModeIcon;
-        }
-        button.setAttribute("aria-label", `Switch to ${theme === "dark" ? "light" : "dark"} theme`);
+const setColorMode = (mode) => {
+    // Mode was given
+    if (mode) {
+        // Update data-* attr on html
+        document.documentElement.setAttribute('data-force-color-mode', mode);
+        // Persist in local storage
+        window.localStorage.setItem('color-mode', mode);
+        // Make sure the checkbox is up-to-date
+        document.querySelector('#theme-o-matic').checked = (mode === 'dark');
+    } 
+    // No mode given (e.g. reset)
+    else {
+        // Remove data-* attr from html
+        document.documentElement.removeAttribute('data-force-color-mode');
+        // Remove entry from local storage
+        window.localStorage.removeItem('color-mode');
+        // Make sure the checkbox is up-to-date, matching the system preferences
+        document.querySelector('#theme-o-matic').checked = window.matchMedia('(prefers-color-scheme: dark)').matches;
     }
-}
+};
 
-// Apply the current theme on page load
-applyTheme(currentThemeSetting);
+// 🔥 Apply stored preference OR default to dark mode
+const savedMode = window.localStorage.getItem('color-mode');
+setColorMode(savedMode !== null ? savedMode : 'dark');
 
-// Add click event to toggle button
-const button = document.querySelector("[data-theme-toggle]");
-if (button) {
-    button.addEventListener("click", () => {
-        const newTheme = currentThemeSetting === "dark" ? "light" : "dark";
-        localStorage.setItem("theme", newTheme);  // Save theme to localStorage
-        currentThemeSetting = newTheme;  // Update the current theme
-        applyTheme(newTheme);  // Apply the new theme
-    });
-}
+document.querySelector('#theme-o-matic').addEventListener('click', (e) => {
+    setColorMode(e.target.checked ? 'dark' : 'light');
+});
 
-// Ensure theme is applied on page reload
-window.addEventListener("pageshow", () => {
-    const savedTheme = localStorage.getItem("theme") || "dark";
-    applyTheme(savedTheme);
+document.querySelector('#reset-darkmode').addEventListener('click', (e) => {
+    e.preventDefault();
+    setColorMode(false);
+});
+
+// Keep an eye out for System Light/Dark Mode Changes
+const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+mediaQuery.addListener(() => {
+    // Ignore change if there's an override set
+    if (document.documentElement.getAttribute('data-force-color-mode')) {
+        return;
+    }
+    // Make sure the checkbox is up-to-date
+    document.querySelector('#theme-o-matic').checked = mediaQuery.matches;
 });

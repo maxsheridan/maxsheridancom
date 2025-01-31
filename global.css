@@ -12,19 +12,67 @@
     --heading-font-size: clamp(1.67rem, 3vw, 1.85rem);
 }
 
-[data-theme="dark"] {
+/* Dark Color Scheme (Default) */
+:root,:root[data-force-color-mode="dark"] {
     --primary-color: floralwhite;
-    --accent-color: lightblue;
     --background-color: #111;
+    --accent-color: lightblue;
     --form-field-color: #111;
-    --form-field-background-color: floralwhite
+    --form-field-background-color: floralwhite;
 }
 
-[data-theme="light"] {
+/* Light Color Scheme */
+@media (prefers-color-scheme: light) {
+    :root {
+        --primary-color: #111;
+        --background-color: floralwhite;
+        --link-color: mediumblue;
+        --form-field-background-color: white;
+    }
+}
+
+:root[data-force-color-mode="light"] {
     --primary-color: #111;
-    --accent-color: mediumblue;
     --background-color: floralwhite;
-    --form-field-background-color: white;
+    --accent-color: mediumblue;
+}
+
+#theme-o-matic-wrapper {
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Hide the checkbox input */
+#theme-o-matic {
+    display: none;
+    
+}
+
+/* Initially show the Moon icon (appears in light mode) */
+.moon-icon {
+    display: block;
+}
+
+/* Initially hide the Sun icon (appears in dark mode) */
+.sun-icon {
+    display: none;
+}
+
+/* Show the Sun icon when in Dark Mode */
+#theme-o-matic:checked + label .sun-icon {
+    display: block;
+}
+
+/* Hide the Moon icon when in Dark Mode */
+#theme-o-matic:checked + label .moon-icon {
+    display: none;
+}
+
+
+.sun-icon, .moon-icon {
+    width: auto;
+    height: 22px;
+    cursor: pointer;
 }
 
 * {

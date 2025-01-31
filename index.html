@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
         <meta name="color-scheme" content="dark">
-        <script>document.addEventListener('DOMContentLoaded',()=>{if(!sessionStorage.getItem("visited")){sessionStorage.setItem("visited","true");localStorage.setItem("theme","dark")}let currentThemeSetting=localStorage.getItem("theme")||"dark";document.documentElement.setAttribute("data-theme",currentThemeSetting)});</script>
+        <script>const colorModeOverride=window.localStorage.getItem('color-mode');const hasColorModeOverride=typeof colorModeOverride==='string';if(hasColorModeOverride){document.documentElement.setAttribute('data-force-color-mode',colorModeOverride)}</script>
         <link rel="preload" href="/assets/type/MD_IO.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="stylesheet" href="/global.css" type="text/css">
         <link rel="icon" sizes="32x32" href="favicon.ico" type="image/x-icon">
@@ -45,13 +45,12 @@
                     <a href="/info">
                         Info
                     </a>
-                    <button type="button" class="theme-o-matic" data-theme-toggle aria-label="Click for light theme">
-                        <svg data-theme-dark-toggle class="inline-graphic toggle-thingy" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><path fill="none" stroke="#111" stroke-linecap="round" stroke-linejoin="round" stroke-width="18" d="M128 40V16"/><circle cx="128" cy="128" r="56" fill="none" stroke="#111" stroke-linecap="round" stroke-linejoin="round" stroke-width="18"/><path fill="none" stroke="#111" stroke-linecap="round" stroke-linejoin="round" stroke-width="18" d="M64 64 48 48m16 144-16 16M192 64l16-16m-16 144 16 16M40 128H16m112 88v24m88-112h24"/>
-                        </svg>
-                    </button>
-                    <noscript class="yikes">
-                    <p>To change themes, enable JavaScript.</p>
-                    </noscript>
+                    <div id="acme-all-purpose-theme-toggle-wrapper">
+                        <input type="checkbox" id="theme-o-matic" />
+                        <label for="theme-o-matic">
+                            <svg class=sun-icon height=100% viewBox="0 0 256 256"width=100% xmlns=http://www.w3.org/2000/svg><path d="M128 40V16"fill=none stroke=var(--background-color) stroke-linecap=round stroke-linejoin=round stroke-width=18 /><circle cx=128 cy=128 fill=none r=56 stroke=var(--background-color) stroke-linecap=round stroke-linejoin=round stroke-width=18 /><path d="M64 64 48 48M64 192l-16 16M192 64l16-16M192 192l16 16M40 128H16M128 216v24M216 128h24"fill=none stroke=var(--background-color) stroke-linecap=round stroke-linejoin=round stroke-width=18 /></svg><svg class=moon-icon height=100% viewBox="0 0 256 256"width=100% xmlns=http://www.w3.org/2000/svg><path d="M0 0h256v256H0z"fill=none /><path d="M108.1 28.1A96 96 0 0 0 228 148 96 96 0 1 1 108 28"fill=none stroke=var(--background-color) stroke-linecap=round stroke-linejoin=round stroke-width=18 /></svg>
+                        </label>
+                    </div>                                      
                 </nav>
             </header>
             <main id="about">
