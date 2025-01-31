@@ -43,10 +43,10 @@ const setColorMode = (mode) => {
             // Apply the dark theme styles dynamically
             const darkThemeStyles = `
                 :root {
-                    --primary-color: floralwhite;
-                    --accent-color: lightblue;
-                    --background-color: #111;
-                    --form-field-background-color: floralwhite;
+                    --primary-color: #f0f0f0;
+                    --accent-color: #ff6347;
+                    --background-color: #333;
+                    --form-field-background-color: #555;
                 }
                 body {
                     color: var(--primary-color);
@@ -75,8 +75,8 @@ const setColorMode = (mode) => {
         if (customStyle) customStyle.remove();
 
         // Reset icons when the mode is reset
-        document.querySelector('.moon-icon').style.display = 'block';
-        document.querySelector('.sun-icon').style.display = 'none';
+        document.querySelector('.moon').style.display = 'block';
+        document.querySelector('.sun').style.display = 'none';
     }
 };
 
