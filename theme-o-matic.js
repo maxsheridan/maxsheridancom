@@ -42,11 +42,3 @@ mediaQuery.addListener(() => {
     // Make sure the checkbox is up-to-date
     document.querySelector('#theme-o-matic').checked = mediaQuery.matches;
 });
-
-window.addEventListener('pageshow', () => {
-    const savedMode = window.localStorage.getItem('color-mode') || 'dark';
-    setColorMode(savedMode); // Reapply the saved theme
-
-    // Ensure the checkbox reflects the current mode
-    document.querySelector('#theme-o-matic').checked = (savedMode === 'dark');
-});
