@@ -92,24 +92,7 @@ window.addEventListener('pageshow', applySavedMode); // Reapply on page show (af
 
 document.querySelector('#theme-o-matic').addEventListener('click', (e) => {
     const newMode = e.target.checked ? 'dark' : 'light';
-    const sunIcon = document.querySelector('.sun');
-    const moonIcon = document.querySelector('.moon');
-
-    // Instantly hide both icons
-    sunIcon.classList.add('hidden');
-    moonIcon.classList.add('hidden');
-
-    // Switch theme
     setColorMode(newMode);
-
-    // Show the correct icon after a slight delay
-    setTimeout(() => {
-        if (newMode === 'dark') {
-            sunIcon.classList.remove('hidden');
-        } else {
-            moonIcon.classList.remove('hidden');
-        }
-    }, 50); // Small delay prevents flashing
 });
 
 // Listen for system-level color scheme changes
