@@ -37,11 +37,12 @@
     --accent-color: mediumblue;
 }
 
-#acme-all-purpose-theme-toggle-wrapper {
+#theme-o-matic-wrapper {
     display: inline-block;
-    height: 22px;
+    cursor: pointer;
 }
 
+/* Hide the checkbox input */
 #theme-o-matic {
     display: none;
     
@@ -51,6 +52,21 @@
     width: auto;
     height: clamp(20px,2vw,22px);
     cursor: pointer;
+}
+
+/* Initially, hide both icons */
+.sun, .moon {
+    display: none;
+}
+
+/* Show the sun icon when the checkbox is checked (dark mode) */
+#theme-o-matic:checked + label .sun {
+    display: block;
+}
+
+/* Show the moon icon when the checkbox is not checked (light mode) */
+#theme-o-matic:not(:checked) + label .moon {
+    display: block;
 }
 
 * {
