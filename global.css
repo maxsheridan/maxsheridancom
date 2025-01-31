@@ -123,7 +123,7 @@ html[data-force-color-mode="light"] {
     svg {
         fill: #111 !important;
     }
-    .play-pause icon {
+    .play-pause .icon {
         fill: floralwhite !important;
     }
 }
@@ -138,7 +138,7 @@ html[data-force-color-mode="dark"] {
     svg {
         fill: floralwhite !important;
     }
-    .play-pause icon {
+    .play-pause .icon {
         fill: #111 !important;
     }
 }
