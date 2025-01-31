@@ -37,7 +37,7 @@
     --accent-color: mediumblue;
 }
 
-#theme-o-matic-wrapper {
+#all-purpose-theme-toggler-wrapper {
     display: inline-block;
     cursor: pointer;
 }
@@ -53,20 +53,12 @@
     height: clamp(20px, 2vw, 22px);
     cursor: pointer;
     opacity: 1;
-    transition: opacity 0.1s ease-out; /* Slower and smoother */
+    transition: visibility 0.1s ease-out; /* Smooth fade + visibility change */
 }
 
 .hidden {
     opacity: 0;
-}
-
-.moon {
-    display: block;
-}
-
-/* Initially hide the Sun icon (appears in dark mode) */
-.sun {
-    display: none;
+    visibility: hidden;
 }
 
 * {

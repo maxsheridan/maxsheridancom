@@ -92,24 +92,24 @@ window.addEventListener('pageshow', applySavedMode); // Reapply on page show (af
 
 document.querySelector('#theme-o-matic').addEventListener('click', (e) => {
     const newMode = e.target.checked ? 'dark' : 'light';
-    
-    // Select all toggle elements
-    const toggleElements = document.querySelectorAll('.toggle-thingy');
+    const sunIcon = document.querySelector('.sun');
+    const moonIcon = document.querySelector('.moon');
 
-    // Hide them immediately
-    toggleElements.forEach(element => {
-        element.classList.add('hidden');
-    });
+    // Instantly hide both icons
+    sunIcon.classList.add('hidden');
+    moonIcon.classList.add('hidden');
 
     // Switch theme
     setColorMode(newMode);
 
-    // Fade-in effect after a short delay
+    // Show the correct icon after a slight delay
     setTimeout(() => {
-        toggleElements.forEach(element => {
-            element.classList.remove('hidden'); // Triggers transition to opacity: 1
-        });
-    }, 50); // Short delay to ensure visibility change happens after theme switch
+        if (newMode === 'dark') {
+            sunIcon.classList.remove('hidden');
+        } else {
+            moonIcon.classList.remove('hidden');
+        }
+    }, 50); // Small delay prevents flashing
 });
 
 // Listen for system-level color scheme changes
