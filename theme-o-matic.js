@@ -34,54 +34,6 @@ const setColorMode = (mode) => {
     // Persist the mode (store in localStorage)
     document.documentElement.setAttribute('data-force-color-mode', mode);
     window.localStorage.setItem('color-mode', mode);
-
-    // Apply the theme styles dynamically based on the mode
-    const lightThemeStyles = `
-        :root {
-            --primary-color: #111;
-            --accent-color: mediumblue;
-            --background-color: floralwhite;
-            --form-field-background-color: white;
-        }
-        body {
-            color: var(--primary-color);
-            background-color: var(--background-color);
-        }
-        svg {
-            fill: var(--primary-color);
-        }
-        .play-pause .icon {
-            fill: var(--background-color);
-        }
-    `;
-    const darkThemeStyles = `
-        :root {
-            --primary-color: floralwhite;
-            --accent-color: lightblue;
-            --background-color: #111;
-            --form-field-background-color: floralwhite;
-        }
-        body {
-            color: var(--primary-color);
-            background-color: var(--background-color);
-        }
-        svg {
-            fill: var(--primary-color);
-        }
-        .play-pause .icon {
-            fill: var(--background-color);
-        }
-    `;
-
-    // Inject the appropriate theme styles
-    const existingStyle = document.querySelector('style[data-theme]');
-    if (existingStyle) existingStyle.remove();
-
-    const styleSheet = document.createElement('style');
-    styleSheet.type = 'text/css';
-    styleSheet.innerText = mode === 'light' ? lightThemeStyles : darkThemeStyles;
-    styleSheet.setAttribute('data-theme', mode);
-    document.head.appendChild(styleSheet);
 };
 
 // Apply saved mode or default to dark mode when the page loads
