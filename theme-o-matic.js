@@ -1,65 +1,50 @@
+// Function to set the color mode based on saved preference
 const setColorMode = (mode) => {
-    // Mode was given
     if (mode) {
-        // Update data-* attr on html
+        // Apply the mode (light or dark) by updating the data-* attribute on HTML
         document.documentElement.setAttribute('data-force-color-mode', mode);
-        // Persist in local storage
+        // Persist the mode in localStorage
         window.localStorage.setItem('color-mode', mode);
-        // Make sure the checkbox is up-to-date
-        document.querySelector('#theme-o-matic').checked = (mode === 'dark');
-    } 
-    // No mode given (e.g. reset)
-    else {
-        // Remove data-* attr from html
+        
+        // 🔥 Swap icons based on mode
+        document.querySelector('.moon-icon').style.display = (mode === 'light') ? 'block' : 'none';
+        document.querySelector('.sun-icon').style.display = (mode === 'dark') ? 'block' : 'none';
+    } else {
+        // Remove the color mode override (reset to system preference)
         document.documentElement.removeAttribute('data-force-color-mode');
-        // Remove entry from local storage
         window.localStorage.removeItem('color-mode');
-        // Make sure the checkbox is up-to-date, matching the system preferences
-        document.querySelector('#theme-o-matic').checked = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        // 🔥 Reset icon display based on the system preferences
+        const systemMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.querySelector('.moon-icon').style.display = (systemMode === 'light') ? 'block' : 'none';
+        document.querySelector('.sun-icon').style.display = (systemMode === 'dark') ? 'block' : 'none';
     }
-
-    // 🔥 Swap icons based on mode
-    document.querySelector('.moon-icon').style.display = (mode === 'light') ? 'block' : 'none';
-    document.querySelector('.sun-icon').style.display = (mode === 'dark') ? 'block' : 'none';
 };
 
-// 🔥 Apply stored preference OR default to dark mode
-const savedMode = window.localStorage.getItem('color-mode');
-setColorMode(savedMode !== null ? savedMode : 'dark');
+// Apply saved mode or default to dark mode when the page loads
+const applySavedMode = () => {
+    const savedMode = window.localStorage.getItem('color-mode');
+    setColorMode(savedMode !== null ? savedMode : 'dark');
+};
+
+// Immediately apply the saved mode when the page loads or is re-visited
+window.addEventListener('DOMContentLoaded', applySavedMode);
+window.addEventListener('pageshow', applySavedMode); // Reapply on page show (after back/forward navigation)
 
 document.querySelector('#theme-o-matic').addEventListener('click', (e) => {
-    setColorMode(e.target.checked ? 'dark' : 'light');
+    const newMode = e.target.checked ? 'dark' : 'light';
+    setColorMode(newMode);
 });
 
-document.querySelector('#reset-darkmode').addEventListener('click', (e) => {
-    e.preventDefault();
-    setColorMode(false);
-});
-
-// Keep an eye out for System Light/Dark Mode Changes
+// Listen for system-level color scheme changes
 const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 mediaQuery.addListener(() => {
-    // Ignore change if there's an override set
-    if (document.documentElement.getAttribute('data-force-color-mode')) {
-        return;
+    if (!document.documentElement.getAttribute('data-force-color-mode')) {
+        document.querySelector('#theme-o-matic').checked = mediaQuery.matches;
+        
+        // 🔥 Sync the icon state with system preferences
+        const systemMode = mediaQuery.matches ? 'dark' : 'light';
+        document.querySelector('.moon-icon').style.display = (systemMode === 'light') ? 'block' : 'none';
+        document.querySelector('.sun-icon').style.display = (systemMode === 'dark') ? 'block' : 'none';
     }
-    // Make sure the checkbox is up-to-date
-    document.querySelector('#theme-o-matic').checked = mediaQuery.matches;
-});
-
-const applySavedMode = () => {
-    const savedMode = window.localStorage.getItem('color-mode') || 'dark';
-    setColorMode(savedMode);
-};
-
-// Apply theme when navigating back/forward
-window.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'visible') {
-        applySavedMode();
-    }
-});
-
-// Also apply on `pageshow`, in case it's needed
-window.addEventListener('pageshow', () => {
-    applySavedMode();
 });
