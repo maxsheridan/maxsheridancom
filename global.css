@@ -39,7 +39,6 @@
 
 #acme-all-purpose-theme-toggle-wrapper {
     display: inline-block;
-    cursor: pointer;
     height: 22px;
 }
 
@@ -49,7 +48,7 @@
     
 }
 
-.theme-thingy {
+.toggle-thingy {
     width: auto;
     height: clamp(20px,2vw,22px);
     cursor: pointer;
