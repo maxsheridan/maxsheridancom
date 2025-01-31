@@ -15,13 +15,7 @@ const applySavedMode = () => {
 
 // Immediately apply the saved mode when the page loads or is revisited
 window.addEventListener('DOMContentLoaded', applySavedMode);
-
-// Add delay when navigating with back/forward buttons to trigger reflow
-window.addEventListener('pageshow', () => {
-    setTimeout(() => {
-        applySavedMode();
-    }, 0); // Apply with 0ms delay to allow the browser to reflow
-});
+window.addEventListener('pageshow', applySavedMode); // Reapply on page show (after back/forward navigation)
 
 // Theme toggle functionality (clicking on the label)
 document.querySelector('#theme-o-matic').addEventListener('click', () => {
