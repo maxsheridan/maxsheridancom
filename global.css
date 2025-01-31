@@ -96,8 +96,6 @@ header a svg {
 
 #all-purpose-theme-toggle-wrapper {
     display: inline-block;
-    width: 22px;
-    height: 22px;
     cursor: pointer;
 }
 
@@ -109,6 +107,7 @@ header a svg {
     width: 22px;
     height: 22px;
     cursor: pointer;
+    display: none !important;
 }
 
 .moon,.sun {
