@@ -96,10 +96,8 @@ header a svg {
 
 #all-purpose-theme-toggle-wrapper {
     display: inline-block;
-    cursor: pointer;
-}
-
-#theme-o-matic {
+    width: 22px;
+    height: 22px;
     cursor: pointer;
 }
 
@@ -249,6 +247,10 @@ hr {
     }
     main {
         padding: 0 1rem 2rem
+    }
+    .toggle-thingy {
+        width: 20px;
+        height: 20px;
     }
 }
 
