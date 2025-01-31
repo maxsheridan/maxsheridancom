@@ -19,6 +19,9 @@
     --accent-color: lightblue;
     --form-field-color: #111;
     --form-field-background-color: floralwhite;
+    header svg {
+        fill: floralwhite;
+    }
 }
 
 /* Light Color Scheme */
@@ -28,6 +31,9 @@
         --background-color: floralwhite;
         --link-color: mediumblue;
         --form-field-background-color: white;
+        header svg {
+            fill: #111;
+        }
     }
 }
 
@@ -35,6 +41,9 @@
     --primary-color: #111;
     --background-color: floralwhite;
     --accent-color: mediumblue;
+    header svg {
+        fill: #111;
+    }
 }
 
 #theme-o-matic-wrapper {
