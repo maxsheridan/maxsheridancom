@@ -196,6 +196,7 @@ a {
     position: relative;
     line-height: 1.6;
     text-decoration: none;
+    color: var(--primary-color)
 }
 
 p a,
