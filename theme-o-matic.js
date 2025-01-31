@@ -73,10 +73,6 @@ const setColorMode = (mode) => {
         // Remove custom styles when resetting
         const customStyle = document.querySelector('style[data-theme="light"]') || document.querySelector('style[data-theme="dark"]');
         if (customStyle) customStyle.remove();
-
-        // Reset icons when the mode is reset
-        document.querySelector('.moon').style.display = 'block';
-        document.querySelector('.sun').style.display = 'none';
     }
 };
 
