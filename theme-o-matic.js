@@ -51,10 +51,17 @@ window.addEventListener('pageshow', () => {
     document.querySelector('#theme-o-matic').checked = (savedMode === 'dark');
 });
 
-// Extra fix for Firefox: Force reflow to refresh styles
-window.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'visible') {
-        const savedMode = window.localStorage.getItem('color-mode') || 'dark';
-        setColorMode(savedMode);
-    }
+window.addEventListener('pageshow', () => {
+    // Force reapply the saved mode
+    const savedMode = window.localStorage.getItem('color-mode') || 'dark';
+    setColorMode(savedMode);
+
+    // Force a small reflow for Firefox to refresh styles
+    void document.documentElement.offsetHeight;
+});
+
+window.addEventListener('popstate', () => {
+    // Ensure theme is reapplied when navigating with back/forward buttons
+    const savedMode = window.localStorage.getItem('color-mode') || 'dark';
+    setColorMode(savedMode);
 });
