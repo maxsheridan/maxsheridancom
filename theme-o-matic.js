@@ -1,18 +1,7 @@
 // Function to set the color mode (light or dark)
 const setColorMode = (mode) => {
     const label = document.querySelector('#theme-o-matic');
-
-    // Inject the appropriate icon based on the mode
-    if (mode === 'light') {
-        label.innerHTML = iconCache.lightModeIcon; // Inject light mode icon (moon)
-        label.classList.remove('dark-mode');
-        label.classList.add('light-mode');
-    } else {
-        label.innerHTML = iconCache.darkModeIcon; // Inject dark mode icon (sun)
-        label.classList.remove('light-mode');
-        label.classList.add('dark-mode');
-    }
-
+    
     // Persist the mode (store in localStorage)
     document.documentElement.setAttribute('data-force-color-mode', mode);
     window.localStorage.setItem('color-mode', mode);
