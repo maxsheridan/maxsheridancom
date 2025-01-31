@@ -53,20 +53,24 @@
     height: clamp(20px,2vw,22px);
     cursor: pointer;
 }
+/* Initially show the Moon icon (appears in light mode) */
+.moon {
+    display: block;
+}
 
-/* Initially, hide both icons */
-.sun, .moon {
+/* Initially hide the Sun icon (appears in dark mode) */
+.sun {
     display: none;
 }
 
-/* Show the sun icon when the checkbox is checked (dark mode) */
+/* Show the Sun icon when in Dark Mode */
 #theme-o-matic:checked + label .sun {
     display: block;
 }
 
-/* Show the moon icon when the checkbox is not checked (light mode) */
-#theme-o-matic:not(:checked) + label .moon {
-    display: block;
+/* Hide the Moon icon when in Dark Mode */
+#theme-o-matic:checked + label .moon {
+    display: none;
 }
 
 * {
