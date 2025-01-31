@@ -29,6 +29,7 @@ const applySavedMode = () => {
 
 // Immediately apply the saved mode when the page loads or is re-visited
 window.addEventListener('DOMContentLoaded', applySavedMode);
+window.addEventListener('pageshow', applySavedMode); // Reapply on page show (after back/forward navigation)
 
 document.querySelector('#theme-o-matic').addEventListener('click', (e) => {
     const newMode = e.target.checked ? 'dark' : 'light';
