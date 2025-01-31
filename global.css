@@ -37,27 +37,6 @@
     --accent-color: mediumblue;
 }
 
-#all-purpose-theme-toggle-wrapper {
-    display: inline-block;
-    cursor: pointer;
-}
-
-/* Hide the checkbox input */
-#theme-o-matic {
-    display: none;
-    
-}
-
-.toggle-thingy {
-    width: auto;
-    height: clamp(20px,2vw,22px);
-    cursor: pointer;
-}
-
-.moon,.sun {
-    display: none;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -115,16 +94,25 @@ header a svg {
     height: 100%
 }
 
-.theme-o-matic {
-    display: flex;
-    align-items: center;
+#all-purpose-theme-toggle-wrapper {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
     cursor: pointer;
-    color: var(--background-color);
+}
+
+#theme-o-matic {
+    display: none;
 }
 
 .toggle-thingy {
-    width: auto;
-    height: clamp(19px, 3vw, 21px)
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+.moon,.sun {
+    display: none;
 }
 
 nav {
