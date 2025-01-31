@@ -113,36 +113,22 @@ header a svg {
     cursor: pointer;
 }
 
-html[data-force-color-mode="light"] .moon {
-    display: block;
+html[data-force-color-mode="light"] {
+    .moon {
+        display: block;
+    }
+    .sun {
+        display: none;
+    }
 }
 
-html[data-force-color-mode="dark"] .moon {
-    display: none;
-}
-
-html[data-force-color-mode="light"] .sun {
-    display: none;
-}
-
-html[data-force-color-mode="dark"] .sun {
-    display: block;
-}
-
-html[data-force-color-mode="dark"] svg {
-    fill: floralwhite !important;
-}
-
-html[data-force-color-mode="light"] svg {
-    fill: #111 !important;
-}
-
-html[data-force-color-mode="dark"] .play-pause .icon {
-    fill: #111 !important;
-}
-
-html[data-force-color-mode="light"] .play-pause .icon {
-    fill: floralwhite !important;
+html[data-force-color-mode="dark"] {
+    .moon {
+        display: none;
+    }
+    .sun {
+        display: block;
+    }
 }
 
 nav {
