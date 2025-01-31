@@ -113,6 +113,10 @@ header a svg {
     cursor: pointer;
 }
 
+.moon {display: 
+    none;
+}
+
 nav {
     display: flex;
     justify-content: space-between;

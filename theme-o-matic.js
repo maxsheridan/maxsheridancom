@@ -1,21 +1,3 @@
-// Cache the SVG icons for dark and light modes
-const iconCache = {
-    darkModeIcon: `
-        <svg class="inline-graphic sun" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 256 256">
-            <path fill="none" d="M0 0h256v256H0z"/>
-            <path fill="none" stroke="#111" stroke-linecap="round" stroke-linejoin="round" stroke-width="18" d="M128 40V16"/>
-            <circle cx="128" cy="128" r="56" fill="none" stroke="#111" stroke-linecap="round" stroke-linejoin="round" stroke-width="18"/>
-            <path fill="none" stroke="#111" stroke-linecap="round" stroke-linejoin="round" stroke-width="18" d="M64 64 48 48m16 144-16 16M192 64l16-16m-16 144 16 16M40 128H16m112 88v24m88-112h24"/>
-        </svg>
-    `,
-    lightModeIcon: `
-        <svg class="inline-graphic moon" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 256 256">
-            <path fill="none" d="M0 0h256v256H0z"/>
-            <path d="M108.11 28.11a96.09 96.09 0 0 0 119.78 119.78A96 96 0 1 1 108.11 28.11" fill="none" stroke="floralwhite" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
-        </svg>
-    `
-};
-
 // Function to set the color mode (light or dark)
 const setColorMode = (mode) => {
     const label = document.querySelector('#theme-o-matic');
