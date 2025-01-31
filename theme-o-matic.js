@@ -43,14 +43,18 @@ mediaQuery.addListener(() => {
     document.querySelector('#theme-o-matic').checked = mediaQuery.matches;
 });
 
-window.addEventListener('pageshow', (event) => {
-    if (event.persisted) {
-        // Force a reflow to apply the correct theme when coming from cache
-        document.documentElement.style.display = 'none';
-        requestAnimationFrame(() => {
-            document.documentElement.style.display = '';
-        });
+window.addEventListener('pageshow', () => {
+    const savedMode = window.localStorage.getItem('color-mode') || 'dark';
+    setColorMode(savedMode); // Reapply the saved theme
+
+    // Ensure the checkbox reflects the current mode
+    document.querySelector('#theme-o-matic').checked = (savedMode === 'dark');
+});
+
+// Extra fix for Firefox: Force reflow to refresh styles
+window.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+        const savedMode = window.localStorage.getItem('color-mode') || 'dark';
+        setColorMode(savedMode);
     }
-    const savedMode = window.localStorage.getItem('color-mode');
-    setColorMode(savedMode !== null ? savedMode : 'dark');
 });
