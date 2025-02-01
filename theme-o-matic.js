@@ -4,19 +4,25 @@ const setColorMode = (mode) => {
     window.localStorage.setItem('color-mode', mode);
 };
 
-// Apply saved mode, or default to dark if none exists
+// Apply the saved mode or default to dark
 const applySavedMode = () => {
-    const savedMode = window.localStorage.getItem('color-mode') || 'dark';
-    setColorMode(savedMode);
+    const savedMode = window.localStorage.getItem('color-mode');
+    
+    // If there's a saved mode, use it; otherwise, default to dark
+    if (savedMode) {
+        setColorMode(savedMode);
+    } else {
+        setColorMode('dark');
+    }
 };
 
-// Immediately apply saved mode (default to dark if not set)
-window.addEventListener('DOMContentLoaded', applySavedMode);
+// Immediately apply saved mode on page load
+document.addEventListener('DOMContentLoaded', applySavedMode);
 window.addEventListener('pageshow', () => {
-    setTimeout(applySavedMode, 0); // Apply with 0ms delay to allow reflow
+    setTimeout(applySavedMode, 0); // Ensures it runs after browser reflow
 });
 
-// Theme toggle functionality (clicking on the label)
+// Theme toggle functionality (clicking on the button)
 document.querySelector('#theme-o-matic').addEventListener('click', () => {
     const currentMode = document.documentElement.getAttribute('data-force-color-mode') || 'dark';
     const newMode = currentMode === 'light' ? 'dark' : 'light';
