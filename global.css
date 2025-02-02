@@ -81,7 +81,6 @@ header {
 
 @media (hover:hover) and (pointer:fine) {
     header #big-max:hover {
-        filter: unset;
         fill: var(--accent-color)
     }
 }
