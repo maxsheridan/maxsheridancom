@@ -93,6 +93,7 @@ header a svg {
 }
 
 #big-max {
+    will-change: fill;
     fill: var(--primary-color);
 }
 
