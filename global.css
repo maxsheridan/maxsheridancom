@@ -92,6 +92,10 @@ header a svg {
     height: 100%
 }
 
+#big-max {
+    fill: var(--primary-color);
+}
+
 #all-purpose-theme-toggle-wrapper {
     display: flex;
     justify-content: center;
