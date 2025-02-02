@@ -92,9 +92,9 @@ header a svg {
     height: 100%
 }
 
-#big-max {
-    will-change: fill;
-    fill: var(--primary-color);
+svg {
+    will-change: fill !important;
+    fill: var(--primary-color) !important;
 }
 
 #all-purpose-theme-toggle-wrapper {
