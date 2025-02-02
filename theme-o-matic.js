@@ -15,8 +15,7 @@ const applySavedMode = () => {
 
 // Immediately apply the saved mode when the page loads or is revisited
 window.addEventListener('DOMContentLoaded', applySavedMode);
-window.addEventListener('pageshow', () => {
-});
+window.addEventListener('pageshow', applySavedMode);
 
 // Theme toggle functionality (clicking on the label)
 document.querySelector('#theme-o-matic').addEventListener('click', () => {
