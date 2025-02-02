@@ -13,10 +13,12 @@ const applySavedMode = () => {
     setColorMode(savedMode !== null ? savedMode : 'dark');
 };
 
-document.addEventListener("pageshow", () => {
-    document.documentElement.style.display = "none";
-    document.documentElement.offsetHeight; // Force reflow
-    document.documentElement.style.display = "";
+// Immediately apply the saved mode when the page loads or is revisited
+window.addEventListener('DOMContentLoaded', applySavedMode);
+window.addEventListener('pageshow', () => {
+    setTimeout(() => {
+        applySavedMode();
+    }, 0); // Apply with 0ms delay to allow the browser to reflow
 });
 
 // Theme toggle functionality (clicking on the label)
