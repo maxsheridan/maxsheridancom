@@ -14,12 +14,13 @@ const applySavedMode = () => {
 };
 
 // Immediately apply the saved mode when the page loads or is revisited
-window.addEventListener('DOMContentLoaded', applySavedMode);
 window.addEventListener('pageshow', () => {
-    setTimeout(() => {
-        applySavedMode();
-    }, 0); // Apply with 0ms delay to allow the browser to reflow
+    const colorModeOverride = window.localStorage.getItem('color-mode');
+    if (typeof colorModeOverride === 'string') {
+        document.documentElement.setAttribute('data-force-color-mode', colorModeOverride);
+    }
 });
+
 
 // Theme toggle functionality (clicking on the label)
 document.querySelector('#theme-o-matic').addEventListener('click', () => {
