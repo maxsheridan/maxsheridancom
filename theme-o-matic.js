@@ -31,3 +31,7 @@ document.querySelector('#theme-o-matic').addEventListener('click', () => {
 window.addEventListener('unload', () => {
     document.documentElement.removeAttribute('data-force-color-mode');
 });
+
+window.addEventListener('beforeunload', () => {
+    document.documentElement.removeAttribute('data-force-color-mode');
+});
