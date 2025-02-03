@@ -15,13 +15,7 @@ const applySavedMode = () => {
 
 // Immediately apply the saved mode when the page loads or is revisited
 window.addEventListener('DOMContentLoaded', applySavedMode);
-window.addEventListener('pageshow', (event) => {
-    if (event.persisted) {
-        document.documentElement.removeAttribute('data-force-color-mode');
-
-        // Force a reflow before applying the saved mode
-        void document.documentElement.offsetWidth;
-    }
+window.addEventListener('pageshow', () => {
     setTimeout(() => {
         applySavedMode();
     }, 0); // Apply with 0ms delay to allow the browser to reflow
