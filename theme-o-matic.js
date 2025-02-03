@@ -27,3 +27,7 @@ document.querySelector('#theme-o-matic').addEventListener('click', () => {
     const newMode = currentMode === 'light' ? 'dark' : 'light';
     setColorMode(newMode);
 });
+
+window.addEventListener('unload', () => {
+    document.documentElement.removeAttribute('data-force-color-mode');
+});
