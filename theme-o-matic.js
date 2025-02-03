@@ -10,10 +10,7 @@ const setColorMode = (mode) => {
 // Apply saved mode or default to dark mode when the page loads
 const applySavedMode = () => {
     const savedMode = window.localStorage.getItem('color-mode');
-    // Set a short delay to force a repaint and prevent flicker
-    setTimeout(() => {
-        setColorMode(savedMode !== null ? savedMode : 'dark');
-    }, 50); // Adjust the delay as needed
+    setColorMode(savedMode !== null ? savedMode : 'dark');
 };
 
 // Theme toggle functionality (clicking on the label)
