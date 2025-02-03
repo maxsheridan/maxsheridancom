@@ -13,14 +13,6 @@ const applySavedMode = () => {
     setColorMode(savedMode !== null ? savedMode : 'dark');
 };
 
-// Immediately apply the saved mode when the page loads or is revisited
-window.addEventListener('DOMContentLoaded', applySavedMode);
-window.addEventListener('pageshow', () => {
-    setTimeout(() => {
-        applySavedMode();
-    }, 0); // Apply with 0ms delay to allow the browser to reflow
-});
-
 // Theme toggle functionality (clicking on the label)
 document.querySelector('#theme-o-matic').addEventListener('click', () => {
     const currentMode = document.documentElement.getAttribute('data-force-color-mode') || 'dark';
@@ -28,10 +20,8 @@ document.querySelector('#theme-o-matic').addEventListener('click', () => {
     setColorMode(newMode);
 });
 
+window.addEventListener('DOMContentLoaded', applySavedMode);
+window.addEventListener('pageshow', applySavedMode);
 window.addEventListener('unload', () => {
-    document.documentElement.removeAttribute('data-force-color-mode');
-});
-
-window.addEventListener('pagehide', () => {
     document.documentElement.removeAttribute('data-force-color-mode');
 });
