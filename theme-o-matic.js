@@ -21,6 +21,6 @@ document.querySelector('#theme-o-matic').addEventListener('click', () => {
 });
 
 window.addEventListener('DOMContentLoaded', applySavedMode);
-window.addEventListener('onbeforeunload', () => {
+window.addEventListener('unload', () => {
     document.documentElement.removeAttribute('data-force-color-mode');
 });
