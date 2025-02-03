@@ -28,6 +28,12 @@ document.querySelector('#theme-o-matic').addEventListener('click', () => {
     setColorMode(newMode);
 });
 
+document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') {
+        document.documentElement.removeAttribute('data-force-color-mode');
+    }
+});
+
 window.addEventListener('unload', () => {
     document.documentElement.removeAttribute('data-force-color-mode');
 });
