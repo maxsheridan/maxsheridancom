@@ -21,13 +21,12 @@ document.querySelector('#theme-o-matic').addEventListener('click', () => {
 });
 
 window.addEventListener('DOMContentLoaded', applySavedMode);
-window.addEventListener('unload', () => {
-    document.documentElement.removeAttribute('data-force-color-mode');
-});
-
 window.addEventListener('load', () => {
     // Ensure all styles are loaded before applying theme
     setTimeout(() => {
         applySavedMode();
     }, 100); // Adjust the delay as needed
+});
+window.addEventListener('unload', () => {
+    document.documentElement.removeAttribute('data-force-color-mode');
 });
