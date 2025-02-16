@@ -23,7 +23,7 @@
         <meta property="og:image:type" content="image/webp">
         <meta property="og:image:width" content="720">
         <meta property="og:image:height" content="720">
-        <style>.audio-player{max-width:100%;margin:1rem 0;-webkit-tap-highlight-color:#fff0;outline:none;touch-action:manipulation}.controls{display:flex;align-items:center}.play-pause{display:flex;align-items:center;justify-content:center;width:24px;height:24px;margin-right:.5rem;padding:0;border-radius:50%;background-color:var(--accent-color);cursor:pointer}.play-pause .icon{width:75%;height:75%;fill:var(--background-color)}.progress{position:relative;flex:1;height:2px;background-color:lightgray;cursor:pointer}.progress-filled{width:0%;height:100%;background-color:var(--accent-color)}.progress input{position:absolute;top:-.45rem;width:100%;height:16px;margin:0;background:#fff0;-webkit-appearance:none;-moz-appearance:none;appearance:none}.progress input::-webkit-slider-thumb{width:10px;height:10px;margin:0;border:0;border-radius:50%;background-color:var(--accent-color);-webkit-appearance:none;appearance:none;cursor:pointer}.progress input::-moz-range-thumb{width:10px;height:10px;margin:0;border:0;border-radius:50%;background-color:var(--accent-color);-moz-appearance:none;appearance:none;cursor:pointer}</style>
+        <style>.audio-player{max-width:100%;margin:1rem 0;-webkit-tap-highlight-color:#fff0;outline:none;touch-action:manipulation}.controls{display:flex;align-items:center}.play-pause{display:flex;align-items:center;justify-content:center;width:24px;height:24px;margin-right:.5rem;padding:0;border-radius:50%;background-color:var(--accent-color);cursor:pointer}.play-pause .icon{width:75%;height:75%}.progress{position:relative;flex:1;height:2px;background-color:lightgray;cursor:pointer}.progress-filled{width:0%;height:100%;background-color:var(--accent-color)}.progress input{position:absolute;top:-.45rem;width:100%;height:16px;margin:0;background:#fff0;-webkit-appearance:none;-moz-appearance:none;appearance:none}.progress input::-webkit-slider-thumb{width:10px;height:10px;margin:0;border:0;border-radius:50%;background-color:var(--accent-color);-webkit-appearance:none;appearance:none;cursor:pointer}.progress input::-moz-range-thumb{width:10px;height:10px;margin:0;border:0;border-radius:50%;background-color:var(--accent-color);-moz-appearance:none;appearance:none;cursor:pointer}</style>
     </head>
     <body>
         <div class="acme-all-purpose-wrapper">
@@ -58,7 +58,7 @@
                             <div class="controls">
                                 <button class="play-pause play" aria-label="Play audio">
                                     <svg class="icon" viewBox="0 0 30 30">
-                                        <polygon points="10,6.9 10,23.1 24,15" fill="currentColor"></polygon>
+                                        <polygon points="10,6.9 10,23.1 24,15" fill="var(--background-color)"></polygon>
                                     </svg>
                                 </button>
                                 <div class="progress">
@@ -83,7 +83,7 @@
                             <div class="controls">
                                 <button class="play-pause play" aria-label="Play audio">
                                     <svg class="icon" viewBox="0 0 30 30">
-                                        <polygon points="10,6.9 10,23.1 24,15" fill="currentColor"></polygon>
+                                        <polygon points="10,6.9 10,23.1 24,15" fill="var(--background-color)"></polygon>
                                     </svg>
                                 </button>
                                 <div class="progress">
@@ -108,7 +108,7 @@
                             <div class="controls">
                                 <button class="play-pause play" aria-label="Play audio">
                                     <svg class="icon" viewBox="0 0 30 30">
-                                        <polygon points="10,6.9 10,23.1 24,15" fill="currentColor"></polygon>
+                                        <polygon points="10,6.9 10,23.1 24,15" fill="var(--background-color)"></polygon>
                                     </svg>
                                 </button>
                                 <div class="progress">
@@ -124,10 +124,10 @@
                             </div>
                         </div>
                     </div>
-                    <script>document.addEventListener("DOMContentLoaded",()=>{const resetAudioPlayers=()=>{document.querySelectorAll(".audio-player").forEach((e)=>{const audio=e.querySelector("audio");const playPause=e.querySelector(".play-pause");const progress=e.querySelector(".progress input");const progressFill=e.querySelector(".progress-filled");audio.currentTime=0;audio.pause();playPause.className="play-pause play";playPause.innerHTML=` <svg class="icon" viewBox="0 0 30 30"> <polygon points="10,6.9 10,23.1 24,15"></polygon> </svg>`;progressFill.style.width="0%";progress.value=0})};resetAudioPlayers();document.querySelectorAll(".audio-player").forEach((e)=>{const audio=e.querySelector("audio");const playPause=e.querySelector(".play-pause");const progress=e.querySelector(".progress input");const progressFill=e.querySelector(".progress-filled");playPause.addEventListener("click",()=>{if(audio.paused){document.querySelectorAll("audio").forEach((a)=>a!==audio&&a.pause());audio.play()}else{audio.pause()}});audio.addEventListener("play",()=>{playPause.className="play-pause pause";playPause.innerHTML=` <svg class="icon" viewBox="0 0 30 30"> <rect x="10" y="8" width="3" height="14"></rect> <rect x="17" y="8" width="3" height="14"></rect> </svg>`});audio.addEventListener("pause",()=>{playPause.className="play-pause play";playPause.innerHTML=` <svg class="icon" viewBox="0 0 30 30"> <polygon points="10,6.9 10,23.1 24,15"></polygon> </svg>`});audio.addEventListener("timeupdate",()=>{const percentage=(audio.currentTime/audio.duration)*100||0;progressFill.style.width=`${percentage}%`;progress.value=percentage});progress.addEventListener("input",()=>{audio.currentTime=(progress.value/100)*audio.duration})})});window.addEventListener("pageshow",()=>{document.querySelectorAll(".audio-player audio").forEach((audio)=>{audio.currentTime=0;audio.pause()})});</script>
+                    <script>document.addEventListener("DOMContentLoaded",()=>{const resetAudioPlayers=()=>{document.querySelectorAll(".audio-player").forEach((e)=>{const audio=e.querySelector("audio");const playPause=e.querySelector(".play-pause");const progress=e.querySelector(".progress input");const progressFill=e.querySelector(".progress-filled");audio.currentTime=0;audio.pause();playPause.className="play-pause play";playPause.innerHTML=` <svg class="icon" viewBox="0 0 30 30"> <polygon points="10,6.9 10,23.1 24,15"></polygon> </svg>`;progressFill.style.width="0%";progress.value=0})};resetAudioPlayers();document.querySelectorAll(".audio-player").forEach((e)=>{const audio=e.querySelector("audio");const playPause=e.querySelector(".play-pause");const progress=e.querySelector(".progress input");const progressFill=e.querySelector(".progress-filled");playPause.addEventListener("click",()=>{if(audio.paused){document.querySelectorAll("audio").forEach((a)=>a!==audio&&a.pause());audio.play()}else{audio.pause()}});audio.addEventListener("play",()=>{playPause.className="play-pause pause";playPause.innerHTML=`<svg class="icon" viewBox="0 0 30 30"><rect x="10" y="8" width="3" height="14"></rect><rect x="17" y="8" width="3" height="14"></rect></svg>`});audio.addEventListener("pause",()=>{playPause.className="play-pause play";playPause.innerHTML=`<svg class="icon" viewBox="0 0 30 30"><polygon points="10,6.9 10,23.1 24,15"></polygon></svg>`});audio.addEventListener("timeupdate",()=>{const percentage=(audio.currentTime/audio.duration)*100||0;progressFill.style.width=`${percentage}%`;progress.value=percentage});progress.addEventListener("input",()=>{audio.currentTime=(progress.value/100)*audio.duration})})});window.addEventListener("pageshow",()=>{document.querySelectorAll(".audio-player audio").forEach((audio)=>{audio.currentTime=0;audio.pause()})});</script>
                     <noscript>
                         <p style="margin-top: 1rem; color: var(--accent-color)">
-                            Sorry! You need to enable Javascript to listen.
+                            Turn on JavaScript to listen.
                         </p>
                     </noscript>
                 </div>
