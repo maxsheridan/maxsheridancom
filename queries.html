@@ -52,7 +52,7 @@
                 <div class="stuff">
                     <h2>Queries? Complaints?</h2>
                     <p>
-                        We take your bafflement and&thinsp;/&thinsp;or dismay at this website seriously. Your secret code is&#32;<span id="secret-code"></span>. Please keep it handy for all future communication.
+                        We take your bafflement and&thinsp;/&thinsp;or dismay at this website seriously. Your secret code is&#32;<span id="secret-code"></span><noscript><span style="color: var(--accent-color)">Javaless Wonder</span></noscript>. Please keep it handy for all future communication.
                     </p>
                     <form id="queryForm" name="queryForm" novalidate>
                         <label for="entry.1254595295">Feedback</label>
@@ -62,8 +62,8 @@
                         <button type="submit">Send</button>
                     </form>
                     <noscript>
-                        <p style="margin-top: 1rem; color: var(--accent-color)">
-                            Sorry! This button needs JavaScript.
+                        <p style="color: var(--accent-color)">
+                            This button needs JavaScript.
                         </p>
                     </noscript>
                     <script>document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll("form").forEach(form=>{form.addEventListener("submit",function(event){let isValid=form.checkValidity();form.querySelectorAll(".error-message").forEach(error=>error.remove());form.querySelectorAll("input:invalid, textarea:invalid").forEach(input=>{let errorMessage=document.createElement("span");errorMessage.classList.add("error-message");errorMessage.textContent=input.validationMessage;input.previousElementSibling.insertAdjacentElement("afterend",errorMessage)});if(!isValid){event.preventDefault();return}event.preventDefault();let formData=new FormData(form);let formURL="https://docs.google.com/forms/d/e/1FAIpQLSdFOyyvnpaDhECFkVOSxcj_DrVqcKi2muiGAi036sWST0xKag/formResponse?";fetch(formURL,{method:"POST",mode:"no-cors",body:formData}).then(()=>{form.style.display="none";const message=document.createElement("p");message.classList.add("danke");message.textContent="Thanks for your feedback!";form.parentElement.insertBefore(message,form.nextSibling)}).catch(error=>console.error("Error!",error))});form.querySelectorAll("input, textarea").forEach(input=>{input.addEventListener("input",function(){this.setCustomValidity('');this.checkValidity();this.parentNode.querySelector(".error-message")?.remove()})})});window.resetForms=function(){document.querySelectorAll("form").forEach((form)=>{form.reset();form.style.display="block";form.parentElement.querySelector(".danke")?.remove();form.querySelectorAll(".error-message").forEach(error=>error.remove());form.querySelectorAll("input, textarea").forEach((input)=>{input.classList.remove("input-error");input.setCustomValidity('')})})};window.addEventListener("hashchange",function(){if(window.location.hash!=="#info"){window.resetForms()}});if(window.location.hash!=="#info"){window.resetForms()}});
