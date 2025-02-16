@@ -10,29 +10,11 @@
     --font: 'MD-IO', Helvetica, Arial, sans-serif;
     --body-font-size: clamp(1rem, 3vw, 1.094rem);
     --heading-font-size: clamp(1.67rem, 3vw, 1.85rem);
-}
-
-:root,:root[data-force-color-mode="dark"] {
     --primary-color: floralwhite;
     --background-color: #111;
     --accent-color: lightblue;
     --form-field-color: #111;
     --form-field-background-color: floralwhite;
-}
-
-@media (prefers-color-scheme: light) {
-    :root {
-        --primary-color: #111;
-        --background-color: floralwhite;
-        --link-color: mediumblue;
-        --form-field-background-color: white;
-    }
-}
-
-:root[data-force-color-mode="light"] {
-    --primary-color: #111;
-    --background-color: floralwhite;
-    --accent-color: mediumblue;
 }
 
 * {
@@ -42,7 +24,7 @@
     outline: none;
     box-sizing: border-box;
     background: none;
-    overscroll-behavior: none
+    overscroll-behavior: none;
 }
 
 html {
@@ -56,7 +38,7 @@ body {
     align-items: center;
     min-height: 100dvh;
     color: var(--primary-color);
-    background-color: var(--background-color)
+    background-color: var(--background-color);
 }
 
 .acme-all-purpose-wrapper {
@@ -64,7 +46,7 @@ body {
     flex-direction: column;
     width: 100%;
     max-width: 43rem;
-    min-height: 100dvh
+    min-height: 100dvh;
 }
 
 header {
@@ -97,43 +79,13 @@ header a svg {
     height: 100%
 }
 
-#all-purpose-theme-toggle-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.toggle-thingy {
-    width: 22px;
-    height: 22px;
-    cursor: pointer;
-}
-
-html[data-force-color-mode="light"] {
-    .moon {
-        display: block;
-    }
-    .sun {
-        display: none;
-    }
-}
-
-html[data-force-color-mode="dark"] {
-    .moon {
-        display: none;
-    }
-    .sun {
-        display: block;
-    }
-}
-
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: calc(var(--body-font-size) + 1.1rem);
     margin: 1.25rem 0 2.5rem;
-    padding: 0 .6rem;
+    padding: 0 1rem;
     border-radius: .25rem;
     font-family: var(--font);
     font-size: var(--body-font-size);
