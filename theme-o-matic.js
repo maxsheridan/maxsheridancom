@@ -1,7 +1,5 @@
 // Function to set the color mode (light or dark)
 const setColorMode = (mode) => {
-    const label = document.querySelector('#theme-o-matic');
-
     // Persist the mode (store in localStorage)
     document.documentElement.setAttribute('data-force-color-mode', mode);
     window.localStorage.setItem('color-mode', mode);
