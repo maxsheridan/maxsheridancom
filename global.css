@@ -201,8 +201,8 @@ hr {
 
 .moolah {
     width: auto;
-    height: clamp(26.5px, 2vw, 29.5px);
-    vertical-align: top
+    height: clamp(27px, 3vw, 30px);
+    vertical-align: top;
 }
 
 .arrow-lft {
