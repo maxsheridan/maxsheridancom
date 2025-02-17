@@ -85,7 +85,7 @@ nav {
     align-items: center;
     height: calc(var(--body-font-size) + 1.1rem);
     margin: 1.25rem 0 2.5rem;
-    padding: 0 1rem;
+    padding: 0 .75rem;
     border-radius: .25rem;
     font-family: var(--font);
     font-size: var(--body-font-size);
@@ -126,7 +126,6 @@ nav a.active {
     display: block;
 }
 
-/* When .light class is added (light mode), swap the visibility */
 .light .sun {
     display: none;
 }
@@ -216,7 +215,7 @@ h2 {
     font-family: var(--font);
     font-size: var(--heading-font-size);
     line-height: 1.2;
-    font-weight: 600;
+    font-weight: 400;
     font-style: normal;
     margin: 0 0 1.5rem;
     color: var(--primary-color)
