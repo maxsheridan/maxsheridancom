@@ -37,26 +37,29 @@
 
     <style>
     :root {
-        --bg-color: hsl(0deg 0% 10%);
-        --text-color: white;
-        --link-color: skyblue;
+        --primary-color: floralwhite;
+        --background-color: #111;
+        --accent-color: lightblue;
+        --form-field-color: #111;
+        --form-field-background-color: floralwhite;
     }
 
     .light {
-        --bg-color: hsl(0deg 0% 80%);
-        --text-color: black;
-        --link-color: hsl(200deg 100% 30%);
+        --primary-color: #111;
+        --background-color: floralwhite;
+        --link-color: mediumblue;
+        --form-field-background-color: white;
     }
 
     body {
         font-family: sans-serif;
-        background-color: var(--bg-color);
-        color: var(--text-color);
+        background-color: var(--background-color);
+        color: var(--primary-color);
     }
 
     button {
             background-color: transparent;
-            color: var(--text-color);
+            color: var(--primary-color);
             border-width: 1px;
             border-radius: 6px;
             padding:8px;
@@ -64,15 +67,15 @@
         }
 
     a {
-        color: var(--link-color);
+        color: var(--accent-color);
     }
 
     .light button {
-            color: var(--text-color);
+            color: var(--primary-color);
     }
 
     .light a {
-        color: var(--link-color);
+        color: var(--accent-color);
     }
     </style>
     </head>

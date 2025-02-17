@@ -37,48 +37,88 @@
 
     <style>
     :root {
-        --bg-color: hsl(0deg 0% 10%);
-        --text-color: white;
-        --link-color: skyblue;
+        --primary-color: floralwhite;
+        --background-color: #111;
+        --accent-color: lightblue;
+        --form-field-color: #111;
+        --form-field-background-color: floralwhite;
     }
 
     .light {
-        --bg-color: hsl(0deg 0% 80%);
-        --text-color: black;
-        --link-color: hsl(200deg 100% 30%);
+        --primary-color: #111;
+        --background-color: floralwhite;
+        --accent-color: mediumblue;
+        --form-field-background-color: white;
     }
 
     body {
         font-family: sans-serif;
-        background-color: var(--bg-color);
-        color: var(--text-color);
+        background-color: var(--background-color);
+        color: var(--primary-color);
+
     }
 
     button {
             background-color: transparent;
-            color: var(--text-color);
-            border-width: 1px;
+            color: var(--primary-color);
             border-radius: 6px;
             padding:8px;
             cursor: pointer;
+            outline: none;
+            border: 1px solid;
         }
 
     a {
-        color: var(--link-color);
+        color: var(--accent-color);
     }
 
     .light button {
-            color: var(--text-color);
+            color: var(--primary-color);
     }
 
     .light a {
-        color: var(--link-color);
+        color: var(--accent-color);
     }
+
+    .toggle-thingy {
+        height: 22px;
+        width: 22px;
+    }
+
+    
+
+.sun {
+    display: block !important;
+}
+
+.moon {
+    display: none !important;
+}
+
+html.dark .sun {
+    display: none !important;
+}
+
+html.dark .moon {
+    display: block !important;
+}
+
     </style>
     </head>
     <body>
-        <div>
-            <button onclick="toggleTheme()">Toggle Theme</button>
+        <div id="acme-all-purpose-theme-toggle-wrapper">
+            <button onclick="toggleTheme()">
+                <svg class="inline-graphic toggle-thingy sun" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 256 256">
+                    <path fill="none" d="M0 0h256v256H0z"/>
+                    <path fill="none" stroke="var(--primary-color)" stroke-linecap="round" stroke-linejoin="round" stroke-width="20" d="M128 40V16"/>
+                    <circle cx="128" cy="128" r="56" fill="none" stroke="var(--primary-color)" stroke-linecap="round" stroke-linejoin="round" stroke-width="20"/>
+                    <path fill="none" stroke="var(--primary-color)" stroke-linecap="round" stroke-linejoin="round" stroke-width="20" d="M64 64 48 48m16 144-16 16M192 64l16-16m-16 144 16 16M40 128H16m112 88v24m88-112h24"/>
+                </svg>
+                <svg class="inline-graphic toggle-thingy moon" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 256 256">
+                    <path fill="none" d="M0 0h256v256H0z"/>
+                    <path d="M108.11 28.11a96.09 96.09 0 0 0 119.78 119.78A96 96 0 1 1 108.11 28.11" fill="none" stroke="var(--primary-color)" stroke-linecap="round" stroke-linejoin="round" stroke-width="20"/>
+                </svg>
+            </button>
         </div>
         <h1>Dark Mode Switcher Demo</h1>
         <p>

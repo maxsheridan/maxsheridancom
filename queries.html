@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
         <meta name="color-scheme" content="dark">
+        <script>const matchMediaDark=window.matchMedia("(prefers-color-scheme: light)"),htmlClassList=document.querySelector("html").classList;function updateTheme(){"light"===localStorage.theme||!("theme"in localStorage)&&matchMediaDark.matches?htmlClassList.add("light"):htmlClassList.remove("light")}function toggleTheme(){htmlClassList.contains("light")?localStorage.theme="dark":localStorage.theme="light",updateTheme()}updateTheme(),matchMediaDark.addEventListener("change",updateTheme),window.addEventListener("pageshow",updateTheme);</script>
         <script>const colorModeOverride=window.localStorage.getItem('color-mode');const hasColorModeOverride=typeof colorModeOverride==='string';if(hasColorModeOverride){document.documentElement.setAttribute('data-force-color-mode',colorModeOverride)}</script>
         <link rel="preload" href="/assets/type/MD_IO.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="stylesheet" href="/global.css" type="text/css">
@@ -25,7 +26,7 @@
         <meta property="og:image:type" content="image/webp">
         <meta property="og:image:width" content="720">
         <meta property="og:image:height" content="720">
-        <style>form{width:100%;margin-top:2.5rem}label{font-family:var(--font);font-weight:400;font-style:normal;color:var(--primary-color)}input{width:100%;margin:1rem 0 0;padding:1rem .5rem;border-radius:.25rem;font-family:var(--font);font-size:var(--body-font-size);font-weight:400;font-style:normal;line-height:1.6;color:var(--form-field-color,var(--primary-color));background-color:var(--form-field-background-color)}textarea{min-width:100%;max-width:100%;min-height:100px;max-height:600px;margin:1rem 0 2rem;padding:1rem .5rem;border-radius:.25rem;font-family:var(--font);font-size:var(--body-font-size);font-weight:400;font-style:normal;line-height:1.6;color:var(--form-field-color);background-color:var(--form-field-background-color)}::placeholder{color:rgb(128 128 128 / .4)}form p{color:var(--accent-color)}form button{border-radius:.25rem;margin:0 0 2rem;padding:1rem 2rem;font-family:var(--font);background:var(--accent-color);color:var(--background-color);cursor:pointer}button[type="submit"]:hover{color:var(--background-color);background-color:var(--primary-color)}</style>
+        <style>:root{--primary-color:floralwhite;--background-color:#111;--accent-color:lightblue;--form-field-color:#111;--form-field-background-color:floralwhite}.light{--primary-color:#111;--background-color:floralwhite;--accent-color:mediumblue;--form-field-background-color:white}body{font-family:sans-serif;background-color:var(--background-color);color:var(--primary-color)}form{width:100%;margin-top:2.5rem}label{font-family:var(--font);font-weight:400;font-style:normal;color:var(--primary-color)}input{width:100%;margin:1rem 0 0;padding:1rem .5rem;border-radius:.25rem;font-family:var(--font);font-size:var(--body-font-size);font-weight:400;font-style:normal;line-height:1.6;color:var(--form-field-color,var(--primary-color));background-color:var(--form-field-background-color)}textarea{min-width:100%;max-width:100%;min-height:100px;max-height:600px;margin:1rem 0 2rem;padding:1rem .5rem;border-radius:.25rem;font-family:var(--font);font-size:var(--body-font-size);font-weight:400;font-style:normal;line-height:1.6;color:var(--form-field-color);background-color:var(--form-field-background-color)}::placeholder{color:rgb(128 128 128 / .4)}form p{color:var(--accent-color)}form button{border-radius:.25rem;margin:0 0 2rem;padding:1rem 2rem;font-family:var(--font);background:var(--accent-color);color:var(--background-color);cursor:pointer}button[type="submit"]:hover{color:var(--background-color);background-color:var(--primary-color)}</style>
     </head>
     <body>
         <div class="acme-all-purpose-wrapper">
@@ -46,6 +47,20 @@
                     <a href="/info">
                         Info
                     </a>
+                    <div id="acme-all-purpose-theme-toggle-wrapper">
+                        <button onclick="toggleTheme()">
+                            <svg class="inline-graphic toggle-thingy sun" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 256 256">
+                                <path fill="none" d="M0 0h256v256H0z"/>
+                                <path fill="none" stroke="var(--background-color)" stroke-linecap="round" stroke-linejoin="round" stroke-width="20" d="M128 40V16"/>
+                                <circle cx="128" cy="128" r="56" fill="none" stroke="var(--background-color)" stroke-linecap="round" stroke-linejoin="round" stroke-width="20"/>
+                                <path fill="none" stroke="var(--background-color)" stroke-linecap="round" stroke-linejoin="round" stroke-width="20" d="M64 64 48 48m16 144-16 16M192 64l16-16m-16 144 16 16M40 128H16m112 88v24m88-112h24"/>
+                            </svg>
+                            <svg class="inline-graphic toggle-thingy moon" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 256 256">
+                                <path fill="none" d="M0 0h256v256H0z"/>
+                                <path d="M108.11 28.11a96.09 96.09 0 0 0 119.78 119.78A96 96 0 1 1 108.11 28.11" fill="none" stroke="var(--background-color)" stroke-linecap="round" stroke-linejoin="round" stroke-width="20"/>
+                            </svg>
+                        </button>
+                    </div>
                 </nav>
             </header>
             <main id="queries">
