@@ -30,6 +30,8 @@
 
       updateTheme()
     }
+    // Fix bfcache issue on mobile
+window.addEventListener('pageshow', updateTheme);
   </script>
 
   <style>
