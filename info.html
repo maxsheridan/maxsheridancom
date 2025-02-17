@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
         <meta name="color-scheme" content="dark light">
-        <script>const matchMediaDark=window.matchMedia("(prefers-color-scheme: light)"),htmlClassList=document.querySelector("html").classList;function updateTheme(){"light"===localStorage.theme||!("theme"in localStorage)&&matchMediaDark.matches?htmlClassList.add("light"):htmlClassList.remove("light")}function toggleTheme(){htmlClassList.contains("light")?localStorage.theme="dark":localStorage.theme="light",updateTheme()}updateTheme(),matchMediaDark.addEventListener("change",updateTheme),window.addEventListener("pageshow",updateTheme);</script>
+        <script>!function(){const e=window.matchMedia("(prefers-color-scheme: light)"),t=document.documentElement.classList;"light"===localStorage.theme||!("theme"in localStorage)&&e.matches?t.add("light"):t.remove("light")}();</script>
         <link rel="preload" href="/assets/type/MD_IO.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="stylesheet" href="/global.css" type="text/css">
         <link rel="icon" sizes="32x32" href="/favicon.ico" type="image/x-icon">
@@ -99,6 +99,7 @@
             "description": "Yippey-ki-yay! A contact form!",
             "url": "https://maxsheridan.com/contact"
         }
-        </script> 
+        </script>
+        <script>!function(){const e=window.matchMedia("(prefers-color-scheme: light)"),t=document.documentElement.classList;function o(){"light"===localStorage.theme||!("theme"in localStorage)&&e.matches?t.add("light"):t.remove("light")}e.addEventListener("change",o),window.addEventListener("pageshow",o),window.toggleTheme=function(){t.contains("light")?localStorage.theme="dark":localStorage.theme="light",o()}}();</script>
     </body>
 </html>
