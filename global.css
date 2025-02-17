@@ -12,7 +12,7 @@
     --heading-font-size: clamp(1.67rem, 3vw, 1.85rem);
     --primary-color: floralwhite;
     --background-color: #111;
-    --accent-color: lightblue;
+    --accent-color: deepskyblue;
     --form-field-color: #111;
     --form-field-background-color: floralwhite;
 }
