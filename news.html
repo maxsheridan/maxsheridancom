@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en-US" data-force-color-mode="dark">
+<html lang="en-US">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
         <meta name="color-scheme" content="dark light">
         <script>const matchMediaDark=window.matchMedia("(prefers-color-scheme: light)"),htmlClassList=document.querySelector("html").classList;function updateTheme(){"light"===localStorage.theme||!("theme"in localStorage)&&matchMediaDark.matches?htmlClassList.add("light"):htmlClassList.remove("light")}function toggleTheme(){htmlClassList.contains("light")?localStorage.theme="dark":localStorage.theme="light",updateTheme()}updateTheme(),matchMediaDark.addEventListener("change",updateTheme),window.addEventListener("pageshow",updateTheme);</script>
-        <script>const colorModeOverride=window.localStorage.getItem('color-mode');const hasColorModeOverride=typeof colorModeOverride==='string';if(hasColorModeOverride){document.documentElement.setAttribute('data-force-color-mode',colorModeOverride)}</script>
         <link rel="preload" href="/assets/type/MD_IO.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="stylesheet" href="/global.css" type="text/css">
         <link rel="icon" sizes="32x32" href="/favicon.ico" type="image/x-icon">
