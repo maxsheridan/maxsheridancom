@@ -100,6 +100,6 @@
             "url": "https://maxsheridan.com/contact"
         }
         </script>
-        <script>!function(){const e=window.matchMedia("(prefers-color-scheme: light)"),t=document.documentElement.classList;function o(){"light"===localStorage.theme?t.add("light"):t.remove("light")}e.addEventListener("change",o),window.addEventListener("pageshow",o),window.toggleTheme=function(){t.contains("light")?localStorage.theme="dark":localStorage.theme="light",o()}}();</script>
+        <script>!function(){const e=window.matchMedia("(prefers-color-scheme: light)"),t=document.documentElement.classList;function o(){"light"===localStorage.theme||!("theme"in localStorage)&&e.matches?t.add("light"):t.remove("light")}e.addEventListener("change",o),window.addEventListener("pageshow",o),window.toggleTheme=function(){t.contains("light")?localStorage.theme="dark":localStorage.theme="light",o()}}();</script>
     </body>
 </html>
