@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width">
+
+  <script>
+    /** Apply theme inline in head to avoid flash of unstyled content. */
+    const matchMediaDark = window.matchMedia('(prefers-color-scheme: dark)')
+    const htmlClassList = document.querySelector('html').classList
+
+    // Set the 'dark' class according to localStorage 'theme' setting.
+    // Else if there's no stored 'theme', set the class per the system.
+    function updateTheme() {
+      localStorage.theme === 'dark' || (!('theme' in localStorage) && matchMediaDark.matches)
+        ? htmlClassList.add('dark')
+        : htmlClassList.remove('dark')
+    }
+
+    // Apply theme when page loads.
+    updateTheme()
+
+    // Update 'dark' class when system theme is changed.
+    matchMediaDark.addEventListener('change', updateTheme)
+
+    // Toggle localStorage theme between 'dark' and 'light' then update the theme.
+    function toggleTheme() {
+      htmlClassList.contains('dark')
+        ? localStorage.theme = 'light'
+        : localStorage.theme = 'dark'
+
+      updateTheme()
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: hsl(0deg 0% 80%);
+      color: black;
+    }
+
+    .dark body {
+      background-color: hsl(0deg 0% 10%);
+      color: white;
+    }
+
+    a {
+      color: hsl(200deg 100% 30%);
+    }
+
+    .dark a {
+      color: skyblue;
+    }
+
+    button {
+      background-color: transparent;
+      color: black;
+      border-width: 1px;
+      border-radius: 6px;
+      padding:8px;
+    }
+
+    .dark button {
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <button onclick="toggleTheme()">Toggle Theme</button>
+  </div>
+
+  <h1>Dark Mode Switcher Demo</h1>
+
+  <p>
+    Click the button above to switch themes!<br>
+    All this really does is add or remove the 'dark' class from the parent HTML element.
+  </p>
+
+  <a href="/test.html">Let's see if this works with bf cache</a>
+<body>
+</html>
