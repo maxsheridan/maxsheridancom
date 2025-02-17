@@ -106,34 +106,6 @@ nav a.active {
     }
 }
 
-#acme-all-purpose-theme-toggle-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.toggle-thingy {
-    width: auto;
-    height: 22px;
-    cursor: pointer;
-}
-
-.moon {
-    display: none;
-}
-
-.sun {
-    display: block;
-}
-
-.light .sun {
-    display: none;
-}
-
-.light .moon {
-    display: block;
-}
-
 main {
     width: 100%;
     padding-bottom: clamp(2rem, 2vw, 4rem)
@@ -256,10 +228,6 @@ hr {
     }
     main {
         padding: 0 1rem 2rem
-    }
-    .toggle-thingy {
-        width: 20px;
-        height: 20px;
     }
 }
 
