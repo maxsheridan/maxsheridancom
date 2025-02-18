@@ -84,7 +84,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     height: calc(var(--body-font-size) + 1.1rem);
-    margin: 1.25rem 0 2.5rem;
+    margin: 1.25rem 0 clamp(2rem, 2vw, 4rem);
     padding: 0 .75rem;
     border-radius: .25rem;
     font-family: var(--font);
@@ -108,7 +108,7 @@ nav a.active {
 
 main {
     width: 100%;
-    padding-bottom: clamp(2rem, 2vw, 4rem)
+    padding: 0 0 clamp(2rem, 2vw, 4rem)
 }
 
 section:not(:last-child) {
