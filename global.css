@@ -10,11 +10,11 @@
     --font: 'MD-IO', Helvetica, Arial, sans-serif;
     --body-font-size: clamp(1rem, 3vw, 1.094rem);
     --heading-font-size: clamp(1.67rem, 3vw, 1.85rem);
-    --primary-color: floralwhite;
-    --background-color: #111;
+    --primary-color: #F2E6D9;
+    --background-color: #14110E;
     --accent-color: #72CBE9;
     --form-field-color: #111;
-    --form-field-background-color: floralwhite;
+    --form-field-background-color: #F2E6D9;
 }
 
 * {
