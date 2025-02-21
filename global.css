@@ -238,6 +238,9 @@ hr {
     header {
         padding: 2rem 1rem 0
     }
+    nav {
+        margin: 1.25rem 1rem clamp(2rem, 2vw, 4rem);
+    }
     main {
         padding: 0 1rem 2rem
     }
