@@ -42,29 +42,13 @@ body {
 }
 
 .acme-all-purpose-wrapper {
-    display: flex;
-    flex-direction: column;
     width: 100%;
     max-width: 43rem;
-    min-height: 100dvh;
 }
 
 header {
-    display: flex;
-    flex-direction: column;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    width: 100%;
-    max-width: 43rem;
     padding-top: clamp(2rem, 2vw, 4rem);
     background-color: var(--background-color)
-}
-
-@media (max-height:768px) and (orientation:landscape) {
-    header {
-        position: relative;
-    }
 }
 
 @media (hover:hover) and (pointer:fine) {
@@ -83,9 +67,13 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top:  .5rem;
+    z-index: 10;
     height: calc(var(--body-font-size) + 1.1rem);
     margin: 1.25rem 0 clamp(2rem, 2vw, 4rem);
     padding: 0 .75rem;
+    outline: .5rem solid var(--background-color);
     border-radius: .25rem;
     font-family: var(--font);
     font-size: var(--body-font-size);
@@ -107,20 +95,16 @@ nav a.active {
 }
 
 main {
-    width: 100%;
     padding: 0 0 clamp(2rem, 2vw, 4rem)
 }
 
-section:not(:last-child) {
+section:not(:last-child),
+.some-media:not(:last-child)  {
     margin: 0 0 3rem
 }
 
 .some-news:not(:last-child) {
     margin-bottom: 2.5rem
-}
-
-.some-media:not(:last-child) {
-    margin-bottom: 3rem
 }
 
 p,
@@ -150,7 +134,7 @@ a {
 p a,
 li.link a {
     background-image: linear-gradient(transparent 80%, var(--accent-color) 80%);
-    background-size: 100% 10px;
+    background-size: 100% .5rem;
     background-repeat: repeat-x;
     background-position: 0 100%;
     padding-bottom: .15rem
@@ -222,15 +206,6 @@ hr {
     color: var(--accent-color) !important;
 }
 
-@media (max-width:768px) {
-    header {
-        padding: 2rem 1rem 0
-    }
-    main {
-        padding: 0 1rem 2rem
-    }
-}
-
 .blinkeroo {
     display: inline-block;
     -webkit-animation: 1s infinite blink;
@@ -256,5 +231,14 @@ hr {
     16%,
     100% {
         opacity: 1
+    }
+}
+
+@media (max-width:768px) {
+    header {
+        padding: 2rem 1rem 0
+    }
+    main {
+        padding: 0 1rem 2rem
     }
 }
