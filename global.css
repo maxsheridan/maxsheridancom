@@ -31,6 +31,11 @@ html {
     font-size: 16px;
 }
 
+html:not(nav a):not(h2) {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -116,8 +121,6 @@ li {
     line-height: 1.6;
     margin: 0 0 1rem;
     color: var(--primary-color);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 .info p span {
@@ -140,8 +143,6 @@ li.link a {
     background-repeat: repeat-x;
     background-position: 0 100%;
     padding-bottom: .15rem;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 a {
