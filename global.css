@@ -11,9 +11,9 @@
     --body-font-size: clamp(1rem, 3vw, 1.094rem);
     --heading-font-size: clamp(1.67rem, 3vw, 1.85rem);
     --primary-color: #C3BfB7;
-    --background-color: #1D1D1D;
+    --background-color: #181818;
     --accent-color: #67b6d1;
-    --form-field-color: #1D1D1D;
+    --form-field-color: #181818;
     --form-field-background-color: #C3BfB7;
 }
 
