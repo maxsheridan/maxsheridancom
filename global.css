@@ -10,11 +10,11 @@
     --font: 'MD-IO', Helvetica, Arial, sans-serif;
     --body-font-size: clamp(1rem, 3vw, 1.094rem);
     --heading-font-size: clamp(1.67rem, 3vw, 1.85rem);
-    --primary-color: #C7C1B1;
+    --primary-color:#E2DED5;
     --background-color: #181818;
     --accent-color: #67b6d1;
     --form-field-color: #111;
-    --form-field-background-color:#C7C1B1;
+    --form-field-background-color:#E2DED5;
 }
 
 * {
@@ -71,7 +71,7 @@ nav {
     top:  .5rem;
     z-index: 10;
     height: calc(var(--body-font-size) + 1.1rem);
-    margin: 1.25rem 0 clamp(2rem, 2vw, 4rem);
+    margin: 1.25rem 0 clamp(2.5rem, 2vw, 4.5rem);
     padding: 0 .75rem;
     outline: .5rem solid var(--background-color);
     border-radius: .25rem;
