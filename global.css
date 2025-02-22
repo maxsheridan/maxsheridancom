@@ -115,7 +115,9 @@ li {
     font-style: normal;
     line-height: 1.6;
     margin: 0 0 1rem;
-    color: var(--primary-color)
+    color: var(--primary-color);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .info p span {
@@ -137,7 +139,9 @@ li.link a {
     background-size: 100% .5rem;
     background-repeat: repeat-x;
     background-position: 0 100%;
-    padding-bottom: .15rem
+    padding-bottom: .15rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 a {
