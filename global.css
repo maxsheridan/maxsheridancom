@@ -27,13 +27,13 @@
     overscroll-behavior: none;
 }
 
-html {
-    font-size: 16px;
-}
-
-html *:not(nav a):not(h2) {
+*:not(nav a):not(h2) {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    font-size: 16px;
 }
 
 body {
